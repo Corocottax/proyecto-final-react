@@ -10,12 +10,12 @@ import 'swiper/css/scrollbar';
 
 const PreLogin = () => {
 
-    const pagination = {
-        clickable: true,
-        renderBullet: function (className) {
-          return '<span class="' + className + '">' + "</span>";
-        },
-      };
+  const pagination = {
+    clickable: true,
+    renderBullet: function (className) {
+      return '<span class="' + className + '"></span>';
+    },
+  };
   return <div className="slider-container">
       
          <Swiper
