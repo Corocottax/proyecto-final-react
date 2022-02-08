@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.scss';
-import Inicio from "./pages/Inicio/Inicio"
+import PreLogin from "./pages/PreLogin/PreLogin"
 import Login from "./pages/Login/Login"
 import Home from "./pages/Home/Home"
 import Animales from "./pages/Animales/Animales"
@@ -24,7 +24,7 @@ function App() {
 
         <Route path="/">
 
-          <Route index element={<Inicio/>}/>
+          <Route index element={<PreLogin/>}/>
           <Route path="logIn" element={<Login/>}/>
           <Route path="registro" element={<Registro/>}/>
           <Route path="home" element={<Home/>}/>
@@ -34,7 +34,7 @@ function App() {
           <Route path="perfil" element={<Perfil/>}/>
           <Route path="perfil/estados" element={<EstadoAdopcion/>}/>
           <Route path="mapa" element={<Mapas/>}/>
-          <Route path="*" element={<Inicio/>}/>
+          <Route path="*" element={<PreLogin/>}/>
 
         </Route>
 
