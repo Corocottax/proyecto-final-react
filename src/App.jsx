@@ -10,6 +10,7 @@ import FormularioAdopcion from "./pages/FormularioAdopcion/FormularioAdopcion"
 import EstadoAdopcion from "./pages/EstadoAdopcion/EstadoAdopcion"
 import Mapas from "./pages/Mapas/Mapas"
 import Registro from "./pages/Registro/Registro"
+import Navbar from './shared/Navbar/Navbar';
 
 function App() {
 
@@ -39,6 +40,8 @@ function App() {
         </Route>
 
       </Routes>
+
+      <Navbar />
 
     </BrowserRouter>
 
