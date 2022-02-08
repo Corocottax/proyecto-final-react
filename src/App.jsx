@@ -11,6 +11,7 @@ import EstadoAdopcion from "./pages/EstadoAdopcion/EstadoAdopcion"
 import Mapas from "./pages/Mapas/Mapas"
 import Registro from "./pages/Registro/Registro"
 import Navbar from './shared/Navbar/Navbar';
+import Opciones from './pages/Opciones/Opciones';
 
 function App() {
 
@@ -35,6 +36,7 @@ function App() {
           <Route path="perfil" element={<Perfil/>}/>
           <Route path="perfil/estados" element={<EstadoAdopcion/>}/>
           <Route path="mapa" element={<Mapas/>}/>
+          <Route path="opciones" element={<Opciones/>}/>
           <Route path="*" element={<PreLogin/>}/>
 
         </Route>
