@@ -60,25 +60,31 @@ const Home = () => {
       >
         <SwiperSlide>
           <div className='tarjeta'>
-            <img src="https://res.cloudinary.com/dhp2zuftj/image/upload/v1644326255/proyecto%20final/mascota_3x_ddvdy4.png" alt="perrito"/>
-            <h3>Estado de la adopción</h3>
-            <p>Revisa el proceso de tus adopciones en curso</p>
+            <img className='img-tarjeta' src="https://res.cloudinary.com/dhp2zuftj/image/upload/v1644326255/proyecto%20final/mascota_3x_ddvdy4.png" alt="perrito"/>
+            <div className='info-tarjeta'>
+              <h3 className='title-tarjeta'>Estado de la adopción</h3>
+              <p className='p-tarjeta'>Revisa el proceso de tus adopciones en curso</p>
+            </div>
           </div>
         </SwiperSlide>
 
         <SwiperSlide>
-          <div>
-            <img src="https://res.cloudinary.com/dhp2zuftj/image/upload/v1644337269/proyecto%20final/apadrina_3x_m5z2yf.png" alt="apadrinar"/>
-            <h3>Apadrina un bebote</h3>
-            <p>Puedes apadrinar un pedazo de bebote super guapo y to flama que te hará bastante feliz</p>
+          <div className='tarjeta'>
+            <img className='img-tarjeta'  src="https://res.cloudinary.com/dhp2zuftj/image/upload/v1644337269/proyecto%20final/apadrina_3x_m5z2yf.png" alt="apadrinar"/>
+            <div className='info-tarjeta'>
+              <h3 className='title-tarjeta'>Apadrina un bebote</h3>
+              <p className='p-tarjeta'>Puedes apadrinar un pedazo de bebote super guapo y to flama que te hará bastante feliz</p>
+            </div>
           </div>
         </SwiperSlide>
 
         <SwiperSlide>
-          <div>
-            <img src="https://res.cloudinary.com/dhp2zuftj/image/upload/v1644337269/proyecto%20final/donar_3x_yi5ltm.png" alt="donar"/>
-            <h3>Donar</h3>
-            <p>Puedes donarnos cualquier cantidad de dinero que los animalucos de la protectora te estarán super agradecidos</p>
+          <div className='tarjeta'>
+            <img className='img-tarjeta'  src="https://res.cloudinary.com/dhp2zuftj/image/upload/v1644337269/proyecto%20final/donar_3x_yi5ltm.png" alt="donar"/>
+            <div className='info-tarjeta'>
+              <h3 className='title-tarjeta'>Donar</h3>
+              <p className='p-tarjeta'>Puedes donarnos cualquier cantidad de dinero que los animalucos de la protectora te estarán super agradecidos</p>
+            </div>
           </div>
         </SwiperSlide>
 
