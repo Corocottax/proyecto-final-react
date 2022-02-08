@@ -12,20 +12,20 @@ import Mapas from "./pages/Mapas/Mapas"
 import Registro from "./pages/Registro/Registro"
 import Navbar from './shared/Navbar/Navbar';
 import Opciones from './pages/Opciones/Opciones';
+import { JwtContext } from './shared/Contexts/JwtContext';
+import { useState } from 'react';
 
 function App() {
-
+  const [jwt, setJwt] = useState(localStorage.getItem('token') || null);
   
 
   return (
+    <JwtContext.Provider value={{ jwt, setJwt }}>
     <div className="App">
     
     <BrowserRouter>
-
       <Routes>
-
         <Route path="/">
-
           <Route index element={<PreLogin/>}/>
           <Route path="logIn" element={<Login/>}/>
           <Route path="registro" element={<Registro/>}/>
@@ -38,16 +38,12 @@ function App() {
           <Route path="mapa" element={<Mapas/>}/>
           <Route path="opciones" element={<Opciones/>}/>
           <Route path="*" element={<PreLogin/>}/>
-
         </Route>
-
       </Routes>
-
       <Navbar />
-
     </BrowserRouter>
-
     </div>
+    </JwtContext.Provider>
   );
 }
 
