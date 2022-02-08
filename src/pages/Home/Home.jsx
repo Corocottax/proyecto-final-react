@@ -45,6 +45,8 @@ const Home = () => {
   return (
   <div className='noticias'>
 
+  <h2 className='saludo'>¡Hola Persona!</h2>
+
     <div className='div-swiper'>
 
       <Swiper
@@ -73,7 +75,7 @@ const Home = () => {
             <img className='img-tarjeta'  src="https://res.cloudinary.com/dhp2zuftj/image/upload/v1644337269/proyecto%20final/apadrina_3x_m5z2yf.png" alt="apadrinar"/>
             <div className='info-tarjeta'>
               <h3 className='title-tarjeta'>Apadrina un bebote</h3>
-              <p className='p-tarjeta'>Puedes apadrinar un pedazo de bebote super guapo y to flama que te hará bastante feliz</p>
+              <p className='p-tarjeta'>Puedes apadrinar un pedazo de bebote super guapo y to flama</p>
             </div>
           </div>
         </SwiperSlide>
@@ -83,7 +85,7 @@ const Home = () => {
             <img className='img-tarjeta'  src="https://res.cloudinary.com/dhp2zuftj/image/upload/v1644337269/proyecto%20final/donar_3x_yi5ltm.png" alt="donar"/>
             <div className='info-tarjeta'>
               <h3 className='title-tarjeta'>Donar</h3>
-              <p className='p-tarjeta'>Puedes donarnos cualquier cantidad de dinero que los animalucos de la protectora te estarán super agradecidos</p>
+              <p className='p-tarjeta'>Dona para que podamos cuidar mejor de los animaletes</p>
             </div>
           </div>
         </SwiperSlide>
