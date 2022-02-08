@@ -1,0 +1,19 @@
+.detail {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  &-div {
+      display: flex;
+      align-items: center;
+    &__img {
+      width: 25px;
+      margin-right: 10px;
+    }
+    &__title {
+      font-weight: 400;
+    }
+  }
+  &-info {
+    text-transform: capitalize;
+  }
+}
