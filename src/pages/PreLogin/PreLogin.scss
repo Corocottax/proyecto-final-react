@@ -1,5 +1,19 @@
 .slider-container{
     min-height: 80vh;
     min-width: 100vw;
-    margin-top: 30vh;
+    margin-top: 85px;
+}
+.btn-slider{
+    border-radius:50%;
+    min-height: 16px;
+    min-width: 12px;
+    background-color: transparent;
+    border: 2px solid rgb(250 156 147);
+    margin:10px;
+}
+.btn-contain{
+    display: flex;
+    justify-content: center;
+    align-items:baseline;
+    margin-top: 35vh;
 }
