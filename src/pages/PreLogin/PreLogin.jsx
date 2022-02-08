@@ -4,7 +4,7 @@ import 'swiper/css';
 import "./PreLogin.scss"
 
 const PreLogin = () => {
-  return <div>
+  return <div className="slider-container">
          <Swiper
       spaceBetween={50}
       slidesPerView={3}
