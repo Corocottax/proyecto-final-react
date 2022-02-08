@@ -9,6 +9,7 @@ import DetalleAnimales from "./pages/DetalleAnimales/DetalleAnimales"
 import FormularioAdopcion from "./pages/FormularioAdopcion/FormularioAdopcion"
 import EstadoAdopcion from "./pages/EstadoAdopcion/EstadoAdopcion"
 import Mapas from "./pages/Mapas/Mapas"
+import Registro from "./pages/Registro/Registro"
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
 
           <Route index element={<Inicio/>}/>
           <Route path="logIn" element={<Login/>}/>
+          <Route path="registro" element={<Registro/>}/>
           <Route path="home" element={<Home/>}/>
           <Route path="adopciones" element={<Animales/>}/>
           <Route path="adopciones/:id" element={<DetalleAnimales/>}/>
