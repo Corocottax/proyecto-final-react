@@ -9,7 +9,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
 const PreLogin = () => {
-    const swiper = useSwiper();
+    /* const swiper = useSwiper(); */
 
 
   return <div className="slider-container">
@@ -20,17 +20,24 @@ const PreLogin = () => {
       slidesPerView={1}
       onSlideChange={() => {/*...*/}}
       onReachEnd={() => {/*...*/}}
+      pagination={{
+          clickable: true,
+        }}
     >
       <SwiperSlide>{({ isPrev }) => (<div><img src="/images/slider/imagen1.png" alt=""/><h3>Encuentra todo tipo de servicios que tienes cerca de ti</h3>{isPrev ? 'active' : 'not active'}</div>)}</SwiperSlide>
       <SwiperSlide>{({ isActive }) => (<div><img src="/images/slider/imagen2.png" alt=""/>
       <h3>Adopta desde tu móvil</h3>
       <p>Puedes acceder al perfil de muchos animales que están en adopción y filtrarlos para encontrar el que mejor se adapte a ti</p>{isActive ? 'active' : 'not active'}</div>)}</SwiperSlide>
       <SwiperSlide>{({ isNext }) => (<div><img src="/images/slider/imagen3.png" alt=""/> <h3>Si eres una asociación sube a tus peludos para darles más difusión</h3>{isNext ? 'active' : 'not active'}</div>)}</SwiperSlide>
-      <div className='btn-contain'>
+      {/* <div className='btn-contain'>
       <button className='btn-slider' onClick={() => swiper.slideNext()}></button>
       <button className='btn-slider' onClick={() => swiper.slideActive()}></button>
       <button className='btn-slider' onClick={() => swiper.slidePrev()}></button>
-      </div>
+      </div> */}
+
+      {/* <SwiperSlide>1</SwiperSlide>
+      <SwiperSlide>2</SwiperSlide>
+      <SwiperSlide>3</SwiperSlide> */}
     </Swiper>
   </div>;
 };
