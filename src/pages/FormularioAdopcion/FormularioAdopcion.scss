@@ -1,0 +1,55 @@
+.adoption-form-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ 
+
+  .form-title {
+    margin-top: 30px;
+    padding: 5px;
+    font-size: 0.5em;
+  }
+
+  .form-subtitle {
+    display: flex;
+    margin: 10px;
+    font-size: 1.1em;
+    color: rgb(1, 116, 142);
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+
+    input {
+      padding: 2px;
+      margin: 10px;
+      border: none;
+      border-bottom: solid rgba(0, 0, 0, 0.2) 1px;
+    }
+  }
+
+  .checkbox-div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    margin: 10px;
+    .checkbox {
+      transform: scale(2);
+    }
+
+    .checkbox-text {
+      font-size: 0.6em;
+    }
+  }
+
+  .submit {
+    background-color: rgb(250, 156, 147);
+    color: rgb(255, 250, 250);
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+  }
+}
