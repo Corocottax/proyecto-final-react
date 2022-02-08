@@ -7,7 +7,7 @@ const Navbar = () => {
   return (
   <div className='div-navbar'>
 
-    <NavLink to="/inicio" activeclassname={"active"} className={({isActive}) => (isActive ? "active" : "inactive")}>
+    <NavLink to="/home" activeclassname={"active"} className={({isActive}) => (isActive ? "active" : "inactive")}>
 
       <img className='img-navbar' src='https://res.cloudinary.com/dhp2zuftj/image/upload/v1644326192/proyecto%20final/home_3x_qmebln.png' alt='casita'/>
     </NavLink>
