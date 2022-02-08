@@ -34,19 +34,19 @@ const DetalleAnimales = () => {
         <img className="detail-figure__img" src={animal.foto} alt={animal.nombre} />
         <figcaption className="detail-figure__name">{animal.nombre}</figcaption>
       </figure>
-      <div className="detail-div">
+      <div className="detail-info">
         <DetailInfo detail={animal.especie} title="Especie" />
         <DetailInfo detail={animal.nacimiento} title="Fecha de nacimiento" />
         <DetailInfo detail={animal.sexo} title="Sexo" />
         <DetailInfo detail={animal.tamaño} title="Tamaño" />
         <DetailInfo detail={animal.peso}  title="Peso" />
       </div>
-      <div>
-        <h4>Personalidad</h4>
-        <div>
-        {animal.personalidad.map((animal) => (
-          <div key={animal.id}>
-            <p>{animal.personalidad}</p>
+      <div className="detail-personality">
+        <h4 className="detail-personality__title">Personalidad</h4>
+        <div className="divloco">
+        {animal.personalidad && animal.personalidad.map((personalidad) => (
+          <div className="detail-personality__div" key={personalidad}>
+            <p className="detail-personality__div--p">{personalidad}</p>
           </div>
         ))}
         </div>

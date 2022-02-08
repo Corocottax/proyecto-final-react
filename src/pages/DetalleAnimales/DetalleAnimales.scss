@@ -1,17 +1,43 @@
-.detail{
-display: flex;
-flex-direction: column;
+.detail {
+  display: flex;
+  flex-direction: column;
 
-    &-figure{
-
-        &__img{
-            width: 100%;
-        }
-        &__name{
-
-        }
+  &-figure {
+    &__img {
+      width: 100%;
     }
-    &-div{
-        width: 100%;
+    &__name {
     }
+  }
+
+  &-info {
+    width: 100%;
+  }
+
+  &-personality {
+    &__title {
+    }
+    &__div {
+      display: flex;
+      &--p {
+        color: white;
+        background-color: rgba(1, 116, 142);
+        border-radius: 50px;
+        padding: 0px 10px;
+        margin: 4px;
+        /* text-transform: capitalize; */
+        &::first-letter{
+            text-transform: capitalize;
+        }
+      }
+    }
+  }
 }
+.divloco {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* p::first-letter{
+    text-transform: capitalize;
+} */
