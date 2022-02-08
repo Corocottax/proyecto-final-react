@@ -1,10 +1,10 @@
-.detail {
+.detailInfo {
   display: flex;
-  justify-content: space-around;
   align-items: center;
+  justify-content: space-between;
   &-div {
-      display: flex;
-      align-items: center;
+    display: flex;
+    align-items: center;
     &__img {
       width: 25px;
       margin-right: 10px;

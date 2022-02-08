@@ -28,8 +28,7 @@ const PreLogin = () => {
       onSlideChange={() => {/*...*/}}
       onReachEnd={() => {/*...*/}}
     >
-      <SwiperSlide>{({ isPrev }) => (<div><img src="/images/slider/imagen1.png" alt=""/>
-      <h3>Encuentra todo tipo de servicios que tienes cerca de ti</h3>{isPrev ? 'active' : 'not active'}</div>)}</SwiperSlide>
+      <SwiperSlide>{({ isPrev }) => (<div><img src="/images/slider/imagen1.png" alt=""/><h3>Encuentra todo tipo de servicios que tienes cerca de ti</h3>{isPrev ? 'active' : 'not active'}</div>)}</SwiperSlide>
       <SwiperSlide>{({ isActive }) => (<div><img src="/images/slider/imagen2.png" alt=""/>
       <h3>Adopta desde tu móvil</h3>
       <p>Puedes acceder al perfil de muchos animales que están en adopción y filtrarlos para encontrar el que mejor se adapte a ti</p>{isActive ? 'active' : 'not active'}</div>)}</SwiperSlide>
