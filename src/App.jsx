@@ -15,6 +15,7 @@ import Opciones from './pages/Opciones/Opciones';
 import { JwtContext } from './shared/Contexts/JwtContext';
 import { useState } from 'react';
 import NoticiasDetail from './pages/Home/NoticiasDetail/NoticiasDetail';
+import RequireAuth from './shared/RequireAuth/RequireAuth';
 
 function App() {
   const [jwt, setJwt] = useState(localStorage.getItem('token') || null);
@@ -30,15 +31,15 @@ function App() {
           <Route index element={<PreLogin setNavbar={setNavbar}/>}/>
           <Route path="logIn" element={<Login setNavbar={setNavbar}/>}/>
           <Route path="registro" element={<Registro setNavbar={setNavbar}/>}/>
-          <Route path="home" element={<Home setNavbar={setNavbar}/>}/>
-          <Route path="home/:id" element={<NoticiasDetail setNavbar={setNavbar}/>}/>
-          <Route path="adopciones" element={<Animales setNavbar={setNavbar}/>}/>
-          <Route path="adopciones/:id" element={<DetalleAnimales setNavbar={setNavbar}/>}/>
-          <Route path="formularioAdopcion" element={<FormularioAdopcion setNavbar={setNavbar}/>}/>
-          <Route path="perfil" element={<Perfil setNavbar={setNavbar}/>}/>
-          <Route path="perfil/estados" element={<EstadoAdopcion setNavbar={setNavbar}/>}/>
-          <Route path="mapa" element={<Mapas setNavbar={setNavbar}/>}/>
-          <Route path="opciones" element={<Opciones setNavbar={setNavbar}/>}/>
+          <Route path="home" element={<RequireAuth><Home setNavbar={setNavbar}/></RequireAuth>}/>
+          <Route path="home/:id" element={<RequireAuth><NoticiasDetail setNavbar={setNavbar}/></RequireAuth>}/>
+          <Route path="adopciones" element={<RequireAuth><Animales setNavbar={setNavbar}/></RequireAuth>}/>
+          <Route path="adopciones/:id" element={<RequireAuth><DetalleAnimales setNavbar={setNavbar}/></RequireAuth>}/>
+          <Route path="formularioAdopcion" element={<RequireAuth><FormularioAdopcion setNavbar={setNavbar}/></RequireAuth>}/>
+          <Route path="perfil" element={<RequireAuth><Perfil setNavbar={setNavbar}/></RequireAuth>}/>
+          <Route path="perfil/estados" element={<RequireAuth><EstadoAdopcion setNavbar={setNavbar}/></RequireAuth>}/>
+          <Route path="mapa" element={<RequireAuth><Mapas setNavbar={setNavbar}/></RequireAuth>}/>
+          <Route path="opciones" element={<RequireAuth><Opciones setNavbar={setNavbar}/></RequireAuth>}/>
           <Route path="*" element={<PreLogin setNavbar={setNavbar}/>}/>
         </Route>
       </Routes>

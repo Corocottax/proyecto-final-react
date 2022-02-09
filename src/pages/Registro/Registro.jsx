@@ -8,7 +8,8 @@ const Registro = ({setNavbar}) => {
   setNavbar(false);
 
   const onSubmit = (formData) => {
-    API.post("register", formData).then((res) => {
+    console.log(formData);
+    API.post("api/users/", formData).then((res) => {
       console.log("Register user");
     });
   };
@@ -22,14 +23,14 @@ const Registro = ({setNavbar}) => {
       <input id="email" placeholder="ejemplo@ejemplo.com" {...register("email", { required: true, pattern: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,})}/>
 
       <label htmlFor="password">Contraseña</label>
-      <input name="password" id="password" type="password" {...register("password", { required: true, pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/,})}/>
+      <input name="password" id="password" type="password" {...register("password", { required: true, pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/})}/>
 
       <label htmlFor="age">Edad</label>
       <input name="age" id="age" type="number" {...register("age")}/>
 
-      <label htmlFor="photo">Foto</label>
+      {/* <label htmlFor="photo">Foto</label>
       <input name="photo" id="photo" type="file" alt="login" src="https://ceslava.s3-accelerate.amazonaws.com/2016/04/mistery-man-gravatar-wordpress-avatar-persona-misteriosa-510x510.png" {...register("photo")}/>
-
+ */}
       <input type="submit" value="Register"/>
     </form>
   );

@@ -10,9 +10,10 @@ const Login = ({setNavbar}) => {
   setNavbar(false);
 
   const onSubmit = (formData) => {
-    API.post("login", formData).then((res) => {
-      localStorage.setItem("token", res.data.token);
-      localStorage.setItem("user", JSON.stringify(res.data.user));
+    API.post("api/users/login", formData).then((res) => {
+      console.log(res);
+      localStorage.setItem("token", res.data);
+      /* localStorage.setItem("user", JSON.stringify(res.data.user)); */
       setJwt(res.data.token);
     });
   };
@@ -25,7 +26,7 @@ const Login = ({setNavbar}) => {
         placeholder="ejemplo@ejemplo.com"
         {...register("email", {
           required: true,
-          pattern: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+          pattern: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
         })}
       />
       <label htmlFor="password">Contraseña</label>
@@ -35,7 +36,7 @@ const Login = ({setNavbar}) => {
         placeholder="contraseña"
         {...register("password", {
           required: true,
-          pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/,
+          pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/
         })}
       />
 
