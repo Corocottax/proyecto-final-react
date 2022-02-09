@@ -1,14 +1,12 @@
 import React from "react";
 import "./FormularioAdopcion.scss";
 import { useForm } from "react-hook-form";
+import { Route } from "react-router-dom";
 
 const FormularioAdopcion = () => {
   const { register, handleSubmit } = useForm();
 
-  const onSubmit = (formData) => {
-    // API.post("register", formData).then((res) => {
-    // console.log("Register user");
-  };
+  const onSubmit = (formData) => {};
 
   return (
     <div className="adoption-form-div">
@@ -16,21 +14,16 @@ const FormularioAdopcion = () => {
         <h2>Formulario de adopción</h2>
       </div>
 
-
-
       <form onSubmit={handleSubmit(onSubmit)}>
-
-      <div className="form-subtitle">
-        <h3>Tus datos</h3>
-      </div>
-       
+        <div className="form-subtitle">
+          <h3>Tus datos</h3>
+        </div>
         <label htmlFor="name"></label>
         <input
           id="name"
           placeholder="Nombre y apellidos"
           {...register("name", { required: true })}
         />
-
         <label htmlFor="email"></label>
         <input
           id="email"
@@ -40,7 +33,6 @@ const FormularioAdopcion = () => {
             pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
           })}
         />
-
         <label htmlFor="phone"></label>
         <input
           name="phone"
@@ -94,14 +86,18 @@ const FormularioAdopcion = () => {
           })}
         />
 
-      <div className="checkbox-div">
+        <div className="checkbox-div">
+          <input
+            className="checkbox"
+            type="checkbox"
+            id="cbox1"
+            value="Terms_checkbox"
+          />
+          <p className="checkbox-text">
+            Acepto los términos y condiciones de la adopción
+          </p>
+        </div>
 
-      <input className="checkbox" type="checkbox" id="cbox1" value="first_checkbox" />
-          <p className="checkbox-text">Acepto los términos y condiciones de la adopción</p>
-
-      </div>
-          
-  
         <input className="submit" type="submit" value="Continuar" />
       </form>
     </div>
