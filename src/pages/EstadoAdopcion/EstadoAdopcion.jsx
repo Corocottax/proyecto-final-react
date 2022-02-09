@@ -27,6 +27,7 @@ const EstadoAdopcion = () => {
     <div>
       <span>
       <h3>Adopcion de {mascotas.name}</h3>
+      <p>{mascotas}</p>
       </span>
       <img src={mascotas.photo} alt={mascotas.name} />
     </div>
