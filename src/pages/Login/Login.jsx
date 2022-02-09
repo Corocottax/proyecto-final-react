@@ -4,9 +4,10 @@ import { JwtContext } from "../../shared/Contexts/JwtContext";
 import { API } from "../../shared/Services/Api";
 import "./Login.scss";
 
-const Login = () => {
+const Login = ({setNavbar}) => {
   const { register, handleSubmit } = useForm();
   const { setJwt } = useContext(JwtContext);
+  setNavbar(false);
 
   const onSubmit = (formData) => {
     API.post("login", formData).then((res) => {

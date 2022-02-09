@@ -4,8 +4,9 @@ import DetailData from "./Components/DetailData";
 import DetailHealth from "./Components/DetailHealth";
 import "./DetalleAnimales.scss";
 
-export const getAnimalById = (name) => {
+export const getAnimalById = (name, {setNavbar}) => {
 
+  setNavbar(true);
 
   return fetch(
     `https://proyecto-final-api-mocha.vercel.app/api/mascotas/${name}`

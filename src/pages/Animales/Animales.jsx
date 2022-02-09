@@ -4,11 +4,12 @@ import CustomPopup from "../../shared/PopUp/PopUp";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const Animales = () => {
+const Animales = ({setNavbar}) => {
   // AXIOS
   const UrlAnimales =
     "https://proyecto-final-api-mocha.vercel.app/api/mascotas";
   const [mascotas, setMascotas] = useState([]);
+  setNavbar(true);
 
   // ESTO ES PARA EL POPUP
   const [visibility, setVisibility] = useState(false);

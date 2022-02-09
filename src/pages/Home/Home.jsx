@@ -11,11 +11,12 @@ import 'swiper/css/scrollbar';
 import { Fade } from 'react-awesome-reveal';
 import { generatePath, Link } from 'react-router-dom';
 
-const Home = () => {
+const Home = ({setNavbar}) => {
 
   const UrlNoticias = "https://proyecto-final-api-mocha.vercel.app/api/noticias";
   const [noticias, setNoticias] = useState([]);
   const arrayNoticias = [];
+  setNavbar(true);
 
   const getNoticias = async () => {
 

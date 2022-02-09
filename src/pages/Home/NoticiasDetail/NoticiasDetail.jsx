@@ -6,10 +6,11 @@ import Volver from '../Volver/Volver';
 import "./NoticiasDetail.scss"
 import PintadoDetalle from './PintadoDetalle/PintadoDetalle';
 
-const NoticiasDetail = () => {
+const NoticiasDetail = ({setNavbar}) => {
 
   let { id } = useParams("id");
   const [noticia, setNoticia] = useState();
+  setNavbar(true);
 
   useEffect(() => {
 

@@ -4,8 +4,9 @@ import { useForm } from "react-hook-form";
 import {bootstrap} from "bootstrap";
 import {ProgressBar} from 'react-bootstrap/ProgressBar';
 
-const FormularioAdopcion = () => {
+const FormularioAdopcion = ({setNavbar}) => {
   const { register, handleSubmit } = useForm();
+  setNavbar(true);
 
   const onSubmit = (formData) => {};
 

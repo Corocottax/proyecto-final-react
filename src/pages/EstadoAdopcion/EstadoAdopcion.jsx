@@ -6,9 +6,10 @@ import { Link } from 'react-router-dom';
 import Buscador from '../../shared/Buscador/Buscador.jsx'
 
 
-const EstadoAdopcion = () => {
+const EstadoAdopcion = ({setNavbar}) => {
   const [texto, setTexto] = useState("");
   const [mascotas, setMascotas] = useState([]);
+  setNavbar(true);
   const UrlAnimales =
   "https://proyecto-final-api-mocha.vercel.app/api/mascotas";
   
