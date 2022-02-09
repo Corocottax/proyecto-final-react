@@ -14,6 +14,7 @@ import Navbar from './shared/Navbar/Navbar';
 import Opciones from './pages/Opciones/Opciones';
 import { JwtContext } from './shared/Contexts/JwtContext';
 import { useState } from 'react';
+import Splash from './shared/Splash/Splash';
 
 function App() {
   const [jwt, setJwt] = useState(localStorage.getItem('token') || null);

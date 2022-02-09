@@ -18,7 +18,9 @@ const PreLogin = () => {
     clickable: true,
   };
   return <div className="slider-container">
-      <Splash/>
+      <div className='splash'>
+        <Splash/>
+      </div>
          <Swiper
       modules={[Navigation, Pagination, Scrollbar, A11y]}
       pagination={pagination}
