@@ -58,10 +58,13 @@ const PreLogin = () => {
   </div>
   <div className="container-prelogin">
     <img src="/images/login.png" alt="mujer leyendo con perro"/>
+    <div className="container-prelogin-1">
     <h3>¿Como quieres entrar?</h3>
-    <Link to="/logIn" className='btn-login'>Usuario</Link>
-    <Link to="/logIn" className='btn-login'>Asociacion Protectora</Link>
-  </div>
+    <Link to="/logIn" className='btn-login'><p>Usuario</p></Link>
+    <Link to="/logIn" className='btn-login'><p>Asociacion Protectora</p></Link>
+    </div>
+    </div>
+  
 
   </>);
 };

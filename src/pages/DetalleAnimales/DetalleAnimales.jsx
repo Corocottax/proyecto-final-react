@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import DetailDiv from "./Components/DetailDiv";
-import DetailInfo from "./Components/DetailInfo";
+import DetailData from "./Components/DetailData";
+import DetailHealth from "./Components/DetailHealth";
 import "./DetalleAnimales.scss";
 
 export const getAnimalById = (name) => {
@@ -23,14 +23,11 @@ const DetalleAnimales = () => {
   
   const [animal, setAnimal] = useState([]);
   let { id } = useParams("name");
-  console.log("animal", animal.personalidad);
-  console.log(showDetail);
 
   useEffect(() => {
     if (id)
       getAnimalById(id).then((data) => {
         setAnimal(data);
-        console.log(data);
       });
   }, []);
 
@@ -40,23 +37,16 @@ const DetalleAnimales = () => {
         <img className="detail-figure__img" src={animal.foto} alt={animal.nombre} />
         <figcaption className="detail-figure__name">{animal.nombre}</figcaption>
       </figure>
-      <button className="btn-1" onClick={() => setShowDetail("datos")}>Datos</button>
-      <button className="btn-1" onClick={() => setShowDetail("salud")}>Salud</button>
-      <button className="btn-1" onClick={() => setShowDetail("adopcion")}>Adopción</button>
+      <div className="detail-btn">
+    
+      <button className="detail-btn__1" onClick={() => setShowDetail("datos")} autoFocus>Datos</button>
+      <button className="detail-btn__2" onClick={() => setShowDetail("salud")}>Salud</button>
+      <button className="detail-btn__3" onClick={() => setShowDetail("adopcion")}>Adopción</button>
+      </div>
       <div className="detail-info">
-      {showDetail==="datos" ? <div><DetailDiv detail={animal} /></div> : (showDetail==="salud" ? <div>Salud</div> : <div>Adopción</div>) }
-        
+      {showDetail==="datos" ? <div><DetailData animal={animal} /></div> : (showDetail==="salud" ? <DetailHealth animal={animal}/> : <div>Adopción</div>) }
       </div>
-      <div className="detail-personality">
-        <h4 className="detail-personality__title">Personalidad</h4>
-        <div className="divloco">
-        {animal.personalidad && animal.personalidad.map((personalidad) => (
-          <div className="detail-personality__div" key={personalidad}>
-            <p className="detail-personality__div--p">{personalidad}</p>
-          </div>
-        ))}
-        </div>
-      </div>
+      
     </div>
   );
 };

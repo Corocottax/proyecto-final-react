@@ -2,6 +2,7 @@ import React from "react";
 import "./DetailInfo.scss";
 
 const DetailInfo = (props) => {
+  console.log(props);
   return (
     <div className="detailInfo">
       <div className="detailInfo-div">
@@ -13,6 +14,8 @@ const DetailInfo = (props) => {
         <h4 className="detailInfo-div__title">{props.title}</h4>
       </div>
       <p className="detailInfo-info">{props.detail}</p>
+
+      {props.detail===true ? <p>Si</p> : (props.detail===false ? <p>No</p> : <p>{props.detail}</p>)}
     </div>
   );
 };
