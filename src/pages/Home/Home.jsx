@@ -11,11 +11,12 @@ import 'swiper/css/scrollbar';
 import { Fade } from 'react-awesome-reveal';
 import { generatePath, Link } from 'react-router-dom';
 
-const Home = () => {
+const Home = ({setNavbar}) => {
 
   const UrlNoticias = "https://proyecto-final-api-mocha.vercel.app/api/noticias";
   const [noticias, setNoticias] = useState([]);
   const arrayNoticias = [];
+  setNavbar(true);
 
   const getNoticias = async () => {
 
@@ -65,20 +66,20 @@ const Home = () => {
       >
         <SwiperSlide>
           <div className='tarjeta'>
-            <img className='img-tarjeta' src="https://res.cloudinary.com/dhp2zuftj/image/upload/v1644326255/proyecto%20final/mascota_3x_ddvdy4.png" alt="perrito"/>
+            <img className='img-tarjeta'  src="https://res.cloudinary.com/dhp2zuftj/image/upload/v1644337269/proyecto%20final/apadrina_3x_m5z2yf.png" alt="apadrinar"/>
             <div className='info-tarjeta'>
-              <h3 className='title-tarjeta'>Estado de la adopción</h3>
-              <p className='p-tarjeta'>Revisa el proceso de tus adopciones en curso</p>
+              <h3 className='title-tarjeta'>Apadrina un bebote</h3>
+              <p className='p-tarjeta'>Puedes apadrinar un pedazo de bebote super guapo y to flama</p>
             </div>
           </div>
         </SwiperSlide>
 
         <SwiperSlide>
           <div className='tarjeta'>
-            <img className='img-tarjeta'  src="https://res.cloudinary.com/dhp2zuftj/image/upload/v1644337269/proyecto%20final/apadrina_3x_m5z2yf.png" alt="apadrinar"/>
+            <img className='img-tarjeta' src="https://res.cloudinary.com/dhp2zuftj/image/upload/v1644326255/proyecto%20final/mascota_3x_ddvdy4.png" alt="perrito"/>
             <div className='info-tarjeta'>
-              <h3 className='title-tarjeta'>Apadrina un bebote</h3>
-              <p className='p-tarjeta'>Puedes apadrinar un pedazo de bebote super guapo y to flama</p>
+              <h3 className='title-tarjeta'>Estado de la adopción</h3>
+              <p className='p-tarjeta'>Revisa el proceso de tus adopciones en curso</p>
             </div>
           </div>
         </SwiperSlide>

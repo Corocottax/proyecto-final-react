@@ -1,10 +1,11 @@
 import React from "react";
 import "./FormularioAdopcion.scss";
 import { useForm } from "react-hook-form";
-import { Route } from "react-router-dom";
 
-const FormularioAdopcion = () => {
+
+const FormularioAdopcion = ({setNavbar}) => {
   const { register, handleSubmit } = useForm();
+  setNavbar(true);
 
   const onSubmit = (formData) => {};
 

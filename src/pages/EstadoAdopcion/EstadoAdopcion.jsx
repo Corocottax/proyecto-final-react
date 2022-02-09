@@ -5,7 +5,7 @@ import { Link, useParams } from 'react-router-dom';
 import Buscador from '../../shared/Buscador/Buscador.jsx'
 
 
-const EstadoAdopcion = () => {
+const EstadoAdopcion = ({setNavbar}) => {
   const [texto, setTexto] = useState("");
   const getUserById = (id) => {
     return fetch(

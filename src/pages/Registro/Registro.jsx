@@ -3,8 +3,9 @@ import { useForm } from "react-hook-form";
 import { API } from "../../shared/Services/Api";
 import "./Registro.scss";
 
-const Registro = () => {
+const Registro = ({setNavbar}) => {
   const { register, handleSubmit } = useForm();
+  setNavbar(false);
 
   const onSubmit = (formData) => {
     API.post("register", formData).then((res) => {
