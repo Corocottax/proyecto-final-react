@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import CustomPopup from "../../shared/PopUp/PopUp";
@@ -56,8 +56,8 @@ const PreLogin = () => {
   <div className="container-prelogin">
     <img src="/images/login.png" alt="mujer leyendo con perro"/>
     <h3>¿Como quieres entrar?</h3>
-    <NavLink to="/logIn" className='btn-login'>Usuario</NavLink>
-    <NavLink to="/logIn" className='btn-login'>Asociacion Protectora</NavLink>
+    <Link to="/logIn" className='btn-login'>Usuario</Link>
+    <Link to="/logIn" className='btn-login'>Asociacion Protectora</Link>
   </div>
   </div>);
 };

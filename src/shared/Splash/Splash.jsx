@@ -26,7 +26,7 @@ const Splash = () => {
 
   useEffect(() => {
     carga();
-  }, []);
+  }, [])
 
   return (
     <>
