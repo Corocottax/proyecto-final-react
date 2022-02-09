@@ -26,14 +26,21 @@ const Animales = () => {
 
   return (
     <div>
+        
       {/* -----------------------BOTON Y POPUP PARA EL FILTRO-------------------------- */}
       <button onClick={(e) => setVisibility(!visibility)}>Filtrar</button>
-      <CustomPopup className="filters-popup" onClose={popupCloseHandler} show={visibility}>
+      <CustomPopup
+        className="filters-popup"
+        onClose={popupCloseHandler}
+        show={visibility}
+      >
         <div className="ASDF">
-        <h1>hola</h1>
+          <h1>hola</h1>
         </div>
-
       </CustomPopup>
+
+    
+
     </div>
   );
 };
