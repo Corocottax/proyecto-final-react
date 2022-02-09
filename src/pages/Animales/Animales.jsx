@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Buscador from "../../shared/Buscador/Buscador";
 import { Link } from "react-router-dom";
+import { Fade } from "react-awesome-reveal";
 
 const Animales = ({setNavbar}) => {
   // AXIOS
@@ -52,6 +53,28 @@ const Animales = ({setNavbar}) => {
             <h1>hola</h1>
           </div>
         </CustomPopup>
+
+    <div className="album">
+
+      {mascotas && mascotas.map((mascota, index) => {
+        
+        return(
+          <Fade className="carta" key={index} delay={200} triggerOnce>
+          <div key={index}>
+
+          <img className="imagen-carta" src={mascota.foto} alt={mascota.nombre} />
+          <div className="carta-detail">
+            <h2 className="nombre-carta">{mascota.nombre}</h2>
+            <p className="localidad-carta">{mascota.localizacion}</p>
+          </div>
+          
+        </div>
+        </Fade>)
+        
+
+      })}
+
+    </div>
 
     </div>
   );
