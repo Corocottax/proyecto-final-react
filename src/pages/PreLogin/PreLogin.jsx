@@ -7,14 +7,18 @@ import "swiper/css/bundle";
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+import Splash from '../../shared/Splash/Splash';
 
 const PreLogin = () => {
+
+
+
 
   const pagination = {
     clickable: true,
   };
   return <div className="slider-container">
-      
+      <Splash/>
          <Swiper
       modules={[Navigation, Pagination, Scrollbar, A11y]}
       pagination={pagination}
