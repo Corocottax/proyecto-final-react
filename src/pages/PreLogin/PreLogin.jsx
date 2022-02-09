@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import CustomPopup from "../../shared/PopUp/PopUp";
@@ -24,12 +24,14 @@ const PreLogin = () => {
     clickable: true,
   };
   return ( 
-    <div>
-  <div className="slider-container">
-      <div className='splash'>
+    <>
+        <div className="slider-container">
+        <div className='splash'>
         <Splash/>
         </div>
+  
         <button onClick={() => setVisibility(!visibility)}>pop</button>
+        <div className="slider-container-1">
     <CustomPopup
         onClose={popupCloseHandler}
         show={visibility}
@@ -53,13 +55,16 @@ const PreLogin = () => {
     </Swiper>
   </CustomPopup>
   </div>
+  </div>
   <div className="container-prelogin">
     <img src="/images/login.png" alt="mujer leyendo con perro"/>
     <h3>¿Como quieres entrar?</h3>
-    <NavLink to="/logIn" className='btn-login'>Usuario</NavLink>
-    <NavLink to="/logIn" className='btn-login'>Asociacion Protectora</NavLink>
+    <Link to="/logIn" className='btn-login'>Usuario</Link>
+
+    <Link to="/logIn" className='btn-login'>Asociacion Protectora</Link>
   </div>
-  </div>);
+
+  </>);
 };
 
 export default PreLogin;
