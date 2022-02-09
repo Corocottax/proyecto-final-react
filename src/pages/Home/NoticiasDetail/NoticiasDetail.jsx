@@ -28,9 +28,11 @@ const NoticiasDetail = () => {
 
       <Volver />
 
-      <Fade>
-        {noticia && <PintadoDetalle noticia={noticia} />}
-      </Fade>
+      <div className='div-noticia'>
+        <Fade>
+          {noticia && <PintadoDetalle noticia={noticia} />}
+        </Fade>
+      </div>
     </div>
   );
 };
