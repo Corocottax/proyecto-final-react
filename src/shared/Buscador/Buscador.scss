@@ -1,0 +1,40 @@
+
+.lupa {
+
+    width: 30px;
+    height: 40px;
+
+}
+
+.div-buscador {
+
+    border-radius: 20px;
+    border: 2px solid #bdd2d6;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 60vw;
+    height: 20px;
+
+}
+
+.btn-buscador {
+
+    border: none;
+    background: none;
+    margin: 10px;
+
+}
+
+.input-buscador {
+
+    border: none;
+    
+    &:focus {
+
+        outline: none;
+
+    }
+
+}

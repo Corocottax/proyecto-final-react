@@ -14,16 +14,16 @@ const Buscador = ({texto, setTexto}) => {
   }
   return (
     <section className="buscador">
-      <form onSubmit={handleSubmit}>
+      <form className="div-buscador" onSubmit={handleSubmit}>
         <input
           type="text"
           name="buscar"
           placeholder='Buscar'
+          className="input-buscador"
           value={texto}
           onChange={handleInputChange}
-        >
-      <button className="btn-lupa" type="submit"><img src="/images/lupa.png" alt="lupa"/></button>
-        </input>
+        />
+      <button className="btn-buscador" type="submit"><img className="lupa" src="/images/lupa.png" alt="lupa"/></button>
       </form>
     </section>
   );
