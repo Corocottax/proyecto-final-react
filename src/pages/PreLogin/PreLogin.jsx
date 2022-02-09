@@ -1,9 +1,5 @@
 import React, {useState} from 'react';
-<<<<<<< HEAD
 import { Link } from 'react-router-dom';
-=======
-import { Link, NavLink } from 'react-router-dom';
->>>>>>> 8bf16922b08380bca049b8be26300756c7568316
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import CustomPopup from "../../shared/PopUp/PopUp";

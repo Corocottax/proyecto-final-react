@@ -14,12 +14,11 @@ import Navbar from './shared/Navbar/Navbar';
 import Opciones from './pages/Opciones/Opciones';
 import { JwtContext } from './shared/Contexts/JwtContext';
 import { useState } from 'react';
-import Splash from './shared/Splash/Splash';
 import NoticiasDetail from './pages/Home/NoticiasDetail/NoticiasDetail';
 
 function App() {
   const [jwt, setJwt] = useState(localStorage.getItem('token') || null);
-  
+  const [navbar, setNavbar] = useState(true);
 
   return (
     <JwtContext.Provider value={{ jwt, setJwt }}>
@@ -28,22 +27,24 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/">
-          <Route index element={<PreLogin/>}/>
-          <Route path="logIn" element={<Login/>}/>
-          <Route path="registro" element={<Registro/>}/>
-          <Route path="home" element={<Home/>}/>
-          <Route path="home/:id" element={<NoticiasDetail/>}/>
-          <Route path="adopciones" element={<Animales/>}/>
-          <Route path="adopciones/:id" element={<DetalleAnimales/>}/>
-          <Route path="formularioAdopcion" element={<FormularioAdopcion/>}/>
-          <Route path="perfil" element={<Perfil/>}/>
-          <Route path="perfil/estados" element={<EstadoAdopcion/>}/>
-          <Route path="mapa" element={<Mapas/>}/>
-          <Route path="opciones" element={<Opciones/>}/>
-          <Route path="*" element={<PreLogin/>}/>
+          <Route index element={<PreLogin setNavbar={setNavbar}/>}/>
+          <Route path="logIn" element={<Login setNavbar={setNavbar}/>}/>
+          <Route path="registro" element={<Registro setNavbar={setNavbar}/>}/>
+          <Route path="home" element={<Home setNavbar={setNavbar}/>}/>
+          <Route path="home/:id" element={<NoticiasDetail setNavbar={setNavbar}/>}/>
+          <Route path="adopciones" element={<Animales setNavbar={setNavbar}/>}/>
+          <Route path="adopciones/:id" element={<DetalleAnimales setNavbar={setNavbar}/>}/>
+          <Route path="formularioAdopcion" element={<FormularioAdopcion setNavbar={setNavbar}/>}/>
+          <Route path="perfil" element={<Perfil setNavbar={setNavbar}/>}/>
+          <Route path="perfil/estados" element={<EstadoAdopcion setNavbar={setNavbar}/>}/>
+          <Route path="mapa" element={<Mapas setNavbar={setNavbar}/>}/>
+          <Route path="opciones" element={<Opciones setNavbar={setNavbar}/>}/>
+          <Route path="*" element={<PreLogin setNavbar={setNavbar}/>}/>
         </Route>
       </Routes>
-      <Navbar />
+
+      {navbar && <Navbar />}
+      
     </BrowserRouter>
     </div>
     </JwtContext.Provider>
