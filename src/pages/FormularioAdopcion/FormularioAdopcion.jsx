@@ -15,7 +15,7 @@ const FormularioAdopcion = ({ setNavbar }) => {
       <div className="form-title">
         <h2>Formulario de adopción</h2>
       </div>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form>
         <div className="form-subtitle">
           <h3>Tus datos</h3>
         </div>
