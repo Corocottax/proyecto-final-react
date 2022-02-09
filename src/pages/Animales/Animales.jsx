@@ -59,8 +59,9 @@ const Animales = ({ setNavbar }) => {
         <div className="popup-filter">
           <h2>Filtros</h2>
 
-          <div className="popup-filter--city">
+          <div className="popup-filter--ciudad">
             <h3>Ciudad</h3>
+            
             <select name="select">
               <option value="Elige tu zona" selected>
                 Elige tu zona
@@ -88,7 +89,37 @@ const Animales = ({ setNavbar }) => {
             
           </div>
 
-          <div></div>
+          <div className="popup-filter--edad">
+            <h3>Edad</h3>
+            
+            <select name="select">
+              
+              <option value="Joven" selected>Joven</option>
+              <option value="Mayor">Mayor</option>
+            </select>
+          </div>
+
+          <div className="popup-filter--especie">
+            <h3>Sexo</h3>
+             <div className="popup-filter--sexo">
+
+               <button class="button"> Hembra </button>
+               <button class="button"> Macho </button>
+             </div>
+            
+          </div>
+
+          <div className="popup-filter--tamaño">
+            <h3>Tamaño</h3>
+             <div className="popup-filter--sizes">
+
+               <button class="button"> Pequeño </button>
+               <button class="button"> Mediano </button>
+               <button class="button"> Grande </button>
+             </div>
+            
+          </div>
+
         </div>
       </CustomPopup>
 

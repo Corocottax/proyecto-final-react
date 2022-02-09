@@ -1,82 +1,175 @@
 .filtro-boton {
-
-    width: 50px;
-
+  width: 50px;
 }
 
 .header {
-
-    width: 100vw;
-    margin-top: 30px;
-    display: flex;
-    justify-content: space-between;
-
-
+  width: 100vw;
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .imgHeader {
-
-    width: 40px;
-    height: 40px;
-
+  width: 40px;
+  height: 40px;
 }
 
 .imgfiltros {
-
-    width: 40px;
-    height: 40px;
-    margin-right: 20px;
-
+  width: 40px;
+  height: 40px;
+  margin-right: 20px;
 }
 
 .album {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 90px;
 
+  .carta {
+    margin: 10px 0px;
+    background-color: #ccdde0;
+    border-radius: 5px;
+    width: 90%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin-bottom: 90px;
+    padding: 2px;
 
-    .carta {
+    .carta-detail {
+      background-color: white;
+      border-radius: 0px 0px 5px 5px;
+      padding: 5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
 
-        margin: 10px 0px;
-        background-color: #ccdde0;
-        border-radius: 5px;
-        width: 90%;
-        display: flex;
-        flex-direction: column;
-        padding: 2px;
+      .nombre-carta {
+        color: rgb(1 116 142);
+        text-transform: capitalize;
+      }
 
-        .carta-detail {
-
-            background-color: white;
-            border-radius: 0px 0px 5px 5px;
-            padding: 5px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            .nombre-carta {
-
-                color: rgb(1 116 142);
-                text-transform: capitalize;
-
-            }
-
-            .localidad-carta {
-
-                text-align: center;
-
-            }
-
-        }
-
-        .imagen-carta{
-
-            width: 100%;
-            border-radius: 5px 5px 0px 0px;
-
-        }
-
+      .localidad-carta {
+        text-align: center;
+      }
     }
 
+    .imagen-carta {
+      width: 100%;
+      border-radius: 5px 5px 0px 0px;
+    }
+  }
+}
+
+.popup-filter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgb(1, 116, 142);
+
+  h2 {
+    font-size: medium;
+    font-weight: 500;
+  }
+
+  .popup-filter--ciudad {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    h3 {
+      font-size: small;
+      font-weight: 400;
+      padding: 10px;
+    }
+
+    select {
+      width: 300px;
+      padding: 10px;
+      border: none;
+      border-bottom: solid black 2px;
+    }
+  }
+
+  .popup-filter--especie {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    h3 {
+      font-size: small;
+      font-weight: 400;
+      margin: 30px 30px 0px 30px;
+      padding: 10px;
+    }
+
+    .popup-filter--especieButtons {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: flex-start;
+      margin: 20px;
+
+      button {
+        height: 60px;
+        width: 60px;
+        margin: 8px;
+      }
+    }
+  }
+  .popup-filter--edad {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    h3 {
+      font-size: small;
+      font-weight: 400;
+      padding: 10px;
+    }
+
+    select {
+      width: 300px;
+      padding: 10px;
+      border: none;
+      border-bottom: solid black 2px;
+    }
+  }
+
+  .popup-filter--sexo {
+    display: flex;
+    flex-direction: row;
+
+
+    h3 {
+      font-size: small;
+      font-weight: 400;
+      padding: 10px;
+    }
+
+    button {
+      height: 60px;
+      width: 60px;
+      margin: 8px;
+    }
+
+  }
+
+
+  .popup-filter--tamaño {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    h3 {
+      font-size: small;
+      font-weight: 400;
+      padding: 10px;
+    }
+
+    button {
+      height: 60px;
+      width: 60px;
+      margin: 8px;
+    }
+  }
 }
