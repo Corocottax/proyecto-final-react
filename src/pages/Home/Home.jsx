@@ -54,7 +54,8 @@ const Home = () => {
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y]}
         spaceBetween={50}
-        slidesPerView={1}
+        slidesPerView={"auto"}
+        centeredSlides={true}
         onSlideChange={() => {/*...*/}}
         onReachEnd={() => {/*...*/}}
         pagination={{
