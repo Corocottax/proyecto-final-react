@@ -1,9 +1,5 @@
 import React, {useState} from 'react';
-<<<<<<< HEAD
 import { Link } from 'react-router-dom';
-=======
-import { Link, NavLink } from 'react-router-dom';
->>>>>>> 8bf16922b08380bca049b8be26300756c7568316
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import CustomPopup from "../../shared/PopUp/PopUp";
@@ -62,10 +58,13 @@ const PreLogin = () => {
   </div>
   <div className="container-prelogin">
     <img src="/images/login.png" alt="mujer leyendo con perro"/>
+    <div className="container-prelogin-1">
     <h3>¿Como quieres entrar?</h3>
-    <Link to="/logIn" className='btn-login'>Usuario</Link>
-    <Link to="/logIn" className='btn-login'>Asociacion Protectora</Link>
-  </div>
+    <Link to="/logIn" className='btn-login'><p>Usuario</p></Link>
+    <Link to="/logIn" className='btn-login'><p>Asociacion Protectora</p></Link>
+    </div>
+    </div>
+  
 
   </>);
 };
