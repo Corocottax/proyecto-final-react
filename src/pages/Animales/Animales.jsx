@@ -81,3 +81,4 @@ const Animales = ({setNavbar}) => {
 };
 
 export default Animales;
+
