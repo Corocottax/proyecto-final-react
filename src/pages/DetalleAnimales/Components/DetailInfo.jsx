@@ -13,9 +13,7 @@ const DetailInfo = (props) => {
         />
         <h4 className="detailInfo-div__title">{props.title}</h4>
       </div>
-      <p className="detailInfo-info">{props.detail}</p>
-
-      {props.detail===true ? <p>Si</p> : (props.detail===false ? <p>No</p> : <p>{props.detail}</p>)}
+      {props.detail===true ? <p className="detailInfo-info">Si</p> : (props.detail===false ? <p className="detailInfo-info">No</p> : <p className="detailInfo-info">{props.detail}</p>)}
     </div>
   );
 };
