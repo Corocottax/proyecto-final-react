@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { NavLink } from 'react-router-dom';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import CustomPopup from "../../shared/PopUp/PopUp";
@@ -13,8 +14,8 @@ import 'swiper/css/scrollbar';
 const PreLogin = () => {
   const [visibility, setVisibility] = useState(false);
 
-  const popupCloseHandler = (e) => {
-    setVisibility(e);
+  const popupCloseHandler = () => {
+    setVisibility();
   };
 
 
@@ -23,11 +24,12 @@ const PreLogin = () => {
     clickable: true,
   };
   return ( 
+    <div>
   <div className="slider-container">
       <div className='splash'>
         <Splash/>
         </div>
-        <button onClick={(e) => setVisibility(!visibility)}>Toggle Popup</button>
+        <button onClick={() => setVisibility(!visibility)}>pop</button>
     <CustomPopup
         onClose={popupCloseHandler}
         show={visibility}
@@ -42,14 +44,21 @@ const PreLogin = () => {
       onSlideChange={() => {/*...*/}}
       onReachEnd={() => {/*...*/}}
     >
-      <SwiperSlide><div><img src="/images/slider/imagen1.png" alt=""/><h3>Encuentra todo tipo de servicios que tienes cerca de ti</h3></div></SwiperSlide>
+      <SwiperSlide><div><img src="/images/slider/imagen1.png" alt=""/><h4>Encuentra todo tipo de servicios que tienes cerca de ti</h4></div></SwiperSlide>
       <SwiperSlide><div><img src="/images/slider/imagen2.png" alt=""/>
-      <h3>Adopta desde tu móvil</h3>
+      <h4>Adopta desde tu móvil</h4>
       <p>Puedes acceder al perfil de muchos animales que están en adopción y filtrarlos para encontrar el que mejor se adapte a ti</p></div></SwiperSlide>
-      <SwiperSlide><div><img src="/images/slider/imagen3.png" alt=""/> <h3>Si eres una asociación sube a tus peludos para darles más difusión</h3></div></SwiperSlide>
+      <SwiperSlide><div><img src="/images/slider/imagen3.png" alt=""/> <h4>Si eres una asociación sube a tus peludos para darles más difusión</h4></div></SwiperSlide>
       
     </Swiper>
   </CustomPopup>
+  </div>
+  <div className="container-prelogin">
+    <img src="/images/login.png" alt="mujer leyendo con perro"/>
+    <h3>¿Como quieres entrar?</h3>
+    <NavLink to="/logIn" className='btn-login'>Usuario</NavLink>
+    <NavLink to="/logIn" className='btn-login'>Asociacion Protectora</NavLink>
+  </div>
   </div>);
 };
 

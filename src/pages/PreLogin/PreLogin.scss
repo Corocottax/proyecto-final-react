@@ -1,12 +1,13 @@
 .slider-container{
     display: block;
     justify-content: center;
-    max-height: 82vh;
+    max-height: 100vh;
     max-width: 100vw;
+    position: fixed;
 
 .swiper {
     width: 100vw;
-    height: 80vh;
+    height: 90vh;
   }
   
   .swiper-slide {
@@ -33,16 +34,15 @@
     height: 90%;
     object-fit: cover;
     max-width: 260px!important;
-    margin-left: 20px!important;
+    margin-left: 20px;
   }
   .swiper-slide p {
-    margin-top:10px;
     width:90%;
   }
-  .swiper-slide h3 {
+  .swiper-slide h4 {
     font-size: 16px;
     color:rgb(1 116 142);
-    margin-top: 10px;
+    margin: 10px;
     width:90%;
   }
 
@@ -61,4 +61,32 @@
 
     background: rgb(250 156 147)!important;
   }
+}
+.container-prelogin{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: -1;
+  margin-top: 0!important;
+  max-height: 90vh;
+  width: 100vw;
+  text-align: center;
+  img{
+    object-fit: contain;
+    width: 100vw;
+    height: 100vh;
+  }
+h3{
+  margin-top: 0;
+}
+.btn-login{
+  background-color:rgb(1 116 142) ;
+  border: none;
+  border-radius: 5px;
+  color:white;
+  width: 196px;
+  height: 60px;
+  margin: 10px;
+}
 }
