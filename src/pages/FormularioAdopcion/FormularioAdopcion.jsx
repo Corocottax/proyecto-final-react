@@ -1,13 +1,14 @@
 import React from "react";
 import "./FormularioAdopcion.scss";
 import { useForm } from "react-hook-form";
+import { Button } from "bootstrap";
+import FormularioAdopcion2 from "./components/FormularioAdopcion2";
 
-
-const FormularioAdopcion = ({setNavbar}) => {
+const FormularioAdopcion = ({ setNavbar }) => {
   const { register, handleSubmit } = useForm();
-  setNavbar(true);
+  setNavbar(false);
 
-  const onSubmit = (formData) => {};
+  const formulario = [{}];
 
   return (
     <div className="adoption-form-div">
@@ -99,7 +100,12 @@ const FormularioAdopcion = ({setNavbar}) => {
           </p>
         </div>
 
-        <input className="submit" type="submit" value="Continuar" />
+        <button
+          type="button"
+          className="submit"
+          value="Continuar"
+          onClick={() => <FormularioAdopcion2 formulario={formulario} />}
+        />
       </form>
     </div>
   );
