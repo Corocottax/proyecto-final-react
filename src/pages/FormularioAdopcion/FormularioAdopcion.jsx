@@ -1,8 +1,7 @@
 import React from "react";
 import "./FormularioAdopcion.scss";
 import { useForm } from "react-hook-form";
-import {bootstrap} from "bootstrap";
-import {ProgressBar} from 'react-bootstrap/ProgressBar';
+
 
 const FormularioAdopcion = ({setNavbar}) => {
   const { register, handleSubmit } = useForm();
@@ -15,7 +14,7 @@ const FormularioAdopcion = ({setNavbar}) => {
       <div className="form-title">
         <h2>Formulario de adopción</h2>
       </div>
-      <ProgressBar animated now={45} />
+
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="form-subtitle">
           <h3>Tus datos</h3>
