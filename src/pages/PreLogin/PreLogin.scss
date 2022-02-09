@@ -1,17 +1,16 @@
 .slider-container{
     display: block;
     justify-content: center;
-    min-height: 91vh;
+    max-height: 82vh;
     max-width: 100vw;
 
 .swiper {
     width: 100vw;
-    height: 91vh;
+    height: 80vh;
   }
   
   .swiper-slide {
     text-align: center;
-    font-size: 14px;
     background: #fff;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -31,23 +30,35 @@
   .swiper-slide img {
     display: block;
     width: 100%;
-    height: 100%;
+    height: 90%;
     object-fit: cover;
-    max-width: 310px;
+    max-width: 260px!important;
+    margin-left: 20px!important;
   }
-  
+  .swiper-slide p {
+    margin-top:10px;
+    width:90%;
+  }
+  .swiper-slide h3 {
+    font-size: 16px;
+    color:rgb(1 116 142);
+    margin-top: 10px;
+    width:90%;
+  }
+
   .swiper-pagination-bullet {
     width: 20px;
     height: 20px;
     text-align: center;
     line-height: 20px;
     font-size: 12px;
-    color: #fff!important;
-    background: rgb(250 156 147)!important;
+    border: solid 1px rgb(250 156 147)!important;
+    opacity: 1;
+    background: #fff!important;
   }
   
   .swiper-pagination-bullet-active {
-    color: #fff!important;
+
     background: rgb(250 156 147)!important;
   }
 }
