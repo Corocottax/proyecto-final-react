@@ -15,6 +15,7 @@ import Opciones from './pages/Opciones/Opciones';
 import { JwtContext } from './shared/Contexts/JwtContext';
 import { useState } from 'react';
 import Splash from './shared/Splash/Splash';
+import NoticiasDetail from './pages/Home/NoticiasDetail/NoticiasDetail';
 
 function App() {
   const [jwt, setJwt] = useState(localStorage.getItem('token') || null);
@@ -31,6 +32,7 @@ function App() {
           <Route path="logIn" element={<Login/>}/>
           <Route path="registro" element={<Registro/>}/>
           <Route path="home" element={<Home/>}/>
+          <Route path="home/:id" element={<NoticiasDetail/>}/>
           <Route path="adopciones" element={<Animales/>}/>
           <Route path="adopciones/:id" element={<DetalleAnimales/>}/>
           <Route path="formularioAdopcion" element={<FormularioAdopcion/>}/>

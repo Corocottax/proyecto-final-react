@@ -1,15 +1,37 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { Fade } from 'react-awesome-reveal';
+import { useParams } from 'react-router-dom';
+import { getNoticiaById } from '../Funciones/Funciones';
+import Volver from '../Volver/Volver';
 import "./NoticiasDetail.scss"
+import PintadoDetalle from './PintadoDetalle/PintadoDetalle';
 
-const NoticiasDetail = ({noticia}) => {
+const NoticiasDetail = () => {
+
+  let { id } = useParams("id");
+  const [noticia, setNoticia] = useState();
+
+  useEffect(() => {
+
+    if (id)
+    getNoticiaById(id).then((data) => {
+
+      setNoticia(data);
+
+    });
+
+}, [id]);
+
   return (
-  <div className='noticia-detail'>
+    
+    <div className='vista'>
 
-    <img src={noticia.img} alt={noticia.title} />
-    <h2>{noticia.title}</h2>
-    <p>{noticia.description}</p>
+      <Volver />
 
-  </div>
+      <Fade>
+        {noticia && <PintadoDetalle noticia={noticia} />}
+      </Fade>
+    </div>
   );
 };
 

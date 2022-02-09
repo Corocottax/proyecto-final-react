@@ -8,6 +8,8 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+import { Fade } from 'react-awesome-reveal';
+import { generatePath, Link } from 'react-router-dom';
 
 const Home = () => {
 
@@ -104,12 +106,14 @@ const Home = () => {
 
       return (
 
-          <div key={index} className='noticia' onClick={() => <NoticiasDetail noticia={noticia} />}>
-
-            <img className='img-noticia' src={noticia.img} alt={noticia.title} />
-            <h3 className='h3-noticia'>{noticia.title}</h3>
-
-          </div>
+        <Fade key={index} delay={200} triggerOnce>
+          <Link className="Link" to={generatePath("/home/:id", { id: noticia._id })}>
+            <div className='noticia' onClick={() => <NoticiasDetail noticia={noticia} />}>
+              <img className='img-noticia' src={noticia.img} alt={noticia.title} />
+              <h3 className='h3-noticia'>{noticia.title}</h3>
+            </div>
+          </Link>
+        </Fade>
 
       )
 
