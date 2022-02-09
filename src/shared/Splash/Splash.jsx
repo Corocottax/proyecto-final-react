@@ -15,25 +15,19 @@ const fadeOut = keyframes`
   }`;
 
 const Splash = () => {
-    const [showSplash, setShowSplash] = useState(0);
+  const [showSplash, setShowSplash] = useState(0);
 
-    const carga = () => {
+  const carga = () => {
+    setTimeout(() => {
+      setShowSplash(1);
+    }, 5000);
 
-      setTimeout(() => {
-        
-        setShowSplash(1);
+    setShowSplash(0);
+  };
 
-      }, 3000);
-
-      setShowSplash(0);
-
-    }
-
-    useEffect(() => {
-        
-      carga();
-
-    }, []);
+  useEffect(() => {
+    carga();
+  }, []);
 
   return (
     <>
@@ -55,7 +49,7 @@ const Splash = () => {
     </div>}
         
     </>
-  )
-}
+  );
+};
 
-export default Splash
+export default Splash;
