@@ -104,7 +104,7 @@ const Home = () => {
 
       return (
 
-          <div key={index} className='noticia' onClick={() => <NoticiasDetail noticia={noticia._id} />}>
+          <div key={index} className='noticia' onClick={() => <NoticiasDetail noticia={noticia} />}>
 
             <img className='img-noticia' src={noticia.img} alt={noticia.title} />
             <h3 className='h3-noticia'>{noticia.title}</h3>
