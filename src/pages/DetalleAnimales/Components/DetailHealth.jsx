@@ -1,5 +1,6 @@
 import React from "react";
 import DetailInfo from "./DetailInfo";
+import "./DetailHealth.scss"
 
 const DetailHealth = ({animal}) => {
     console.log(animal);
@@ -11,8 +12,10 @@ const DetailHealth = ({animal}) => {
       <DetailInfo detail={animal.esterilizado} title="Esterilizado" />
       <DetailInfo detail={animal.identificado} title="Identificado" />
       <DetailInfo detail={animal.microchip} title="Microchip" />
-      
-      
+      <div className="comment">
+      <h4 className="comment-title">Tienes que saber que</h4>
+        <p className="comment-content">{animal.comentarios}</p>
+      </div>
     </>
   );
 };

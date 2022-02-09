@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import DetailAdoption from "./Components/DetailAdoption";
 import DetailData from "./Components/DetailData";
 import DetailHealth from "./Components/DetailHealth";
 import "./DetalleAnimales.scss";
 
-export const getAnimalById = (name, {setNavbar}) => {
+export const getAnimalById = (name) => {
 
-  setNavbar(true);
 
   return fetch(
     `https://proyecto-final-api-mocha.vercel.app/api/mascotas/${name}`
@@ -45,9 +45,11 @@ const DetalleAnimales = () => {
       <button className="detail-btn__3" onClick={() => setShowDetail("adopcion")}>Adopción</button>
       </div>
       <div className="detail-info">
-      {showDetail==="datos" ? <div><DetailData animal={animal} /></div> : (showDetail==="salud" ? <DetailHealth animal={animal}/> : <div>Adopción</div>) }
+      {showDetail==="datos" ? <div><DetailData animal={animal} /></div> : (showDetail==="salud" ? <DetailHealth animal={animal}/> : <DetailAdoption animal={animal}/>) }
       </div>
-      
+      <div className="detail-adopt">
+      <button className="detail-adopt__btn">Adoptar</button>
+      </div>
     </div>
   );
 };

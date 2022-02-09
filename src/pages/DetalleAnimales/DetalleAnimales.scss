@@ -55,13 +55,26 @@
   &-info {
     width: 100%;
   }
+
+  &-adopt{
+    &__btn{
+      width: 33.33%;
+      height: 33px;
+      background-color: rgb(250 156 147);
+      border: none;
+      border-radius: 5px;
+      color: white;
+      font-size: 17px;
+    }
+  }
 }
 
-.btn1{
+
+/* .btn1{
   border: none;
-  /* text-decoration: underline; */
+  text-decoration: underline;
 }
 
 .autoFocus{
   border: none;
-}
+} */
