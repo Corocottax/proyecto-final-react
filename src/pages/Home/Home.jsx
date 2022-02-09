@@ -100,7 +100,7 @@ const Home = () => {
 
     <div className='div-novedades'>
 
-    {noticias.length && noticias.map((noticia, index) => {
+    {noticias && noticias.map((noticia, index) => {
 
       return (
 

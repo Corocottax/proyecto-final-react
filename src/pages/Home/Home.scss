@@ -7,54 +7,6 @@
 
 }
 
-.img-tarjeta {
-
-    width: 25% !important;
-    height: 70% !important;
-    margin: 20px;
-
-}
-
-.tarjeta {
-
-    display: flex;
-    width: 90%;
-    height: 100px;
-    border-radius: 5px;
-    background-color: #bdd2d6;
-    justify-content: space-between;
-    -webkit-box-shadow: 0px 4px 10px 0px rgb(1 116 142), 10px 5px 15px 5px rgba(0,0,0,0); 
-    box-shadow: 0px 4px 10px 0px rgb(1 116 142), 10px 5px 15px 5px rgba(0,0,0,0);      
-
-}
-
-.info-tarjeta {
-
-    display: flex;
-    flex-direction: column;
-    align-content: space-around;
-    margin: 20px;
-
-    .title-tarjeta {
-        
-        height: auto;
-        text-align: left;
-        margin-bottom: 10px;
-        color: rgb(1 116 142);
-
-    }
-
-    .p-tarjeta {
-
-        width: 100%;
-        height: auto;
-        text-align: left;
-
-    }
-
-
-}
-
 .saludo {
 
     margin-top: 50px;
@@ -99,12 +51,67 @@
     width: 100vw;
     margin-top: 30px;
 
+    .swiper-slide {
+
+        display: flex;
+        justify-content: center;
+
+    }
+
+    .img-tarjeta {
+
+        width: 25% !important;
+        height: 70% !important;
+        margin: 20px;
+    
+    }
+    
+    .tarjeta {
+    
+        display: flex;
+        width: 90%;
+        height: 100px;
+        border-radius: 5px;
+        background-color: #bdd2d6;
+        justify-content: space-between;
+        -webkit-box-shadow: 0px 4px 10px 0px rgb(1 116 142), 10px 5px 15px 5px rgba(0,0,0,0); 
+        box-shadow: 0px 4px 10px 0px rgb(1 116 142), 10px 5px 15px 5px rgba(0,0,0,0);      
+    
+    }
+    
+    .info-tarjeta {
+    
+        display: flex;
+        flex-direction: column;
+        align-content: space-around;
+        margin: 20px;
+    
+        .title-tarjeta {
+            
+            height: auto;
+            text-align: left;
+            margin-bottom: 10px;
+            color: rgb(1 116 142);
+    
+        }
+    
+        .p-tarjeta {
+    
+            width: 100%;
+            height: auto;
+            text-align: left;
+    
+        }
+    
+    
+    }
+
 }
 
 .swiper {
 
     width: 100vw;
-    height: 200px;
+    height: 150px;
 
 }
 
@@ -142,4 +149,23 @@
     }
 
 }
+
+.swiper-pagination-bullet {
+
+    width: 10px;
+    height: 10px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 12px;
+    border: solid 1px rgb(250 156 147)!important;
+    opacity: 1;
+    background: #fff!important;
+
+  }
+  
+  .swiper-pagination-bullet-active {
+
+    background: rgb(250 156 147)!important;
+
+  }
 
