@@ -166,6 +166,12 @@ h3{
       background-color: white;
    
     .slider-container-1{
+      .swiper {
+        position: absolute;
+          width: 100vw;
+          height: 120vh;
+          background-color: white;
+        }
   .swiper-slide img {
     display: block;
     width: 100%;
