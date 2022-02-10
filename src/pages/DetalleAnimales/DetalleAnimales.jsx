@@ -76,6 +76,7 @@ const DetalleAnimales = ({setNavbar}) => {
       </div>
       
       <CustomPopup onClose={popupCloseHandler} show={visibility}>
+        <div className="popupazul">
         <div className="popupdetalle">
           <h3>Solicitud de adopción</h3>
           <p>
@@ -92,6 +93,7 @@ const DetalleAnimales = ({setNavbar}) => {
           />
           <button onClick={popupCloseHandler}>Cancelar</button>
           <Link to="/formularioAdopcion">Continuar</Link>
+          </div>
         </div>
       </CustomPopup>
       

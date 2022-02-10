@@ -147,9 +147,18 @@
   border: none;
 } */
 
-.popupshow {
+.popupazul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: rgba(1, 116, 142, 0.589);
   position: absolute;
   width: 100vw;
   height: 100vh;
+}
+.popupdetalle{
+  width: 80vw;
+  height: 80vh;
+  background-color: whitesmoke;
+  border-radius: 15px;
 }
