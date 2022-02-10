@@ -9,17 +9,6 @@ const FormularioAdopcion2 = ({ setNavbar }) => {
 
   setNavbar(true);
 
-  const [toSend, setToSend] = useState({
-    from_name: "",
-    calle: "",
-    postalCode: "",
-    city: "",
-    reply_to: "",
-
-  
-
-  });
-
   const onSubmit = (e) => {}
 
   return (
@@ -40,8 +29,7 @@ const FormularioAdopcion2 = ({ setNavbar }) => {
                 <input
                   type="form-radio"
                   value="Si"
-                  checked={this.state.selectedOption === "Si"}
-                  onChange={this.onValueChange}
+              
                 />
                 Si
               </label>
@@ -51,8 +39,7 @@ const FormularioAdopcion2 = ({ setNavbar }) => {
                 <input
                   type="radio"
                   value="No"
-                  checked={this.state.selectedOption === "No"}
-                  onChange={this.onValueChange}
+                  
                 />
                 No
               </label>
