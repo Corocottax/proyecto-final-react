@@ -1,8 +1,5 @@
 import React, { useState } from "react";
-<<<<<<< HEAD
-import Reveal, { Bounce, Fade } from "react-awesome-reveal";
-=======
->>>>>>> ad6d316379dc4f6dad10eebb6df783a2a6998848
+import { Bounce, Fade } from "react-awesome-reveal";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { API } from "../../shared/Services/Api";
