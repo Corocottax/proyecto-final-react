@@ -28,9 +28,9 @@ const Registro = ({setNavbar}) => {
       <label htmlFor="age">Edad</label>
       <input name="age" id="age" type="number" {...register("age")}/>
 
-      {/* <label htmlFor="photo">Foto</label>
-      <input name="photo" id="photo" type="file" alt="login" src="https://ceslava.s3-accelerate.amazonaws.com/2016/04/mistery-man-gravatar-wordpress-avatar-persona-misteriosa-510x510.png" {...register("photo")}/>
- */}
+      <label htmlFor="photo">Foto</label>
+      <input name="photo" id="photo" type="file" alt="login" {...register("photo")}/>
+
       <input type="submit" value="Register"/>
     </form>
   );
