@@ -48,7 +48,7 @@ const PreLogin = ({setNavbar}) => {
       <SwiperSlide><div><img src="/images/slider/imagen2.png" alt=""/>
       <h4>Adopta desde tu móvil</h4>
       <p>Puedes acceder al perfil de muchos animales que están en adopción y filtrarlos para encontrar el que mejor se adapte a ti</p></div></SwiperSlide>
-      <SwiperSlide><div><img src="/images/slider/imagen3.png" alt=""/> <h4>Si eres una asociación sube a tus peludos para darles más difusión</h4><button className='dios' onClick={popupCloseHandler}>Continuar</button></div></SwiperSlide>
+      <SwiperSlide><div><img src="/images/slider/imagen3.png" alt=""/> <h4>Si eres una asociación sube a tus peludos para darles más difusión</h4><button className='btn-next' onClick={popupCloseHandler}>Continuar</button></div></SwiperSlide>
       
     </Swiper>
     
@@ -56,11 +56,11 @@ const PreLogin = ({setNavbar}) => {
   </div>
   </div>
   <div className="container-prelogin">
-    <img className='imagen-prelogin' src="/images/login.png" alt="mujer leyendo con perro"/>
+    <img src="/images/login.png" alt="mujer leyendo con perro"/>
     <div className='container-btn'>
-      <h3>¿Como quieres entrar?</h3>
-      <Link to="/logIn" className='btn-login'><p>Usuario</p></Link>
-      <Link to="/logIn" className='btn-login'><p>Asociacion Protectora</p></Link>
+    <h3>¿Como quieres entrar?</h3>
+    <Link to="/logIn" className='btn-login'><p>Usuario</p></Link>
+    <Link to="/logIn" className='btn-login'><p>Asociacion Protectora</p></Link>
     </div>
   </div>
 
