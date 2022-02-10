@@ -6,7 +6,11 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      margin: 20px 0;
+      border: 1.5px solid #bdd2d6;
+      border-radius: 5px;
+      padding: 10px;
+      min-height: 50px;
+      margin: 15px 0px;
     &__title {
       color: rgb(1 116 142);
     }
@@ -14,10 +18,14 @@
     }
   }
   &-price {
-    margin: 20px 0;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    border: 1.5px solid #bdd2d6;
+      border-radius: 5px;
+      padding: 10px;
+      min-height: 50px;
+      margin: 15px 0px;
     &__title {
       color: rgb(1 116 142);
     }
@@ -25,7 +33,11 @@
     }
   }
   &-shipping {
-    margin: 20px 0;
+    border: 1.5px solid #bdd2d6;
+      border-radius: 5px;
+      padding: 10px;
+      min-height: 50px;
+      margin: 15px 0px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;

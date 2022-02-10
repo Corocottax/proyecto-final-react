@@ -42,20 +42,31 @@ const DetalleAnimales = () => {
         <img className="detail-figure__img" src={animal.foto} alt={animal.nombre}/>
         <figcaption className="detail-figure__name">{animal.nombre}</figcaption>
       </figure>
-      <div>
-        {animal.sexo === "macho" ? (
-          <img src="https://res.cloudinary.com/dbamkolrf/image/upload/v1644482299/iconos%20protectora/male_eloz8z.png" alt="logo macho"/>) : (<img src="https://res.cloudinary.com/dbamkolrf/image/upload/v1644482298/iconos%20protectora/female_leu70o.png" alt="logo macho"/>)}
-        <p>{animal.nombre}</p>
-        <p>{animal.localizacion}</p>
-        <img src="https://res.cloudinary.com/dhp2zuftj/image/upload/v1644481703/proyecto%20final/favoritosCopy_3x_h6guea.png" alt="logo corazon"/>
+      <div className="div-compartir-principal">
+        <div className="div-compartir">
+          <div className="sexonombreyciudad">
+            <div className="sexoynombre">
+              {animal.sexo === "macho" ? (
+                <img className="sexo" src="https://res.cloudinary.com/dhp2zuftj/image/upload/v1644509182/proyecto%20final/male_3x_kcyhge.png" alt="logo macho"/>) : (<img src="https://res.cloudinary.com/dhp2zuftj/image/upload/v1644509182/proyecto%20final/female_3x_x10zv1.png" alt="logo hembra"/>)}
+              <p className="nombreAnimal">{animal.nombre}</p>
+            </div>
+            <p className="localizacionAnimal">{animal.localizacion}</p>
+          </div>
+          <div className="compartir">
+            <img className="img-compartir-corazon" src="https://res.cloudinary.com/dhp2zuftj/image/upload/v1644509359/proyecto%20final/favoritos_3x_cfuezi.png" alt="logo corazon"/>
+            <img className="img-compartir-compartir" src="https://res.cloudinary.com/dhp2zuftj/image/upload/v1644507412/proyecto%20final/compartir_3x_ue2hxv.png" alt="logo compartir"/>
+          </div>
+        </div>
       </div>
-      <div className="detail-btn">
-        <button className="detail-btn__1" onClick={() => setShowDetail("datos")} autoFocus>Datos</button>
-        <button className="detail-btn__2" onClick={() => setShowDetail("salud")}>Salud</button>
-        <button className="detail-btn__3" onClick={() => setShowDetail("adopcion")}> Adopción</button>
+      <div className="detail-btn-div">
+        <button className="detail-btn" onClick={() => setShowDetail("datos")} autoFocus>Datos</button>
+        <button className="detail-btn" onClick={() => setShowDetail("salud")}>Salud</button>
+        <button className="detail-btn" onClick={() => setShowDetail("adopcion")}> Adopción</button>
       </div>
-      <div className="detail-info">
-        {showDetail === "datos" ? (<div><DetailData animal={animal} /></div>) : showDetail === "salud" ? (<DetailHealth animal={animal} />) : (<DetailAdoption animal={animal} />)}
+      <div className="detail-info-superior">
+        <div className="detail-info">
+          {showDetail === "datos" ? (<div><DetailData animal={animal} /></div>) : showDetail === "salud" ? (<DetailHealth animal={animal} />) : (<DetailAdoption animal={animal} />)}
+        </div>
       </div>
       <div className="detail-adopt">
         <button className="detail-adopt__btn" onClick={() => setVisibility(!visibility)}>Adoptar</button>

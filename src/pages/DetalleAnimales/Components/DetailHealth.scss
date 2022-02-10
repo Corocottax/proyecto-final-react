@@ -1,7 +1,15 @@
 .comment {
+
+  border: 1.5px solid #bdd2d6;
+  border-radius: 10px;
+  padding: 10px;
+  min-height: 100px;
+  margin: 20px 0px;
+
   &-title {
     color: rgb(1 116 142);
     display: flex;
+    margin-bottom: 5px;
   }
   &-content {
   }
