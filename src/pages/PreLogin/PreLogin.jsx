@@ -48,9 +48,10 @@ const PreLogin = ({setNavbar}) => {
       <SwiperSlide><div><img src="/images/slider/imagen2.png" alt=""/>
       <h4>Adopta desde tu móvil</h4>
       <p>Puedes acceder al perfil de muchos animales que están en adopción y filtrarlos para encontrar el que mejor se adapte a ti</p></div></SwiperSlide>
-      <SwiperSlide><div><img src="/images/slider/imagen3.png" alt=""/> <h4>Si eres una asociación sube a tus peludos para darles más difusión</h4></div></SwiperSlide>
+      <SwiperSlide><div><img src="/images/slider/imagen3.png" alt=""/> <h4>Si eres una asociación sube a tus peludos para darles más difusión</h4><button className='dios' onClick={popupCloseHandler}>Continuar</button></div></SwiperSlide>
       
     </Swiper>
+    
   </CustomPopup>
   </div>
   </div>

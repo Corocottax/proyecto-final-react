@@ -17,15 +17,13 @@ const CustomPopup = (props) => {
     <div
       style={{
         visibility: show ? "visible" : "hidden",
-        opacity: show ? "1" : "0"
+        opacity: show ? "1" : "0",
+        position:"absolute",
       }}
       className={popupStyles.overlay}
     >
       <div className={popupStyles.popup}>
         <h2>{props.title}</h2>
-        <span className={popupStyles.close} onClick={closeHandler}>
-          &times;
-        </span>
         <div className={popupStyles.content}>{props.children}</div>
       </div>
     </div>

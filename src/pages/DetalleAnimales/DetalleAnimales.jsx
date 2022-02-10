@@ -18,8 +18,11 @@ export const getAnimalById = (name) => {
   });
 };
 
-const DetalleAnimales = () => {
+const DetalleAnimales = ({setNavbar}) => {
   const [visibility, setVisibility] = useState(false);
+
+  setNavbar(false);
+
 
   const popupCloseHandler = () => {
     setVisibility();
@@ -71,6 +74,7 @@ const DetalleAnimales = () => {
       <div className="detail-adopt">
         <button className="detail-adopt__btn" onClick={() => setVisibility(!visibility)}>Adoptar</button>
       </div>
+      
       <CustomPopup onClose={popupCloseHandler} show={visibility}>
         <div className="popupdetalle">
           <h3>Solicitud de adopción</h3>
@@ -90,7 +94,9 @@ const DetalleAnimales = () => {
           <Link to="/formularioAdopcion">Continuar</Link>
         </div>
       </CustomPopup>
+      
     </div>
+
   );
 };
 
