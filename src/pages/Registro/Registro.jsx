@@ -63,7 +63,7 @@ const Registro = ({setNavbar}) => {
 
         <input className="inputChulo" placeholder="Contraseña" name="password" id="password" type="password" {...register("password", { required: true, pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/})}/>
 
-        <input className="inputChulo" placeholder="Confirmar ontraseña" name="password" id="password" type="password" {...register("password", { required: true, pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/})}/>
+        <input className="inputChulo" placeholder="Confirmar contraseña" name="password" id="password" type="password" {...register("password", { required: true, pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/})}/>
 
         <input className="inputChulo" placeholder="Edad" name="age" id="age" type="number" {...register("age")}/>
 
