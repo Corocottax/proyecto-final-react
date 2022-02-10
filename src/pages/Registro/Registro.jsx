@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { API } from "../../shared/Services/Api";
@@ -9,6 +9,15 @@ const Registro = ({setNavbar}) => {
   let navigate = useNavigate();
   setNavbar(false);
 
+  const [passwordShown, setPasswordShown] = useState(false);
+  const togglePassword = () => {
+    // When the handler is invoked
+    // inverse the boolean state of passwordShown
+    setPasswordShown(!passwordShown);
+  };
+  
+
+  
   const onSubmit = (data) => {
     const formData = new FormData();
     formData.append('name', data.name);
@@ -27,16 +36,15 @@ const Registro = ({setNavbar}) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <label htmlFor="name">Nombre</label>
       <input id="name" placeholder="Pedro Garcia Nieto"{...register("name", { required: true })}/>
 
-      <label htmlFor="email">Email</label>
       <input id="email" placeholder="ejemplo@ejemplo.com" {...register("email", { required: true, pattern: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,})}/>
 
-      <label htmlFor="password">Contraseña</label>
-      <input name="password" id="password" type="password" {...register("password", { required: true, pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/})}/>
+      <div>
+        <input name="password" id="password" type={passwordShown ? "text" : "password"} {...register("password", { required: true, pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/})}/>
+        <img onClick={togglePassword} src="" alt="">Show password</img>
+      </div>
 
-      <label htmlFor="age">Edad</label>
       <input name="age" id="age" type="number" {...register("age")}/>
 
       <label htmlFor="photo">Foto</label>
