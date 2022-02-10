@@ -1,10 +1,12 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import { API } from "../../shared/Services/Api";
 import "./Registro.scss";
 
 const Registro = ({setNavbar}) => {
   const { register, handleSubmit } = useForm();
+  let navigate = useNavigate();
   setNavbar(false);
 
   const onSubmit = (data) => {
@@ -17,6 +19,9 @@ const Registro = ({setNavbar}) => {
     console.log(data);
     API.post("api/users/", formData).then((res) => {
       console.log("Register user");
+      if (res) {
+        navigate("/login")
+      }
     });
   };
 
