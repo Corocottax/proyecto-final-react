@@ -4,6 +4,9 @@ import "./Navbar.scss"
 
 const Navbar = () => {
 
+  const user = localStorage.getItem('user');
+  const userParsed = JSON.parse(user)
+
   return (
   <div className='div-navbar'>
 
@@ -24,7 +27,7 @@ const Navbar = () => {
     </NavLink>
     <NavLink to="/perfil" activeclassname={"active"} className={({isActive}) => (isActive ? "active" : "inactive")}>
       
-      <img className='img-navbar' src='https://res.cloudinary.com/dhp2zuftj/image/upload/v1644326694/proyecto%20final/chico_3x_zu7cdh.png' alt='perfil'/>
+      {userParsed ? userParsed.photo ? <img className='img-perfilito' src={userParsed.photo} alt='perfil' /> : <img className='img-perfilito' src="https://res.cloudinary.com/dhp2zuftj/image/upload/v1644326694/proyecto%20final/chico_3x_zu7cdh.png" alt='perfil' /> : <></>}
     
     </NavLink>
     <NavLink to="/opciones" activeclassname={"active"} className={({isActive}) => (isActive ? "active" : "inactive")}>

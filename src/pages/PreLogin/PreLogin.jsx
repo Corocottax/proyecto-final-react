@@ -19,8 +19,6 @@ const PreLogin = ({setNavbar}) => {
     setVisibility();
   };
 
-
-
   const pagination = {
     clickable: true,
   };

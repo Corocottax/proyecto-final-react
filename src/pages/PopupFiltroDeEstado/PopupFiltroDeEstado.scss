@@ -1,0 +1,39 @@
+.container-filter{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    width:307px;
+    height:232px;
+    .title-filter{
+        color:rgb(1 116 142);
+    }
+    .btn-filter{
+        width: 77px ;
+        height: 73px;
+        background-color: none;
+        border-radius: 8px;
+    }
+    .container-btn-filter{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        .btn-filter{
+            width: 77px ;
+            height: 73px;
+            background-color: none;
+            border-radius: 8px;
+        }
+
+    }
+    .btn-submit{
+        border:none;
+        background-color:rgb(250 156 147);
+        border-radius: 4px;
+        width:272px;
+        height: 60px;
+        text-align: center;
+        color: white;
+    }
+}

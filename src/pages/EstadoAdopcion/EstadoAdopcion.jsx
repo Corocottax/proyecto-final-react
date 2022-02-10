@@ -1,11 +1,13 @@
 import React from 'react';
 import { useState, useEffect } from "react";
+import PopupFiltroDeEstado from '../PopupFiltroDeEstado/PopupFiltroDeEstado';
 import "./EstadoAdopcion.scss"
 import { Link, useParams } from 'react-router-dom';
 import Buscador from '../../shared/Buscador/Buscador.jsx'
 
 
 const EstadoAdopcion = ({setNavbar}) => {
+  const [visibility, setVisibility] = useState(false);
   const [texto, setTexto] = useState("");
   const getUserById = (id) => {
     return fetch(
@@ -36,7 +38,8 @@ const EstadoAdopcion = ({setNavbar}) => {
     <div className="searcher-container">
     <Link to="/perfil"><img src="/images/flecha.png" alt="flecha"/></Link>
     <Buscador texto={texto} setTexto={setTexto} />
-    <button className='btn-filter'><img src="/images/filtro.png" alt="filtro"/></button>
+    <button onClick={() => setVisibility(!visibility)}className='btn-filter'><img src="/images/filtro.png" alt="filtro"/></button>
+    <PopupFiltroDeEstado/>
     </div>
     {user.estadoAdopcion && user.estadoAdopcion.map((estadoAdopcion) => (
       <div> 
