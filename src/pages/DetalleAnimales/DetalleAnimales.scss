@@ -156,9 +156,51 @@
   width: 100vw;
   height: 100vh;
 }
+
 .popupdetalle{
-  width: 80vw;
+  width: 90vw;
   height: 80vh;
   background-color: whitesmoke;
   border-radius: 15px;
+  h3{
+    color: rgb(1 116 142);
+    letter-spacing: 0.5px;
+    margin-top: 20px;
+  }
+  p{
+    margin: 20px;
+    font-size: 14px;
+  }
+  h4{
+    color: rgb(1 116 142);
+    letter-spacing: 0.5px;
+    margin: 10px;
+    font-size: 16px;
+    margin-top:40px
+  }
+  img{
+    margin-top: 40px;
+  }
+ .btn-pop-container{
+  display: flex;
+  border-top: 1px solid rgb(189 210 214);
+  justify-content: center;
+  align-items: center;
+  margin-top: 80px;
+  height: 80px;
+  .btn-pop{
+  margin-top: 30px;
+  border: none;
+  background-color: transparent;
+  width:50vw;
+  height:60px;
+  font-weight: bold;
+  }
+  button{
+    font-size: 16px;
+    margin-bottom: 40px;
+    color:#fa9c93;
+    border-right: 1px solid rgb(189 210 214);
+  }
+}
 }
