@@ -14,8 +14,11 @@ const Registro = ({setNavbar}) => {
   const togglePassword = () => {
     setPasswordShown(!passwordShown);
   };
-  
 
+  const [passwordShown2, setPasswordShown2] = useState(false);
+  const togglePassword2 = () => {
+    setPasswordShown2(!passwordShown2);
+  };
   
   const onSubmit = (data) => {
     const formData = new FormData();
@@ -44,7 +47,7 @@ const Registro = ({setNavbar}) => {
   }
 
   return (
-    <div>
+    <div className="registro">
       <div className="hero">
         <Bounce>
           <img
@@ -60,7 +63,7 @@ const Registro = ({setNavbar}) => {
         </Fade>
       </div>
       <div>
-        <h3>¡Hola! si es la primera vez que entras registrate y podrás disfrutar de nuestra app</h3>
+        <h3 className="titulo">¡Hola! si es la primera vez que entras registrate y podrás disfrutar de nuestra app</h3>
       </div>
       <form className="formChulo" onSubmit={handleSubmit(onSubmit)}>
 
@@ -68,9 +71,15 @@ const Registro = ({setNavbar}) => {
 
         <input className="inputChulo" id="email" placeholder="Email" {...register("email", { required: true, pattern: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,})}/>
 
-        <input className="inputChulo" placeholder="Contraseña" name="password" id="password" type="password" {...register("password", { required: true, pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/})}/>
+        <div className="input-contraseña">
+          <input className="inputChuloContraseña" placeholder="Contraseña" name="password" id="password" type={passwordShown ? "text" : "password"}  {...register("password", { required: true, pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/})}/>
+          <img onClick={togglePassword} src="/images/mostrar.png" alt="ojo mostrar"/>
+        </div>
 
-        <input className="inputChulo" placeholder="Confirmar contraseña" name="password" id="password" type="password" {...register("password", { required: true, pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/})}/>
+        <div className="input-contraseña">
+          <input className="inputChuloContraseña" placeholder="Confirmar contraseña" name="password2" id="password2" type={passwordShown2 ? "text" : "password"}  {...register("password2", { required: true, pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/})}/>
+          <img onClick={togglePassword2} src="/images/mostrar.png" alt="ojo mostrar"/>
+        </div>
 
         <input className="inputChulo" placeholder="Edad" name="age" id="age" type="number" {...register("age")}/>
 
@@ -86,7 +95,7 @@ const Registro = ({setNavbar}) => {
           </label>
         </div>
 
-      <input className="botonEnviar" type="submit" value="Register"/>
+      <input className="botonEnviar" type="submit" value="Registrarse"/>
 
       </form>
     </div>
