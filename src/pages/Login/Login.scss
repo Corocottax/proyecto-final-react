@@ -1,3 +1,37 @@
+.input-contraseña-2 {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1.5px solid #bdd2d6;
+    width: 280px;
+    height: 20px;
+    margin: 10px 0;
+
+    .inputChuloContraseña-2 {
+
+        padding: 1px;
+        border: none;
+        width: 100%;
+
+        &:focus {
+
+            outline: none;
+    
+        }
+
+    }
+
+    .ojete {
+
+        width: 30px;
+
+    }
+
+
+}
+
+
 .hero2 {
 
     display: flex;
@@ -67,17 +101,11 @@
             font-size: 10px;
             color:black;
         }
-        img{
-            position: absolute;
-            width: 30px;
-            z-index: 1;
-            margin-bottom: 180px;
-            margin-left: 240px;
-        }
+        
         input {
           width:280px;
           padding: 2px;
-          margin: 10px;
+          margin: 10px 0px;
           border: none;
           border-bottom: solid rgba(0, 0, 0, 0.2) 1px;
         }

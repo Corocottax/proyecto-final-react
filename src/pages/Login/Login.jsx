@@ -48,8 +48,10 @@ const Login = ({setNavbar}) => {
         })}
       />
       <label htmlFor="password"></label>
-      <input id="password" type={passwordShown ? "text" : "password"} placeholder="contraseña"{...register("password", { required: true, pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/})}/>
-      <img onClick={togglePassword} src="/images/mostrar.png" alt="ojo mostrar"/>
+      <div className="input-contraseña-2">
+          <input className="inputChuloContraseña-2" placeholder="Contraseña" name="password" id="password" type={passwordShown ? "text" : "password"} {...register("password", { required: true, pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/})}/>
+          <img className="ojete" onClick={togglePassword} src="/images/mostrar.png" alt="ojo mostrar"/>
+      </div>
         <a href="">¿Has olvidado tu contraseña?</a>
 
       <input className="submit-1"type="submit" value="Iniciar sesión" />
