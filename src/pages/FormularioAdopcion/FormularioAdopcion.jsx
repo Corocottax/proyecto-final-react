@@ -136,7 +136,9 @@ const FormularioAdopcion = ({ setNavbar }) => {
             Acepto los términos y condiciones de la adopción
           </p>
         </div>
-        <button type="sumbit">Enviar</button>
+        <div className="div-siguiente">
+          <button className="detail-adopt__btn">Siguiente</button>
+        </div>
         {/* <input className="submit" type="submit" value="Continuar" /> */}
       </form>
     </div>
