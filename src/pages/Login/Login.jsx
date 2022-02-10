@@ -12,8 +12,8 @@ const Login = ({setNavbar}) => {
   const onSubmit = (formData) => {
     API.post("api/users/login", formData).then((res) => {
       console.log(res);
-      localStorage.setItem("token", res.data);
-      /* localStorage.setItem("user", JSON.stringify(res.data.user)); */
+      localStorage.setItem("token", res.data.token);
+      localStorage.setItem("user", JSON.stringify(res.data.userDB));
       setJwt(res.data.token);
     });
   };
