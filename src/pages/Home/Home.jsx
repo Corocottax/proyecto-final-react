@@ -18,6 +18,9 @@ const Home = ({setNavbar}) => {
   const arrayNoticias = [];
   setNavbar(true);
 
+  const user = localStorage.getItem('user');
+  const userParsed = JSON.parse(user)
+
   const getNoticias = async () => {
 
     const noticias = await axios(UrlNoticias);
@@ -48,7 +51,7 @@ const Home = ({setNavbar}) => {
   return (
   <div className='noticias'>
 
-  <h2 className='saludo'>¡Hola Persona!</h2>
+  <h2 className='saludo'>¡Hola {userParsed.name}!</h2>
 
     <div className='div-swiper'>
 
