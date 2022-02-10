@@ -78,6 +78,15 @@
 
     background: rgb(250 156 147)!important;
   }
+  .btn-next{
+    background-color:rgb(250 156 147) ;
+  border: none;
+  border-radius: 5px;
+  color:white;
+  width: 196px;
+  min-height: 45px;
+  margin: 10px;
+  }
 }
 }
 .container-prelogin{
@@ -195,7 +204,3 @@ h3{
 }
 }
 
-
-.dios{
-  z-index: 999;
-}
