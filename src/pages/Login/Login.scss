@@ -23,7 +23,6 @@
     }
     .title-login{
        color: rgb(1 116 142);
-       font-weight:normal;
        margin-top: 80px;
        margin-bottom: 460px;
     }
@@ -54,7 +53,7 @@
             position: absolute;
             width: 30px;
             z-index: 1;
-            margin-bottom: 190px;
+            margin-bottom: 180px;
             margin-left: 240px;
         }
         input {
@@ -72,14 +71,17 @@
             width: 200px;
             border: none;
             border-radius: 5px;
+            font-weight: bold;
           }
           .submit-2 {
-            background-color: rgb(1 116 142);;
-            color: rgb(255, 250, 250);
+            background-color: rgb(255, 255, 255);;
+            border:2px solid rgb(1 116 142)!important;
+            color: rgb(1 116 142);
             padding: 10px;
             width: 200px;
             border: none;
             border-radius: 5px;
+            font-weight: bold;
           }
       }
 
