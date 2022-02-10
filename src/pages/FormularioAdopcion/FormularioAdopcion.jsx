@@ -16,10 +16,10 @@ const FormularioAdopcion = ({setNavbar}) => {
   const onSubmit = (e) => {
     e.preventDefault();
     send(
-      'SERVICE ID',
-      'TEMPLATE ID',
+      'service_ei8jiek',
+      'template_wzp8r4e',
       toSend,
-      'User ID'
+      'Em80CyZWKh5zdpC0E5tMK'
     )
       .then((response) => {
         console.log('SUCCESS!', response.status, response.text);
@@ -29,16 +29,14 @@ const FormularioAdopcion = ({setNavbar}) => {
       });
   };
 
-  const handleChange = (e) => {
-    setToSend({ ...toSend, [e.target.name]: e.target.value });
-  };
+
 
   return (
     <div className="adoption-form-div">
       <div className="form-title">
         <h2>Formulario de adopción</h2>
       </div>
-      <form onChange={handleChange(onSubmit)}>
+      <form onChange={handleSubmit(onSubmit)}>
         <div className="form-subtitle">
           <h3>Tus datos</h3>
         </div>
