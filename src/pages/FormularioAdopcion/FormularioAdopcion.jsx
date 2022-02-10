@@ -1,19 +1,44 @@
-import React from "react";
+import React, {useState} from "react";
 import "./FormularioAdopcion.scss";
 import { useForm } from "react-hook-form";
+import { send } from 'emailjs-com';
 
 const FormularioAdopcion = ({setNavbar}) => {
   const { register, handleSubmit } = useForm();
   setNavbar(true);
+  const [toSend, setToSend] = useState({
+    from_name: '',
+    to_email: '',
+    message: '',
+    reply_to: '',
+  });
 
-  const onSubmit = (formData) => {};
+  const onSubmit = (e) => {
+    e.preventDefault();
+    send(
+      'SERVICE ID',
+      'TEMPLATE ID',
+      toSend,
+      'User ID'
+    )
+      .then((response) => {
+        console.log('SUCCESS!', response.status, response.text);
+      })
+      .catch((err) => {
+        console.log('FAILED...', err);
+      });
+  };
+
+  const handleChange = (e) => {
+    setToSend({ ...toSend, [e.target.name]: e.target.value });
+  };
 
   return (
     <div className="adoption-form-div">
       <div className="form-title">
         <h2>Formulario de adopción</h2>
       </div>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onChange={handleChange(onSubmit)}>
         <div className="form-subtitle">
           <h3>Tus datos</h3>
         </div>
