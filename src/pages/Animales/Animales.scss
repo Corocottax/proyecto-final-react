@@ -25,6 +25,8 @@
   flex-direction: column;
   align-items: center;
   margin-bottom: 90px;
+  overflow-y: scroll;
+  max-height: 100vh;
 
   .carta {
     margin: 10px 0px;
@@ -64,6 +66,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: absolute;
+  z-index: 1;
+  background-color: white;
   color: rgb(1, 116, 142);
 
   h2 {
@@ -98,21 +103,22 @@
     h3 {
       font-size: small;
       font-weight: 400;
-      margin: 30px 30px 0px 30px;
+      margin: 30px 30px 0px 8px;
       padding: 10px;
     }
 
     .popup-filter--especieButtons {
-      display: flex;
-      flex-wrap: wrap;
-      flex-direction: row;
-      justify-content: flex-start;
-      margin: 20px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
 
       button {
-        height: 60px;
-        width: 60px;
-        margin: 8px;
+        height: 80px;
+        width: 70px;
+        margin: 5px;
+        background-color: white;
+        color: rgb(1, 116, 142);
+        border: solid rgb(179, 179, 179) 1px;
+        border-radius: 10px;
       }
     }
   }
@@ -131,45 +137,65 @@
       width: 300px;
       padding: 10px;
       border: none;
-      border-bottom: solid black 2px;
+      border-bottom: solid rgb(161, 161, 161) 2px;
     }
   }
-
   .popup-filter--sexo {
     display: flex;
-    flex-direction: row;
-
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    min-width: 100vw;
 
     h3 {
       font-size: small;
       font-weight: 400;
       padding: 10px;
     }
-
-    button {
-      height: 60px;
-      width: 60px;
-      margin: 8px;
-    }
-
   }
 
+  .popup-filter--sex {
+    display: flex;
+    min-width: 100vw;
+    justify-content: center;
+
+    button {
+      height: 80px;
+      width: 70px;
+      margin: 5px;
+      background-color: white;
+      color: rgb(1, 116, 142);
+      border: solid rgb(179, 179, 179) 1px;
+      border-radius: 10px;
+    }
+  }
 
   .popup-filter--tamaño {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-
+    text-align: left;
+    min-width: 100vw;
     h3 {
       font-size: small;
       font-weight: 400;
       padding: 10px;
     }
 
-    button {
-      height: 60px;
-      width: 60px;
-      margin: 8px;
+    .popup-filter--sizes {
+      display: flex;
+      min-width: 100vw;
+      justify-content: center;
+
+      button {
+        height: 80px;
+        width: 70px;
+        margin: 5px;
+        background-color: white;
+        color: rgb(1, 116, 142);
+        border: solid rgb(179, 179, 179) 1px;
+        border-radius: 10px;
+      }
     }
   }
 }

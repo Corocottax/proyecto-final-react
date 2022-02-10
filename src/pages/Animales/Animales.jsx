@@ -61,7 +61,7 @@ const Animales = ({ setNavbar }) => {
 
           <div className="popup-filter--ciudad">
             <h3>Ciudad</h3>
-            
+
             <select name="select">
               <option value="Elige tu zona" selected>
                 Elige tu zona
@@ -73,53 +73,144 @@ const Animales = ({ setNavbar }) => {
 
           <div className="popup-filter--especie">
             <h3>Especie</h3>
-             <div className="popup-filter--especieButtons">
-               <button class="button"> ASDF </button>
-               <button class="button"> ASDF </button>
-               <button class="button"> ASDF </button>
-               <button class="button"> ASDF </button>
-               <button class="button"> ASDF </button>
-               <button class="button"> ASDF </button>
-               <button class="button"> ASDF </button>
-               <button class="button"> ASDF </button>
-               <button class="button"> ASDF </button>
-               <button class="button"> ASDF </button>
-               <button class="button"> ASDF </button>
-             </div>
-            
+            <div className="popup-filter--especieButtons">
+              <button class="button">
+                <img
+                  src="https://res.cloudinary.com/dbamkolrf/image/upload/v1644482297/iconos%20protectora/perrop_ewpdvd.png"
+                  alt="logo perro"
+                />
+                <p>Perro</p>
+              </button>
+              <button class="button">
+                <img
+                  src="https://res.cloudinary.com/dbamkolrf/image/upload/v1644482297/iconos%20protectora/cat_cxspoi.png"
+                  alt="logo Gato"
+                />
+                <p>Gato</p>
+              </button>
+              <button class="button">
+                <img
+                  src="https://res.cloudinary.com/dbamkolrf/image/upload/v1644482299/iconos%20protectora/group12_e2ogox.png"
+                  alt="logo Conejo"
+                />
+                <p>Conejo</p>
+              </button>
+              <button class="button">
+                <img
+                  src="https://res.cloudinary.com/dbamkolrf/image/upload/v1644482297/iconos%20protectora/067Hamster_jj8jq1.png"
+                  alt="logo Cobaya"
+                />
+                <p>Cobaya</p>
+              </button>
+              <button class="button">
+                <img
+                  src="https://res.cloudinary.com/dbamkolrf/image/upload/v1644482297/iconos%20protectora/035CoatiCopy_dyhwh5.png"
+                  alt="logo Pequeño mamífero"
+                />
+                <p>Pequeño mamífero</p>
+              </button>
+              <button class="button">
+                <img
+                  src="https://res.cloudinary.com/dbamkolrf/image/upload/v1644482298/iconos%20protectora/group6_dxwxx6.png"
+                  alt="logo Hurón"
+                />
+                <p>Hurón</p>
+              </button>
+              <button class="button">
+                <img
+                  src="https://res.cloudinary.com/dbamkolrf/image/upload/v1644482297/iconos%20protectora/057Fish2_rcvzga.png"
+                  alt="logo Pez"
+                />
+                <p>Pez</p>
+              </button>
+              <button class="button">
+                <img
+                  src="https://res.cloudinary.com/dbamkolrf/image/upload/v1644482299/iconos%20protectora/group8_xn6wnm.png"
+                  alt="logo Reptil"
+                />
+                <p>Reptil</p>
+              </button>
+              <button class="button">
+                <img
+                  src="https://res.cloudinary.com/dbamkolrf/image/upload/v1644482298/iconos%20protectora/anfibio_auuz2o.png"
+                  alt="logo Anfibio"
+                />
+                <p>Anfibio</p>
+              </button>
+              <button class="button">
+                <img
+                  src="https://res.cloudinary.com/dbamkolrf/image/upload/v1644482297/iconos%20protectora/perrop_ewpdvd.png"
+                  alt="logo Arácnido o insecto"
+                />
+                <p>Arácnido o insecto</p>
+              </button>
+              <button class="button">
+                <img
+                  src="https://res.cloudinary.com/dbamkolrf/image/upload/v1644482297/iconos%20protectora/ave_zyp0z5.png"
+                  alt="logo Ave"
+                />
+                <p>Ave</p>
+              </button>
+            </div>
           </div>
 
           <div className="popup-filter--edad">
             <h3>Edad</h3>
-            
+
             <select name="select">
-              
-              <option value="Joven" selected>Joven</option>
+              <option value="Joven" selected>
+                Joven
+              </option>
               <option value="Mayor">Mayor</option>
             </select>
           </div>
 
-          <div className="popup-filter--especie">
+          <div className="popup-filter--sexo">
             <h3>Sexo</h3>
-             <div className="popup-filter--sexo">
-
-               <button class="button"> Hembra </button>
-               <button class="button"> Macho </button>
-             </div>
-            
+            <div className="popup-filter--sex">
+            <button class="button">
+                <img
+                  src="https://res.cloudinary.com/dbamkolrf/image/upload/v1644482298/iconos%20protectora/female_leu70o.png"
+                  alt="Hembra"
+                />
+                <p>Hembra</p>
+              </button>
+              <button class="button">
+                <img
+                  src="https://res.cloudinary.com/dbamkolrf/image/upload/v1644482299/iconos%20protectora/male_eloz8z.png"
+                  alt="macho"
+                />
+                <p>Macho</p>
+              </button>
+            </div>
           </div>
 
           <div className="popup-filter--tamaño">
             <h3>Tamaño</h3>
-             <div className="popup-filter--sizes">
-
-               <button class="button"> Pequeño </button>
-               <button class="button"> Mediano </button>
-               <button class="button"> Grande </button>
-             </div>
-            
+            <div className="popup-filter--sizes">
+            <button class="button">
+                <img
+                  src="https://res.cloudinary.com/dbamkolrf/image/upload/v1644482299/iconos%20protectora/groupCopy_rrbgfu.png"
+                  alt="pequeño"
+                />
+                <p>Pequeño</p>
+              </button>
+              <button class="button">
+                <img
+                  src="https://res.cloudinary.com/dbamkolrf/image/upload/v1644482299/iconos%20protectora/groupCopy_rrbgfu.png"
+                  alt="mediano"
+                />
+                <p>Mediano</p>
+              </button>
+              <button class="button">
+                <img
+                  src="https://res.cloudinary.com/dbamkolrf/image/upload/v1644482299/iconos%20protectora/groupCopy2_sseggh.png"
+                  alt="grande"
+                />
+                <p>Grande</p>
+              </button>
+            </div>
           </div>
-
         </div>
       </CustomPopup>
 
