@@ -28,8 +28,7 @@ const PreLogin = ({setNavbar}) => {
         <div className='splash'>
         <Splash/>
         </div>
-  
-        <button onClick={() => setVisibility(!visibility)}>pop</button>
+        <button className='btn-popup' onClick={() => setVisibility(!visibility)}>X</button>
         <div className="slider-container-1">
     <CustomPopup
         onClose={popupCloseHandler}

@@ -4,6 +4,15 @@
     max-height: 90vh;
     max-width: 100vw;
     position: fixed;
+    .btn-popup{
+      background-color: transparent;
+      border: none;
+      border: 10px solid white;
+      width: 100vw;
+      max-height: 1px;
+      position: fixed;
+      position: absolute;
+    }
  
     .slider-container-1{
       display: block;
@@ -12,6 +21,7 @@
       max-width: 100vw;
       background: none;
 .swiper {
+  position: absolute;
     width: 100vw;
     height: 90vh;
   }
