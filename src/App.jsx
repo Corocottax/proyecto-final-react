@@ -18,6 +18,7 @@ import { JwtContext } from './shared/Contexts/JwtContext';
 import { useState } from 'react';
 import NoticiasDetail from './pages/Home/NoticiasDetail/NoticiasDetail';
 import RequireAuth from './shared/RequireAuth/RequireAuth';
+import PreLoginBotones from './pages/PreLogin/PreLoginBotones/PreLoginBotones';
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
       <Routes>
         <Route path="/">
           <Route index element={<PreLogin setNavbar={setNavbar}/>}/>
+          <Route path="inicio" element={<PreLoginBotones setNavbar={setNavbar}/>}/>
           <Route path="logIn" element={<Login setNavbar={setNavbar}/>}/>
           <Route path="registro" element={<Registro setNavbar={setNavbar}/>}/>
           <Route path="home" element={<RequireAuth><Home setNavbar={setNavbar}/></RequireAuth>}/>

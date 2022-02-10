@@ -97,47 +97,6 @@
   }
 }
 }
-.container-prelogin{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-top: 0!important;
-  max-height: 90vh;
-  width: 100vw;
-  text-align: center;
-  img{
-    object-fit: cover;
-    width: 100vw;
-    height: 100vh;
-  }
-
-  .container-btn{
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 50px;
-    position: absolute;
-    bottom: 0;
-h3{
-  margin-top: 0;
-}
-.btn-login{
-  background-color:rgb(1 116 142) ;
-  border: none;
-  border-radius: 5px;
-  color:white;
-  width: 196px;
-  min-height: 45px;
-  margin: 10px;
-  p{
-    margin-top: 12.5px;
-  }
-
-}
-}
-}
 
 @media (min-width: 375px) and (max-width: 420px) {
   .slider-container{

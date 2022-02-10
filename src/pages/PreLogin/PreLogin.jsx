@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import CustomPopup from "../../shared/PopUp/PopUp";
@@ -14,9 +14,11 @@ import 'swiper/css/scrollbar';
 const PreLogin = ({setNavbar}) => {
   const [visibility, setVisibility] = useState(true);
   setNavbar(false);
+  let navigate = useNavigate();
 
   const popupCloseHandler = () => {
     setVisibility();
+    navigate("/inicio")
   };
 
   const pagination = {
@@ -54,14 +56,6 @@ const PreLogin = ({setNavbar}) => {
     
   </CustomPopup>
   </div>
-  </div>
-  <div className="container-prelogin">
-    <img className='imagen-prelogin' src="/images/login.png" alt="mujer leyendo con perro"/>
-    <div className='container-btn'>
-      <h3>¿Como quieres entrar?</h3>
-      <Link to="/logIn" className='btn-login'><p>Usuario</p></Link>
-      <Link to="/logIn" className='btn-login'><p>Asociacion Protectora</p></Link>
-    </div>
   </div>
 
   </>);
