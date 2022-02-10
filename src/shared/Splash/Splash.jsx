@@ -19,7 +19,7 @@ const Splash = () => {
   const carga = () => {
     setTimeout(() => {
       setShowSplash(1);
-    }, 5000);
+    }, 3000);
 
     setShowSplash(0);
   };

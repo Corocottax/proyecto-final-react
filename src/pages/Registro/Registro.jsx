@@ -72,12 +72,12 @@ const Registro = ({setNavbar}) => {
         <input className="inputChulo" id="email" placeholder="Email" {...register("email", { required: true, pattern: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,})}/>
 
         <div className="input-contraseña">
-          <input className="inputChuloContraseña" placeholder="Contraseña" name="password" id="password" type={passwordShown ? "text" : "password"}  {...register("password", { required: true, pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/})}/>
+          <input className="inputChuloContraseña" placeholder="Contraseña" name="password" id="password" type={passwordShown ? "text" : "password"} {...register("password", { required: true, pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/})}/>
           <img onClick={togglePassword} src="/images/mostrar.png" alt="ojo mostrar"/>
         </div>
 
         <div className="input-contraseña">
-          <input className="inputChuloContraseña" placeholder="Confirmar contraseña" name="password2" id="password2" type={passwordShown2 ? "text" : "password"}  {...register("password2", { required: true, pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/})}/>
+          <input className="inputChuloContraseña" placeholder="Confirmar contraseña" name="confirm_password" id="confirm_password" type={passwordShown2 ? "text" : "password"}  {...register("confirm_password", { required: true, pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/})}/>
           <img onClick={togglePassword2} src="/images/mostrar.png" alt="ojo mostrar"/>
         </div>
 

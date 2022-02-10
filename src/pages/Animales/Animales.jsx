@@ -4,7 +4,7 @@ import CustomPopup from "../../shared/PopUp/PopUp";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Buscador from "../../shared/Buscador/Buscador";
-import { Link } from "react-router-dom";
+import { generatePath, Link } from "react-router-dom";
 import { Fade } from "react-awesome-reveal";
 
 const Animales = ({ setNavbar }) => {
@@ -219,6 +219,7 @@ const Animales = ({ setNavbar }) => {
           mascotas.map((mascota, index) => {
             return (
               <Fade className="carta" key={index} delay={200} triggerOnce>
+              <Link className="Link" to={generatePath("/adopciones/:id", { id: mascota._id })}>
                 <div key={index}>
                   <img
                     className="imagen-carta"
@@ -230,6 +231,7 @@ const Animales = ({ setNavbar }) => {
                     <p className="localidad-carta">{mascota.localizacion}</p>
                   </div>
                 </div>
+                </Link>
               </Fade>
             );
           })}
