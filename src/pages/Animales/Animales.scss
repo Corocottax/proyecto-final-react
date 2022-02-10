@@ -69,6 +69,8 @@
   position: absolute;
   z-index: 1;
   background-color: white;
+  min-height: 100vh;
+  max-width: 100vw;
   color: rgb(1, 116, 142);
 
   h2 {
