@@ -11,8 +11,6 @@ const Registro = ({setNavbar}) => {
 
   const [passwordShown, setPasswordShown] = useState(false);
   const togglePassword = () => {
-    // When the handler is invoked
-    // inverse the boolean state of passwordShown
     setPasswordShown(!passwordShown);
   };
   
@@ -42,7 +40,7 @@ const Registro = ({setNavbar}) => {
 
       <div>
         <input name="password" id="password" type={passwordShown ? "text" : "password"} {...register("password", { required: true, pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/})}/>
-        <img onClick={togglePassword} src="" alt="">Show password</img>
+        <img onClick={togglePassword} src="" alt="" />
       </div>
 
       <input name="age" id="age" type="number" {...register("age")}/>

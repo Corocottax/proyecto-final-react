@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { JwtContext } from "../../shared/Contexts/JwtContext";
@@ -10,6 +10,11 @@ const Login = ({setNavbar}) => {
   const { setJwt } = useContext(JwtContext);
   let navigate = useNavigate();
   setNavbar(false);
+
+  const [passwordShown, setPasswordShown] = useState(false);
+  const togglePassword = () => {
+    setPasswordShown(!passwordShown);
+  };
 
   const onSubmit = (formData) => {
     API.post("api/users/login", formData).then((res) => {
@@ -37,13 +42,14 @@ const Login = ({setNavbar}) => {
       <label htmlFor="password">Contraseña</label>
       <input
         id="password"
-        type="password"
+        type={passwordShown ? "text" : "password"}
         placeholder="contraseña"
         {...register("password", {
           required: true,
           pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/
         })}
       />
+      <img onClick={togglePassword} src="" alt=""/>
 
       <input type="submit" value="Login" />
     </form>
