@@ -12,7 +12,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
 const PreLogin = ({setNavbar}) => {
-  const [visibility, setVisibility] = useState(false);
+  const [visibility, setVisibility] = useState(true);
   setNavbar(false);
 
   const popupCloseHandler = () => {
@@ -28,9 +28,9 @@ const PreLogin = ({setNavbar}) => {
         <div className='splash'>
         <Splash/>
         </div>
-        <button className='btn-popup' onClick={() => setVisibility(!visibility)}>X</button>
         <div className="slider-container-1">
     <CustomPopup
+        className="custompop"
         onClose={popupCloseHandler}
         show={visibility}
       >
