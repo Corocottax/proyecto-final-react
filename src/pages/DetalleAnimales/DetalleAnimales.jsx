@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import CustomPopup from "../../shared/PopUp/PopUp";
 import DetailAdoption from "./Components/DetailAdoption";
 import DetailData from "./Components/DetailData";
 import DetailHealth from "./Components/DetailHealth";
 import "./DetalleAnimales.scss";
 
 export const getAnimalById = (name) => {
-
-
   return fetch(
     `https://proyecto-final-api-mocha.vercel.app/api/mascotas/${name}`
   ).then((res) => {
@@ -20,8 +19,13 @@ export const getAnimalById = (name) => {
 };
 
 const DetalleAnimales = () => {
-  const [showDetail, setShowDetail]= useState("datos")
-  
+  const [visibility, setVisibility] = useState(false);
+
+  const popupCloseHandler = () => {
+    setVisibility();
+  };
+  const [showDetail, setShowDetail] = useState("datos");
+
   const [animal, setAnimal] = useState([]);
   let { id } = useParams("name");
 
@@ -35,21 +39,34 @@ const DetalleAnimales = () => {
   return (
     <div className="detail">
       <figure className="detail-figure">
-        <img className="detail-figure__img" src={animal.foto} alt={animal.nombre} />
+        <img
+          className="detail-figure__img"
+          src={animal.foto}
+          alt={animal.nombre}
+        />
         <figcaption className="detail-figure__name">{animal.nombre}</figcaption>
       </figure>
       <div className="detail-btn">
-    
-      <button className="detail-btn__1" onClick={() => setShowDetail("datos")} autoFocus>Datos</button>
-      <button className="detail-btn__2" onClick={() => setShowDetail("salud")}>Salud</button>
-      <button className="detail-btn__3" onClick={() => setShowDetail("adopcion")}>Adopción</button>
+        <button className="detail-btn__1" onClick={() => setShowDetail("datos")} autoFocus>Datos</button>
+        <button className="detail-btn__2" onClick={() => setShowDetail("salud")}>Salud</button>
+        <button className="detail-btn__3"onClick={() => setShowDetail("adopcion")}>Adopción</button>
       </div>
-      <div className="detail-info">
-      {showDetail==="datos" ? <div><DetailData animal={animal} /></div> : (showDetail==="salud" ? <DetailHealth animal={animal}/> : <DetailAdoption animal={animal}/>) }
+      <div className="detail-info">{showDetail === "datos" ? (<div><DetailData animal={animal} /></div>) : showDetail === "salud" ? (<DetailHealth animal={animal} />) : (<DetailAdoption animal={animal} />)}
       </div>
       <div className="detail-adopt">
-      <button className="detail-adopt__btn">Adoptar</button>
+        <button
+          className="detail-adopt__btn"
+          onClick={() => setVisibility(!visibility)}
+        >
+          Adoptar
+        </button>
       </div>
+      <CustomPopup onClose={popupCloseHandler} show={visibility}>
+        <h3>Solicitud de adopción</h3>
+        <p>Adoptar es un acto de amor, pero sobre todo una responsabilidad de por vida.</p>
+        <p>Por éste motivo es importante que veas el siguiente video donde te explicamos como va a ser todo el proceso de adopción.</p>
+        <img src="/images/slider/imagen1.png" alt="Foto persona acariciando perrito"/>
+      </CustomPopup>
     </div>
   );
 };

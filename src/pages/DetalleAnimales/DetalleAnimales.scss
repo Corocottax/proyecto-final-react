@@ -1,8 +1,8 @@
 .detail {
   display: flex;
   flex-direction: column;
-  min-height: 86.5vh;
-
+  min-height: 120vh;
+  overflow: scroll;
   &-figure {
     height: 35vh;
     overflow: hidden;

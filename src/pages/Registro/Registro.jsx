@@ -7,8 +7,14 @@ const Registro = ({setNavbar}) => {
   const { register, handleSubmit } = useForm();
   setNavbar(false);
 
-  const onSubmit = (formData) => {
-    console.log(formData);
+  const onSubmit = (data) => {
+    const formData = new FormData();
+    formData.append('name', data.name);
+    formData.append('email', data.email);
+    formData.append('password', data.password);
+    formData.append('age', data.age);
+    formData.append('photo', data.photo[0]);
+    console.log(data);
     API.post("api/users/", formData).then((res) => {
       console.log("Register user");
     });
@@ -28,9 +34,9 @@ const Registro = ({setNavbar}) => {
       <label htmlFor="age">Edad</label>
       <input name="age" id="age" type="number" {...register("age")}/>
 
-      {/* <label htmlFor="photo">Foto</label>
-      <input name="photo" id="photo" type="file" alt="login" src="https://ceslava.s3-accelerate.amazonaws.com/2016/04/mistery-man-gravatar-wordpress-avatar-persona-misteriosa-510x510.png" {...register("photo")}/>
- */}
+      <label htmlFor="photo">Foto</label>
+      <input name="photo" id="photo" type="file"  alt="login" {...register("photo")}/>
+
       <input type="submit" value="Register"/>
     </form>
   );
