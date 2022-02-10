@@ -158,6 +158,12 @@ h3{
 }
 @media (min-width: 425px) and (max-width: 760px) {
   .slider-container{
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    background-color: white;
    
     .slider-container-1{
   .swiper-slide img {
