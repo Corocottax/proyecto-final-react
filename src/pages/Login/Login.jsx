@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { Bounce, Fade } from "react-awesome-reveal";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { JwtContext } from "../../shared/Contexts/JwtContext";
@@ -16,6 +17,12 @@ const Login = ({setNavbar}) => {
     setPasswordShown(!passwordShown);
   };
 
+  const navegar = () => {
+
+    navigate("/registro")
+
+  }
+
   const onSubmit = (formData) => {
     API.post("api/users/login", formData).then((res) => {
       console.log(res);
@@ -31,14 +38,27 @@ const Login = ({setNavbar}) => {
   return (
     <div className="container-login">
       <div className="contain-logo">
-      <img className="logo-lucky" src="/images/logorow.png" alt="perro lucky" />
+      <div className="hero2">
+        <Bounce>
+          <img
+            src="https://res.cloudinary.com/ddbvk5mrr/image/upload/v1644320679/App-Pet/logo_hyfwge.png"
+            alt="logo"
+          />
+        </Bounce>
+        <Fade delay={1000} triggerOnce>
+          <img
+            src="https://res.cloudinary.com/ddbvk5mrr/image/upload/v1644320680/App-Pet/title_u1r9rk.png"
+            alt="title"
+          />
+        </Fade>
+      </div>
       <h3 className="title-login">¡Hola! para continuar, inicia sesión o crea una cuenta</h3>
       </div>
     <form className="form-contain"onSubmit={handleSubmit(onSubmit)}>
       <label htmlFor="email"></label>
       <input
         id="email"
-        placeholder="ejemplo@ejemplo.com"
+        placeholder="Email"
         {...register("email", {
           required: true,
           pattern: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -48,17 +68,17 @@ const Login = ({setNavbar}) => {
       <input
         id="password"
         type={passwordShown ? "text" : "password"}
-        placeholder="contraseña"
+        placeholder="Contraseña"
         {...register("password", {
           required: true,
           pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/
         })}
       />
       <img onClick={togglePassword} src="/images/mostrar.png" alt="ojo mostrar"/>
-        <a href="">¿Has olvidado tu contraseña?</a>
+        <a href="#">¿Has olvidado tu contraseña?</a>
 
-      <input className="submit-1"type="submit" value="Iniciar sesión" />
-      <input className="submit-2"type="submit" value="Crear cuenta" />
+      <input className="submit-1" type="submit" value="Iniciar sesión" />
+      <input className="submit-2" onClick={navegar} type="button" value="Crear cuenta" />
     </form>
     </div>
   );
