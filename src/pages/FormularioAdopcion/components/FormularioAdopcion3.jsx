@@ -1,22 +1,17 @@
 import React from "react";
-import "./FormularioAdopcion2.scss";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 
-const FormularioAdopcion2 = ({ setNavbar }) => {
+const FormularioAdopcion3 = ({ setNavbar }) => {
 
-  const { register, handleSubmit } = useForm();
-
+    const { register, handleSubmit } = useForm();
   setNavbar(true);
-
   const [toSend, setToSend] = useState({
     from_name: "",
     calle: "",
     postalCode: "",
     city: "",
     reply_to: "",
-
-  
 
   });
 
@@ -31,33 +26,75 @@ const FormularioAdopcion2 = ({ setNavbar }) => {
 
         <form onChange={handleSubmit(onSubmit)}>
           <div className="form-subtitle">
-            <h3>Sobre las mascotas</h3>
+            <h3>Familia y hogar</h3>
           </div>
+
+          <div className="form-inputs3">
+            <input
+              name="otrasMascotas"
+              id="otrasMascotas"
+              type="text"
+              placeholder="¿Cuáles?"
+              {...register("otrasMascotas", {
+                required: true,
+              })}
+            />
+          </div>
+
           <p>¿Tienes otros animales?</p>
-          <div className="form-radio">
-            <div className="radio">
-              <label>
-                <input
-                  type="form-radio"
-                  value="Si"
-                  checked={this.state.selectedOption === "Si"}
-                  onChange={this.onValueChange}
-                />
-                Si
-              </label>
+
+          
+            <div className="form-radio-list"></div>
+
+            <div className="form-radio-unit">
+
+              <div className="radio">
+                <label>
+                  <input
+                    type="form-radio"
+                    value="Si"
+                    checked={this.state.selectedOption === "Si"}
+                    onChange={this.onValueChange}
+                  />
+                  Si
+                </label>
+              </div>
+              <div className="radio">
+                <label>
+                  <input
+                    type="radio"
+                    value="No"
+                    checked={this.state.selectedOption === "No"}
+                    onChange={this.onValueChange}
+                  />
+                  No
+                </label>
+              </div>
+
+              <div className="radio">
+                <label>
+                  <input
+                    type="form-radio"
+                    value="Si"
+                    checked={this.state.selectedOption === "Si"}
+                    onChange={this.onValueChange}
+                  />
+                  Si
+                </label>
+              </div>
+              <div className="radio">
+                <label>
+                  <input
+                    type="radio"
+                    value="No"
+                    checked={this.state.selectedOption === "No"}
+                    onChange={this.onValueChange}
+                  />
+                  No
+                </label>
+              </div>
             </div>
-            <div className="radio">
-              <label>
-                <input
-                  type="radio"
-                  value="No"
-                  checked={this.state.selectedOption === "No"}
-                  onChange={this.onValueChange}
-                />
-                No
-              </label>
-            </div>
-          </div>
+          
 
           <div className="form-inputs">
             <input
@@ -134,4 +171,4 @@ const FormularioAdopcion2 = ({ setNavbar }) => {
   );
 };
 
-export default FormularioAdopcion2;
+export default FormularioAdopcion3;

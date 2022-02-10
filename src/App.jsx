@@ -7,6 +7,8 @@ import Animales from "./pages/Animales/Animales"
 import Perfil from "./pages/Perfil/Perfil"
 import DetalleAnimales from "./pages/DetalleAnimales/DetalleAnimales"
 import FormularioAdopcion from "./pages/FormularioAdopcion/FormularioAdopcion"
+import FormularioAdopcion2 from "./pages/FormularioAdopcion/components/FormularioAdopcion2"
+import FormularioAdopcion3 from "./pages/FormularioAdopcion/components/FormularioAdopcion3"
 import EstadoAdopcion from "./pages/EstadoAdopcion/EstadoAdopcion"
 import Mapas from "./pages/Mapas/Mapas"
 import Registro from "./pages/Registro/Registro"
@@ -16,6 +18,7 @@ import { JwtContext } from './shared/Contexts/JwtContext';
 import { useState } from 'react';
 import NoticiasDetail from './pages/Home/NoticiasDetail/NoticiasDetail';
 import RequireAuth from './shared/RequireAuth/RequireAuth';
+
 
 function App() {
   const [jwt, setJwt] = useState(localStorage.getItem('token') || null);
@@ -36,6 +39,8 @@ function App() {
           <Route path="adopciones" element={<RequireAuth><Animales setNavbar={setNavbar}/></RequireAuth>}/>
           <Route path="adopciones/:id" element={<RequireAuth><DetalleAnimales setNavbar={setNavbar}/></RequireAuth>}/>
           <Route path="formularioAdopcion" element={<RequireAuth><FormularioAdopcion setNavbar={setNavbar}/></RequireAuth>}/>
+          <Route path="formularioAdopcion2" element={<RequireAuth><FormularioAdopcion2 setNavbar={setNavbar}/></RequireAuth>}/>
+          <Route path="formularioAdopcion3" element={<RequireAuth><FormularioAdopcion3 setNavbar={setNavbar}/></RequireAuth>}/>
           <Route path="perfil" element={<RequireAuth><Perfil setNavbar={setNavbar}/></RequireAuth>}/>
           <Route path="perfil/estados" element={<RequireAuth><EstadoAdopcion setNavbar={setNavbar}/></RequireAuth>}/>
           <Route path="mapa" element={<RequireAuth><Mapas setNavbar={setNavbar}/></RequireAuth>}/>
