@@ -8,9 +8,11 @@ const FormularioAdopcion = ({ setNavbar }) => {
   setNavbar(true);
   const [toSend, setToSend] = useState({
     from_name: "",
-    calle: "",
+    from_email: "",
+    address: "",
     postalCode: "",
     city: "",
+    phone: "",
     reply_to: "",
 
   });
@@ -52,7 +54,7 @@ const FormularioAdopcion = ({ setNavbar }) => {
           {...register("name", { required: true })}
           onChange={handleChange}
         />
-        <label htmlFor="email"></label>
+        <label htmlFor="from_email"></label>
         <input
           name="from_email"
           id="email"
@@ -93,7 +95,7 @@ const FormularioAdopcion = ({ setNavbar }) => {
 
         <label htmlFor="address"></label>
         <input
-          name="steet"
+          name="address"
           id="address"
           placeholder="Calle, número, piso"
           {...register("address", { required: true })}
