@@ -91,8 +91,11 @@ const DetalleAnimales = ({setNavbar}) => {
             src="/images/slider/imagen1.png"
             alt="Foto persona acariciando perrito"
           />
-          <button onClick={popupCloseHandler}>Cancelar</button>
-          <Link to="/formularioAdopcion">Continuar</Link>
+          <h4>¿Quieres continuar con el proceso de adopción?</h4>
+          <div className="btn-pop-container">
+          <button className="btn-pop" onClick={popupCloseHandler}>Cancelar</button>
+          <Link className="btn-pop" to="/formularioAdopcion">Continuar</Link>
+          </div>
           </div>
         </div>
       </CustomPopup>
