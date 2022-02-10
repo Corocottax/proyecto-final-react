@@ -113,8 +113,13 @@
 
     .popup-filter--especieButtons {
       display: grid;
+      align-items: center;
       grid-template-columns: repeat(4, 1fr);
-
+      .text{
+        text-align: center;
+        font-size: 10px;
+        margin-top: 10px;
+      }
       button {
         height: 80px;
         width: 70px;

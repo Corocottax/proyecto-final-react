@@ -79,77 +79,77 @@ const Animales = ({ setNavbar }) => {
                   src="https://res.cloudinary.com/dbamkolrf/image/upload/v1644482297/iconos%20protectora/perrop_ewpdvd.png"
                   alt="logo perro"
                 />
-                <p>Perro</p>
+                <p className="text">Perro</p>
               </button>
               <button class="button">
                 <img
                   src="https://res.cloudinary.com/dbamkolrf/image/upload/v1644482297/iconos%20protectora/cat_cxspoi.png"
                   alt="logo Gato"
                 />
-                <p>Gato</p>
+                <p className="text">Gato</p>
               </button>
               <button class="button">
                 <img
                   src="https://res.cloudinary.com/dbamkolrf/image/upload/v1644482299/iconos%20protectora/group12_e2ogox.png"
                   alt="logo Conejo"
                 />
-                <p>Conejo</p>
+                <p className="text">Conejo</p>
               </button>
               <button class="button">
                 <img
                   src="https://res.cloudinary.com/dbamkolrf/image/upload/v1644482297/iconos%20protectora/067Hamster_jj8jq1.png"
                   alt="logo Cobaya"
                 />
-                <p>Cobaya</p>
+                <p className="text">Cobaya</p>
               </button>
               <button class="button">
                 <img
                   src="https://res.cloudinary.com/dbamkolrf/image/upload/v1644482297/iconos%20protectora/035CoatiCopy_dyhwh5.png"
                   alt="logo Pequeño mamífero"
                 />
-                <p>Pequeño mamífero</p>
+                <p className="text">Pequeño mamífero</p>
               </button>
               <button class="button">
                 <img
                   src="https://res.cloudinary.com/dbamkolrf/image/upload/v1644482298/iconos%20protectora/group6_dxwxx6.png"
                   alt="logo Hurón"
                 />
-                <p>Hurón</p>
+                <p className="text">Hurón</p>
               </button>
               <button class="button">
                 <img
                   src="https://res.cloudinary.com/dbamkolrf/image/upload/v1644482297/iconos%20protectora/057Fish2_rcvzga.png"
                   alt="logo Pez"
                 />
-                <p>Pez</p>
+                <p className="text">Pez</p>
               </button>
               <button class="button">
                 <img
                   src="https://res.cloudinary.com/dbamkolrf/image/upload/v1644482299/iconos%20protectora/group8_xn6wnm.png"
                   alt="logo Reptil"
                 />
-                <p>Reptil</p>
+                <p className="text">Reptil</p>
               </button>
               <button class="button">
                 <img
                   src="https://res.cloudinary.com/dbamkolrf/image/upload/v1644482298/iconos%20protectora/anfibio_auuz2o.png"
                   alt="logo Anfibio"
                 />
-                <p>Anfibio</p>
+                <p className="text">Anfibio</p>
               </button>
               <button class="button">
                 <img
                   src="https://res.cloudinary.com/dbamkolrf/image/upload/v1644482297/iconos%20protectora/perrop_ewpdvd.png"
                   alt="logo Arácnido o insecto"
                 />
-                <p>Arácnido o insecto</p>
+                <p className="text">Arácnido o insecto</p>
               </button>
               <button class="button">
                 <img
                   src="https://res.cloudinary.com/dbamkolrf/image/upload/v1644482297/iconos%20protectora/ave_zyp0z5.png"
                   alt="logo Ave"
                 />
-                <p>Ave</p>
+                <p className="text">Ave</p>
               </button>
             </div>
           </div>
