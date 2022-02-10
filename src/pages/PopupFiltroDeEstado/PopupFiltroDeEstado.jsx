@@ -1,8 +1,17 @@
-import React from 'react';
+import React, {useState} from 'react';
 import CustomPopup from "../../shared/PopUp/PopUp";
 import "./PopupFiltroDeEstado.scss"
 
+
 const PopupFiltroDeEstado = () => {
+  const [visibility, setVisibility] = useState(false);
+  const popupCloseHandler = () => {
+    setVisibility();
+  };
+  /*const onSubmit = () => {
+    API.post("api/users", ).then((res) => {const onSubmit = () => {
+    )}}}*/
+      
   return (
 <>
 <CustomPopup
@@ -16,7 +25,7 @@ const PopupFiltroDeEstado = () => {
           <button className='btn-filter'><img src="/images/proceso.png" alt="en proceso" /></button>
           <button className='btn-filter'><img src="/images/rechazado.png" alt="rechazado" /></button>
           </div>
-          <button onClick={submit} className='btn-submit'>Aplicar</button>
+          <button className='btn-submit'>Aplicar</button>
         </div>
 
 
