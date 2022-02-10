@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { API } from "../../shared/Services/Api";
 import CustomPopup from "../../shared/PopUp/PopUp";
 import "./PopupFiltroDeEstado.scss"
 
@@ -8,9 +9,13 @@ const PopupFiltroDeEstado = () => {
   const popupCloseHandler = () => {
     setVisibility();
   };
-  /*const onSubmit = () => {
-    API.post("api/users", ).then((res) => {const onSubmit = () => {
-    )}}}*/
+ 
+
+    API.post("api/users").then((res) => {
+      const onSubmit = () => {
+      console.log()}
+    });
+  
       
   return (
 <>
