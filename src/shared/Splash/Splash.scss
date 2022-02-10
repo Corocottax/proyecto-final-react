@@ -6,9 +6,8 @@
     align-items: center;
     justify-content: center;
     background-color: white;
-
     min-width: 100vw !important;
     min-height: 100vh !important;
-    position: absolute;
+    position: absolute!important;
     z-index: 200;
 }
