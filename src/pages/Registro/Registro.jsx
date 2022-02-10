@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import Reveal, { Bounce, Fade } from "react-awesome-reveal";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { API } from "../../shared/Services/Api";
@@ -16,6 +17,7 @@ const Registro = ({setNavbar}) => {
     formData.append('password', data.password);
     formData.append('age', data.age);
     formData.append('photo', data.photo[0]);
+    formData.append('adresses', data.adresses);
     console.log(data);
     API.post("api/users/", formData).then((res) => {
       console.log("Register user");
@@ -25,25 +27,62 @@ const Registro = ({setNavbar}) => {
     });
   };
 
+  const [image, setImage] = useState(null)
+
+  const onImageChange = (event) => {
+    if (event.target.files && event.target.files[0]) {
+      setImage(URL.createObjectURL(event.target.files[0]));
+      console.log(image);
+    }
+  }
+
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <label htmlFor="name">Nombre</label>
-      <input id="name" placeholder="Pedro Garcia Nieto"{...register("name", { required: true })}/>
+    <div>
+      <div className="hero">
+        <Bounce>
+          <img
+            src="https://res.cloudinary.com/ddbvk5mrr/image/upload/v1644320679/App-Pet/logo_hyfwge.png"
+            alt="logo"
+          />
+        </Bounce>
+        <Fade delay={1000} triggerOnce>
+          <img
+            src="https://res.cloudinary.com/ddbvk5mrr/image/upload/v1644320680/App-Pet/title_u1r9rk.png"
+            alt="title"
+          />
+        </Fade>
+      </div>
+      <div>
+        <h3>¡Hola! si es la primera vez que entras registrate y podrás disfrutar de nuestra app</h3>
+      </div>
+      <form className="formChulo" onSubmit={handleSubmit(onSubmit)}>
 
-      <label htmlFor="email">Email</label>
-      <input id="email" placeholder="ejemplo@ejemplo.com" {...register("email", { required: true, pattern: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,})}/>
+        <input className="inputChulo" id="name" placeholder="Nombre"{...register("name", { required: true })}/>
 
-      <label htmlFor="password">Contraseña</label>
-      <input name="password" id="password" type="password" {...register("password", { required: true, pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/})}/>
+        <input className="inputChulo" id="email" placeholder="Email" {...register("email", { required: true, pattern: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,})}/>
 
-      <label htmlFor="age">Edad</label>
-      <input name="age" id="age" type="number" {...register("age")}/>
+        <input className="inputChulo" placeholder="Contraseña" name="password" id="password" type="password" {...register("password", { required: true, pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/})}/>
 
-      <label htmlFor="photo">Foto</label>
-      <input name="photo" id="photo" type="file"  alt="login" {...register("photo")}/>
+        <input className="inputChulo" placeholder="Confirmar ontraseña" name="password" id="password" type="password" {...register("password", { required: true, pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/})}/>
 
-      <input type="submit" value="Register"/>
-    </form>
+        <input className="inputChulo" placeholder="Edad" name="age" id="age" type="number" {...register("age")}/>
+
+        <input className="inputChulo" placeholder="Dirección" name="adresses" id="adresses" {...register("adresses")}/>
+
+        {image ? <img className="imagen-fotoPerfil" src={image} alt="foto de perfil"/> : <></>}
+
+        <div className="inputGuapo">
+          <input className="inputfile inputfile-1" onInput={onImageChange} name="photo" id="photo" type="file" alt="login" {...register("photo")}/>        
+          <label for="photo">
+            <img className="nube" src="https://byspel.com/wp-content/uploads/2017/01/upload-cloud.png" alt="subir archivo" /> 
+            <span className="fotoPerfilName">Foto de perfil</span>
+          </label>
+        </div>
+
+      <input className="botonEnviar" type="submit" value="Register"/>
+
+      </form>
+    </div>
   );
 };
 

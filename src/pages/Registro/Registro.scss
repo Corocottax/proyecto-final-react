@@ -1,0 +1,127 @@
+.hero {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+
+        margin: 5px;
+        max-height: 70px;
+        max-width: 200px;
+
+    }
+
+}
+
+.formChulo {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .inputChulo {
+
+        margin: 10px;
+        padding: 1px;
+        border: none;
+        border-bottom: 1.5px solid #bdd2d6;
+        width: 90%;
+
+        &:focus {
+
+            outline: none;
+    
+        }
+
+    }
+
+}
+
+.inputGuapo .inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+button, input {
+    line-height: normal;
+}
+
+input[type="file" i] {
+    appearance: none;
+    background-color: initial;
+    cursor: default;
+    align-items: baseline;
+    color: inherit;
+    text-overflow: ellipsis;
+    white-space: pre;
+    text-align: start !important;
+    padding: initial;
+    border: initial;
+    overflow: hidden !important;
+}
+
+.inputfile + label {
+    max-width: 80%;
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    padding: 0.625rem 1.25rem;
+}
+
+.inputfile + label svg {
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    fill: currentColor;
+    margin-top: -0.25em;
+    margin-right: 0.25em;
+}
+
+.inputGuapo {
+
+    width: 90%;
+
+    &:focus {
+
+        outline: none;
+
+    }
+
+}
+
+.nube {
+
+    width: 28px;
+
+}
+
+.fotoPerfilName {
+
+    color: rgb(1 116 142);
+
+}
+
+.imagen-fotoPerfil {
+
+    width: 90px;
+    height: 90px;
+    border-radius: 50px;
+    margin-top: 5px;
+
+} 
+
+.botonEnviar {
+
+    margin-top: 10px;
+
+}
