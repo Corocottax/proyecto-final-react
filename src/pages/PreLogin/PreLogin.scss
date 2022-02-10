@@ -1,3 +1,11 @@
+.imagen-prelogin {
+
+  position: absolute;
+  z-index: -1;
+  top: 0;
+
+}
+
 .slider-container{
     display: block;
     justify-content: center;
@@ -22,7 +30,7 @@
 .swiper {
   position: absolute;
     width: 100vw;
-    height: 90vh;
+    height: 100vh;
     background-color: white;
   }
   
@@ -101,6 +109,8 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 50px;
+    position: absolute;
+    bottom: 0;
 h3{
   margin-top: 0;
 }

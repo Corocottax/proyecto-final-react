@@ -56,7 +56,7 @@ const PreLogin = ({setNavbar}) => {
   </div>
   </div>
   <div className="container-prelogin">
-    <img src="/images/login.png" alt="mujer leyendo con perro"/>
+    <img className='imagen-prelogin' src="/images/login.png" alt="mujer leyendo con perro"/>
     <div className='container-btn'>
     <h3>¿Como quieres entrar?</h3>
     <Link to="/logIn" className='btn-login'><p>Usuario</p></Link>
