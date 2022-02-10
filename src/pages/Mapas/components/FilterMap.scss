@@ -1,0 +1,49 @@
+.container-filter{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    background-color:rgb(255, 255, 255);
+    max-width:300px;
+    max-height:150px;
+    z-index: 3;
+    .title-filter{
+        color:rgb(1 116 142);
+    }
+    .container-btn-filter{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        flex-direction: column;
+        background-color: white;
+        margin-left:40px;
+        max-height:100px;
+        z-index: 3;
+        .btn-filter{
+            border: 2px solid rgb(1 116 142);;
+            background-color: white;
+            border-radius: 8px;
+            height: 40px;
+            width: 40px;
+            margin: 5px;
+            img{
+            width: 30px;
+            height: 30px;
+        }
+  
+
+        }
+
+    }
+    .btn-submit{
+        margin: 20px;
+        border:none;
+        background-color:rgb(250 156 147);
+        border-radius: 4px;
+        width:272px;
+        height: 60px;
+        text-align: center;
+        color: white;
+    }
+}
