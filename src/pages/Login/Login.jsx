@@ -11,6 +11,12 @@ const Login = ({setNavbar}) => {
   let navigate = useNavigate();
   setNavbar(false);
 
+  const navegar = () => {
+
+    navigate("/registro")
+
+  }
+
   const [passwordShown, setPasswordShown] = useState(false);
   const togglePassword = () => {
     setPasswordShown(!passwordShown);
@@ -47,7 +53,7 @@ const Login = ({setNavbar}) => {
         <a href="">¿Has olvidado tu contraseña?</a>
 
       <input className="submit-1"type="submit" value="Iniciar sesión" />
-      <input className="submit-2"type="submit" value="Crear cuenta" />
+      <input className="submit-2" onClick={navegar} type="button" value="Crear cuenta" />
     </form>
     </div>
   );
