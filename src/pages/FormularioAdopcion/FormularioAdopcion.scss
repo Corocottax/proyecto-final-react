@@ -12,6 +12,24 @@
     
   }
 
+  .form-progressBar {
+    margin: 20px;
+    .progressBar-container {
+      height: 8px;
+      width: 300px;
+      background-color: rgb(255, 216, 212);
+      border-radius: 10px;
+
+      .progressBar1-filler {
+        height: 100%;
+        width: 33%;
+        background-color: rgb(250, 156, 147);
+        border-radius: inherit;
+      }
+    }
+  }
+
+
   .form-subtitle {
     display: flex;
     margin: 10px;

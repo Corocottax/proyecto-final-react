@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Perfil.scss"
 
 const Perfil = ({setNavbar}) => {
@@ -46,13 +47,14 @@ const Perfil = ({setNavbar}) => {
           </div>
       </div>
       <div className="segundas">
-        <div className="info">
+      <Link  className="info" to="/estados">
           <div className="float">
               <img className="imagen-tarjetita" src="https://res.cloudinary.com/dhp2zuftj/image/upload/v1644326255/proyecto%20final/mascota_3x_ddvdy4.png" alt="imagen perfil" />
               <h3 className="titulo-tarjetita">Estado de la adopción</h3>
+              
             </div>
             <img className="flechita-tarjetita" src="https://res.cloudinary.com/dhp2zuftj/image/upload/v1644481551/proyecto%20final/arrow_3x_pnjvjg.png" alt="flechita" />
-        </div>
+        </Link>
         <div className="info">
           <div className="float">
               <img className="imagen-tarjetita" src="https://res.cloudinary.com/dhp2zuftj/image/upload/v1644337269/proyecto%20final/apadrina_3x_m5z2yf.png" alt="imagen perfil" />

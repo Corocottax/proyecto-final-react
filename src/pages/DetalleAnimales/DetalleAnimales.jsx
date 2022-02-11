@@ -70,9 +70,9 @@ const DetalleAnimales = ({setNavbar}) => {
         </div>
       </div>
       <div className="detail-btn-div">
-        <button className="detail-btn" onClick={() => setShowDetail("datos")} autoFocus>Datos</button>
-        <button className="detail-btn" onClick={() => setShowDetail("salud")}>Salud</button>
-        <button className="detail-btn" onClick={() => setShowDetail("adopcion")}> Adopción</button>
+      <button className={showDetail==="datos" ? "detail-btn__bonito" : "detail-btn__default"} onClick={() => setShowDetail("datos")} autoFocus>Datos</button>
+        <button className={showDetail==="salud" ? "detail-btn__bonito" : "detail-btn__default"} onClick={() => setShowDetail("salud")}>Salud</button>
+        <button className={showDetail==="adopcion" ? "detail-btn__bonito" : "detail-btn__default"} onClick={() => setShowDetail("adopcion")}> Adopción</button>
       </div>
       <div className="detail-info-superior">
         <div className="detail-info">

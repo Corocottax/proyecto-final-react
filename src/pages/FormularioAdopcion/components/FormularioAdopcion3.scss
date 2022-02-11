@@ -1,0 +1,89 @@
+.adoption-form3-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+    .form3-title {
+      margin-top: 30px;
+      padding: 5px;
+      font-size: 0.5em;
+    }
+  
+    .form-progressBar {
+      margin: 20px;
+      .progressBar-container {
+        height: 8px;
+        width: 300px;
+        background-color: rgb(255, 216, 212);
+        border-radius: 10px;
+  
+        .progressBar3-filler {
+          height: 100%;
+          width: 100%;
+          background-color: rgb(250, 156, 147);
+          border-radius: inherit;
+        }
+      }
+    }
+  
+    .form3-subtitle {
+      display: flex;
+      margin: 20x;
+      font-size: 1.1em;
+      color: rgb(1, 116, 142);
+    }
+  
+    .form3-input {
+      display: flex;
+      align-items: center;
+      margin: 10px;
+    }
+  
+    .form3-radio-list {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      
+  
+    }
+    .form3-radio-unit {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      margin:5px;
+      
+  
+      &--p {
+        font-size: small;
+        flex-wrap: wrap;
+      }
+    }
+  
+    .radio {
+      display: flex;
+      align-items: center;
+  
+    }
+  
+    form {
+      display: flex;
+      flex-direction: column;
+      width: 300px;
+    }
+  
+    input {
+      padding: 2px;
+      margin: 10px;
+      border: none;
+      border-bottom: solid rgba(0, 0, 0, 0.2) 1px;
+    }
+  
+    .submit {
+      background-color: rgb(250, 156, 147);
+      color: rgb(255, 250, 250);
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+    }
+  }

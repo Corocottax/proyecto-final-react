@@ -1,61 +1,37 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./FormularioAdopcion.scss";
 import { useForm } from "react-hook-form";
-import { send } from "emailjs-com";
+import { Link } from "react-router-dom";
 
 const FormularioAdopcion = ({ setNavbar }) => {
   const { register, handleSubmit } = useForm();
+
+  const user = localStorage.getItem("user");
+  const userParsed = JSON.parse(user);
+
   setNavbar(true);
   const [toSend, setToSend] = useState({
+
     from_name: "",
     from_email: "",
     address: "",
+    dni: "",
     postalCode: "",
     city: "",
     phone: "",
+    otrasMascotas: "",
+    otrasMascotasComportamiento: "",
+    porqueAdopta: "",
+    sabeNecesidades: "",
+    sabeGastos: "",
+    sabeAlimentacion: "",
+    tipoDeVivienda: "",
     reply_to: "",
-
+    
   });
 
-  const Url = process.env.Url;
-
-  const onSubmit = (e) => {
-    e.preventDefault();
-    send(
-      "service_ei8jiek",
-      "template_wzp8r4e",
-      toSend,
-      "user_Em80CyZWKh5zdpC0E5tMK"
-    )
-      .then((response) => {
-        console.log("SUCCESS!", response.status, response.text);
-      })
-      .catch((err) => {
-        console.log("FAILED...", err);
-      });
-
-      const animal = localStorage.getItem("animal");
-      const user = localStorage.getItem("user");
-      const animalParsed = JSON.parse(animal);
-      const userParsed = JSON.parse(user);
-      const arrayMascotas = [];
-      console.log(userParsed.mascotas);
-      arrayMascotas.push(userParsed.mascotas)
-      arrayMascotas.push(animalParsed._id)
-      console.log(arrayMascotas);
-      
-
-      fetch(`${Url}api/users/${userParsed._id}`, {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          mascotas: arrayMascotas,
-        }),
-        })
-
-    };
+ /*  const URL = process.env.URL;
+  console.log(URL); */
 
   const handleChange = (e) => {
     setToSend({ ...toSend, [e.target.name]: e.target.value });
@@ -66,7 +42,14 @@ const FormularioAdopcion = ({ setNavbar }) => {
       <div className="form-title">
         <h2>Formulario de adopción</h2>
       </div>
-      <form onSubmit={onSubmit}>
+
+      <div className="form-progressBar">
+        <div className="progressBar-container">
+          <div className="progressBar1-filler"></div>
+        </div>
+      </div>
+
+      <form>
         <div className="form-subtitle">
           <h3>Tus datos</h3>
         </div>
@@ -161,9 +144,12 @@ const FormularioAdopcion = ({ setNavbar }) => {
           </p>
         </div>
         <div className="div-siguiente">
-          <button className="detail-adopt__btn">Siguiente</button>
+          <Link className="Link" to="/formularioAdopcion2">
+            <button className="detail-adopt__btn">Siguiente</button>
+          </Link>
         </div>
       </form>
+
     </div>
   );
 };

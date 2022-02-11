@@ -1,157 +1,213 @@
-import React from "react";
+import { send } from "emailjs-com";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
+import { API } from "../../../shared/Services/Api";
+import "./FormularioAdopcion3.scss"
+
+export const getUserById = async (id) => {
+
+  return await API.get(`api/users/${id}`)
+
+}
 
 const FormularioAdopcion3 = ({ setNavbar }) => {
 
+  const animal = localStorage.getItem("animal");
+  const user = localStorage.getItem("user");
+  const animalParsed = JSON.parse(animal);
+  const userParsed = JSON.parse(user);
+  const [arrayMascotasOficial, setArrayMascotasOficial] = useState([]);
+
+  useEffect(() => {
+
+    if (arrayMascotasOficial.length > 0) {
+
+      fetch(`https://proyecto-final-api-mocha.vercel.app/api/users/${userParsed._id}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          mascotas: arrayMascotasOficial,
+        }),
+        }).then((response) => {
+          console.log(response.status);
+          return response.json();
+        })
+        .then((data) => console.log(data));
+
+    }
+
+  }, [arrayMascotasOficial])
+
+  const [toSend, setToSend] = useState({
+    
+    from_name: "",
+    from_email: "",
+    address: "",
+    dni: "",
+    postalCode: "",
+    city: "",
+    phone: "",
+    otrasMascotas: "",
+    otrasMascotasComportamiento: "",
+    porqueAdopta: "",
+    sabeNecesidades: "",
+    sabeGastos: "",
+    sabeAlimentacion: "",
+    tipoDeVivienda: "",
+    reply_to: "",
+    
+  });
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    send(
+      "service_ei8jiek",
+      "template_wzp8r4e",
+      toSend,
+      "user_Em80CyZWKh5zdpC0E5tMK"
+    )
+      .then((response) => {
+        console.log("SUCCESS!", response.status, response.text);
+      })
+      .catch((err) => {
+        console.log("FAILED...", err);
+      });
+
+      const arrayMascotas = [];
+
+      getUserById(userParsed._id).then((usuario) => { 
+      
+        console.log(usuario.data);
+        usuario.data.mascotas.map((mascota) => {
+
+          console.log(mascota);
+          return arrayMascotas.push(mascota)
+
+        })
+        console.log(animalParsed._id);
+        arrayMascotas.push(animalParsed._id)
+        setArrayMascotasOficial(arrayMascotas)
+        console.log(arrayMascotas);
+
+      })
+
+    };
+
     const { register, handleSubmit } = useForm();
-  setNavbar(true);
-  
-  const onSubmit = (e) => {}
+    setNavbar(true);
+
+    const handleChange = (e) => {
+      setToSend({ ...toSend, [e.target.name]: e.target.value });
+    };
 
   return (
     <div>
-      <div className="adoption-form-div">
-        <div className="form-title">
+      <div className="adoption-form3-div">
+        <div className="form3-title">
           <h2>Formulario de adopción</h2>
         </div>
 
-        <form onChange={handleSubmit(onSubmit)}>
-          <div className="form-subtitle">
+        <div className="form-progressBar">
+          <div className="progressBar-container">
+            <div className="progressBar3-filler"></div>
+          </div>
+        </div>
+
+        <form onSubmit={onSubmit}>
+          <div className="form3-subtitle">
             <h3>Familia y hogar</h3>
           </div>
 
-          <div className="form-inputs3">
+          <div className="form3-input">
+            <label>¿Dónde vives?</label>
             <input
-              name="otrasMascotas"
-              id="otrasMascotas"
+              name="tipoDeVivienda"
+              id="tipoDeVivienda"
               type="text"
-              placeholder="¿Cuáles?"
-              {...register("otrasMascotas", {
+              onChange={handleChange}
+              {...register("tipoDeVivienda", {
                 required: true,
               })}
             />
           </div>
 
-          <p>¿Tienes otros animales?</p>
+          <div className="form3-radio-list">
 
-          
-            <div className="form-radio-list"></div>
+          <div className="form3-radio-unit">
 
-            <div className="form-radio-unit">
-
-              <div className="radio">
-                <label>
-                  <input
-                    type="form-radio"
-                    value="Si"
-             
-                  />
-                  Si
-                </label>
-              </div>
-              <div className="radio">
-                <label>
-                  <input
-                    type="radio"
-                    value="No"
-               
-                  />
-                  No
-                </label>
-              </div>
-
-              <div className="radio">
-                <label>
-                  <input
-                    type="form-radio"
-                    value="Si"
-              
-                  />
-                  Si
-                </label>
-              </div>
-              <div className="radio">
-                <label>
-                  <input
-                    type="radio"
-                    value="No"
-                
-                  />
-                  No
-                </label>
-              </div>
+            <div><p>¿Vives de alquiler?</p></div>
+            
+            <div className="radio">
+              <input type="radio" value="Si" />
+              Si
+              <input type="radio" value="No" />
+              No
             </div>
-          
-
-          <div className="form-inputs">
-            <input
-              name="otrasMascotas"
-              id="otrasMascotas"
-              type="text"
-              placeholder="¿Cuáles?"
-              {...register("otrasMascotas", {
-                required: true,
-              })}
-            />
-
-            <input
-              name="otrasMascotasComportamiento"
-              id="otrasMascotasComportamiento"
-              type="text"
-              placeholder="¿Se lleva bien con otros animales?"
-              {...register("otrasMascotasComportamiento", {
-                required: true,
-              })}
-            />
           </div>
 
-          <div className="form-inputsGrandes">
-            <label>¿Por qué has elegido adoptar?</label>
-            <input
-              name="porqueAdopta"
-              id="porqueAdopta"
-              type="text"
-              placeholder=""
-              {...register("porqueAdopta", {
-                required: true,
-              })}
-            />
-
-            <label>¿Conoces las necesidades del animal?</label>
-            <input
-              name="sabeNecesidades"
-              id="sabeNecesidades"
-              type="text"
-              placeholder=""
-              {...register("sabeNecesidades", {
-                required: true,
-              })}
-            />
-
-            <label>¿Conoces sus gastos?</label>
-            <input
-              name="sabeGastos"
-              id="sabeGastos"
-              type="text"
-              placeholder=""
-              {...register("sabeGastos", {
-                required: true,
-              })}
-            />
-
-            <label>¿Conoces su alimentación?</label>
-            <input
-              name="sabeAlimentacion"
-              id="sabeAlimentacion"
-              type="text"
-              placeholder=""
-              {...register("sabeAlimentacion", {
-                required: true,
-              })}
-            />
+          <div className="form3-radio-unit">
+            <p>¿Tu casero permite animales?</p>
+            <div className="radio">
+              <input type="radio" value="Si"/>
+              Si
+              <input type="radio" value="No" />
+              No
+            </div>
           </div>
 
+          <div className="form3-radio-unit">
+            <p>¿Crees que podrías mudarte pronto?</p>
+            <div className="radio">
+              <input type="radio" value="Si" />
+              Si
+              <input type="radio" value="No" />
+              No
+            </div>
+          </div>
+
+          <div className="form3-radio-unit">
+            <p>¿Tiene jardín?</p>
+            <div className="radio">
+              <input type="radio" value="Si" />
+              Si
+              <input type="radio" value="No" />
+              No
+            </div>
+          </div>
+
+          <div className="form3-radio-unit">
+            <p>¿Vives con otras personas?</p>
+            <div className="radio">
+              <input type="radio" value="Si" />
+              Si
+              <input type="radio" value="No" />
+              No
+            </div>
+          </div>
+
+          <div className="form3-radio-unit">
+            <p>¿Están todos de acuerdo con la adopción?</p>
+            <div className="radio">
+              <input type="radio" value="Si" />
+              Si
+              <input type="radio" value="No" />
+              No
+            </div>
+          </div>
+
+          <div className="form3-radio-unit">
+            <p>¿Estás de acuerdo con que visitemos tu casa?</p>
+            <div className="radio">
+              <input type="radio" value="Si" />
+              Si
+              <input type="radio" value="No" />
+              No
+            </div>
+          </div>
+          </div>
+        
           <input className="submit" type="submit" value="Continuar" />
         </form>
       </div>

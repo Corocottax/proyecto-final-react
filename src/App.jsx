@@ -44,7 +44,7 @@ function App() {
           <Route path="formularioAdopcion2" element={<RequireAuth><FormularioAdopcion2 setNavbar={setNavbar}/></RequireAuth>}/>
           <Route path="formularioAdopcion3" element={<RequireAuth><FormularioAdopcion3 setNavbar={setNavbar}/></RequireAuth>}/>
           <Route path="perfil" element={<RequireAuth><Perfil setNavbar={setNavbar}/></RequireAuth>}/>
-          <Route path="perfil/estados" element={<RequireAuth><EstadoAdopcion setNavbar={setNavbar}/></RequireAuth>}/>
+          <Route path="estados" element={<RequireAuth><EstadoAdopcion setNavbar={setNavbar}/></RequireAuth>}/>
           <Route path="mapa" element={<RequireAuth><Mapas setNavbar={setNavbar}/></RequireAuth>}/>
           <Route path="opciones" element={<RequireAuth><Opciones setNavbar={setNavbar}/></RequireAuth>}/>
           <Route path="*" element={<PreLogin setNavbar={setNavbar}/>}/>

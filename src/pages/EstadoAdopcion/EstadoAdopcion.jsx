@@ -2,54 +2,71 @@ import React from 'react';
 import { useState, useEffect } from "react";
 import PopupFiltroDeEstado from '../PopupFiltroDeEstado/PopupFiltroDeEstado';
 import "./EstadoAdopcion.scss"
-import { Link, useParams } from 'react-router-dom';
+import { generatePath, Link } from 'react-router-dom';
 import Buscador from '../../shared/Buscador/Buscador.jsx'
+import { API } from '../../shared/Services/Api';
+import { Fade } from 'react-awesome-reveal';
 
+
+export const getUserById2 = async (id) => {
+
+  return await API.get(`api/users/${id}`)
+
+}
 
 const EstadoAdopcion = ({setNavbar}) => {
   const [visibility, setVisibility] = useState(false);
-  const [texto, setTexto] = useState("");
-  const getUserById = (id) => {
-    return fetch(
-      `https://proyecto-final-api-mocha.vercel.app/api/users/${id}`
-    ).then((res) => {
-      if (res.ok) {
-        return res.json();
-      } else {
-        return [];
-      }
-    });
-  };
-    const [user, setUser] = useState([]);
-    let { id } = useParams("estadoAdopcion");
-    const [mascota, setMascota] = useState([]);
+  
+    const [user, setUser] = useState();
   
     useEffect(() => {
+      const user1 = localStorage.getItem("user");
+      const userParsed = JSON.parse(user1);
+      const id = userParsed._id;
+
       if (id)
-        getUserById(id).then((data) => {
-          setUser(data);
+        getUserById2(id).then((data) => {
+          setUser(data.data);
           console.log(data);
         });
     }, []);
-    const mascotaFilter = mascota.filter((mascota) =>
-    mascota.name.toLowerCase().includes(texto.toLowerCase())
-  );
-  return (<div>
-    <div className="searcher-container">
-    <Link to="/perfil"><img src="/images/flecha.png" alt="flecha"/></Link>
-    <Buscador texto={texto} setTexto={setTexto} />
-    <button onClick={() => setVisibility(!visibility)}className='btn-filter'><img src="/images/filtro.png" alt="filtro"/></button>
-    <PopupFiltroDeEstado/>
-    </div>
-    {user.estadoAdopcion && user.estadoAdopcion.map((estadoAdopcion) => (
-      <div> 
-      <span>
-      <h3>Adopcion de {estadoAdopcion.name}</h3>
-      <p></p>
-      </span>
-      <img src={estadoAdopcion.photo} alt={estadoAdopcion.name} />
-    </div>))}
-  </div>);
-};
 
+  return (<div>
+    <div className="header">
+        <Link to="/home" className="volver">
+          <img
+            className="imgHeader"
+            src="https://res.cloudinary.com/dhp2zuftj/image/upload/v1644422043/proyecto%20final/atras_3x_druibb.png"
+            alt="flechita"
+          />
+        </Link>
+
+        <Buscador />
+
+        {/* -----------------------BOTON Y POPUP PARA EL FILTRO-------------------------- */}
+        <img
+          onClick={(e) => setVisibility(!visibility)}
+          className="imgfiltros"
+          src="https://res.cloudinary.com/dhp2zuftj/image/upload/v1644422043/proyecto%20final/filtros_3x_etqcy3.png"
+          alt="filtrado"
+        />
+      </div>
+
+    {(user && user.mascotas) && user.mascotas.map((mascota, index) => (
+      <Fade className="carta" key={index} delay={200} triggerOnce>
+                <div>
+                  <img
+                    className="imagen-carta2"
+                    src={mascota.foto}
+                    alt={mascota.nombre}
+                  />
+                  <div className="carta-detail">
+                    <h2 className="nombre-carta">{mascota.nombre}</h2>
+                    <p className="localidad-carta">{mascota.localizacion}</p>
+                  </div>
+                </div>
+              </Fade>
+      ))}
+  </div>)
+}
 export default EstadoAdopcion;
