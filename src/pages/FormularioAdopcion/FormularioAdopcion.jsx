@@ -2,14 +2,20 @@ import React, { useEffect, useState } from "react";
 import "./FormularioAdopcion.scss";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import FormularioAdopcion2 from "./components/FormularioAdopcion2";
 
 const FormularioAdopcion = ({ setNavbar }) => {
   const { register, handleSubmit } = useForm();
-
-  const user = localStorage.getItem("user");
-  const userParsed = JSON.parse(user);
+  const [name, setName] = useState();
+  const [email, setEmail] = useState();
+  const [phone, setPhone] = useState();
+  const [dni, setDni] = useState();
 
   setNavbar(true);
+
+  
+
+
   const [toSend, setToSend] = useState({
 
     from_name: "",
@@ -29,10 +35,6 @@ const FormularioAdopcion = ({ setNavbar }) => {
     reply_to: "",
     
   });
-
- /*  const URL = process.env.URL;
-  console.log(URL); */
-
   const handleChange = (e) => {
     setToSend({ ...toSend, [e.target.name]: e.target.value });
   };
@@ -59,7 +61,8 @@ const FormularioAdopcion = ({ setNavbar }) => {
           id="name"
           placeholder="Nombre y apellidos"
           {...register("name", { required: true })}
-          onChange={handleChange}
+          onChange={handleChange, (e) => setName(e.target.value)}
+          
         />
         <label htmlFor="from_email"></label>
         <input
@@ -67,10 +70,10 @@ const FormularioAdopcion = ({ setNavbar }) => {
           id="email"
           placeholder="Email"
           {...register("email", {
-            required: true,
-            pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
-          })}
-          onChange={handleChange}
+          required: true,
+          pattern: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        })}
+          onChange={handleChange, (e) => setEmail(e.target.value)}
         />
         <label htmlFor="phone"></label>
         <input
@@ -81,7 +84,7 @@ const FormularioAdopcion = ({ setNavbar }) => {
           {...register("phone", {
             required: true,
           })}
-          onChange={handleChange}
+          onChange={handleChange, (e) => setPhone(e.target.value)}
         />
 
         <label htmlFor="dni"></label>
@@ -93,7 +96,7 @@ const FormularioAdopcion = ({ setNavbar }) => {
           {...register("dni", {
             required: true,
           })}
-          onChange={handleChange}
+          onChange={handleChange, (e) => setDni(e.target.value)}
         />
 
         <div className="form-subtitle">
@@ -144,12 +147,11 @@ const FormularioAdopcion = ({ setNavbar }) => {
           </p>
         </div>
         <div className="div-siguiente">
-          <Link className="Link" to="/formularioAdopcion2">
-            <button className="detail-adopt__btn">Siguiente</button>
-          </Link>
+            <Link className="Link" to="/formularioAdopcion2">
+            <button className="detail-adopt__btn" disabled={!name|| !email || !phone || !dni}>Siguiente</button>
+            </Link>
         </div>
       </form>
-
     </div>
   );
 };

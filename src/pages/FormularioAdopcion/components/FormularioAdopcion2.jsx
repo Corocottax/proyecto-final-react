@@ -3,7 +3,7 @@ import "./FormularioAdopcion2.scss";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 
-const FormularioAdopcion2 = ({ setNavbar }) => {
+const FormularioAdopcion2 = ({ setNavbar}) => {
 
   const [toSend, setToSend] = useState({
     

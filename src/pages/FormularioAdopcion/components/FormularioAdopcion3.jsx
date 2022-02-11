@@ -208,7 +208,7 @@ const FormularioAdopcion3 = ({ setNavbar }) => {
           </div>
           </div>
         
-          <input className="submit" type="submit" value="Continuar" />
+          <input className="submit" type="submit" value="Continuar"/>
         </form>
       </div>
     </div>
