@@ -7,7 +7,7 @@ import FormularioAdopcion2 from "./components/FormularioAdopcion2";
 const FormularioAdopcion = ({ setNavbar }) => {
   const { register, handleSubmit } = useForm();
   const [name, setName] = useState();
-  const [email, setEmail] = useState();
+  /* const [email, setEmail] = useState(); */
   const [phone, setPhone] = useState();
   const [dni, setDni] = useState();
 
@@ -67,13 +67,14 @@ const FormularioAdopcion = ({ setNavbar }) => {
         <label htmlFor="from_email"></label>
         <input
           name="from_email"
+          type="email"
           id="email"
           placeholder="Email"
           {...register("email", {
           required: true,
           pattern: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
         })}
-          onChange={handleChange, (e) => setEmail(e.target.value)}
+          onChange={handleChange}
         />
         <label htmlFor="phone"></label>
         <input
@@ -148,7 +149,7 @@ const FormularioAdopcion = ({ setNavbar }) => {
         </div>
         <div className="div-siguiente">
             <Link className="Link" to="/formularioAdopcion2">
-            <button className="detail-adopt__btn" disabled={!name|| !email || !phone || !dni}>Siguiente</button>
+            <button className="detail-adopt__btn" disabled={!name|| !phone || !dni}>Siguiente</button>
             </Link>
         </div>
       </form>
