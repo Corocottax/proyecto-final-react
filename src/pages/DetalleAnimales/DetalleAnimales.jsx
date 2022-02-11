@@ -94,7 +94,7 @@ const DetalleAnimales = ({setNavbar}) => {
           <h4>¿Quieres continuar con el proceso de adopción?</h4>
           <div className="btn-pop-container">
           <div className="contain1">
-          <button className="btn-pop" onClick={popupCloseHandler}>Cancelar</button>
+          <button className="btn-pop1" onClick={popupCloseHandler}>Cancelar</button>
           </div>
           <div className="contain2">
           <Link className="btn-pop" to="/formularioAdopcion">Continuar</Link>
