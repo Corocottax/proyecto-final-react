@@ -17,6 +17,8 @@ const FormularioAdopcion = ({ setNavbar }) => {
 
   });
 
+  const Url = process.env.Url;
+
   const onSubmit = (e) => {
     e.preventDefault();
     send(
@@ -31,7 +33,29 @@ const FormularioAdopcion = ({ setNavbar }) => {
       .catch((err) => {
         console.log("FAILED...", err);
       });
-  };
+
+      const animal = localStorage.getItem("animal");
+      const user = localStorage.getItem("user");
+      const animalParsed = JSON.parse(animal);
+      const userParsed = JSON.parse(user);
+      const arrayMascotas = [];
+      console.log(userParsed.mascotas);
+      arrayMascotas.push(userParsed.mascotas)
+      arrayMascotas.push(animalParsed._id)
+      console.log(arrayMascotas);
+      
+
+      fetch(`${Url}api/users/${userParsed._id}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          mascotas: arrayMascotas,
+        }),
+        })
+
+    };
 
   const handleChange = (e) => {
     setToSend({ ...toSend, [e.target.name]: e.target.value });
@@ -139,7 +163,6 @@ const FormularioAdopcion = ({ setNavbar }) => {
         <div className="div-siguiente">
           <button className="detail-adopt__btn">Siguiente</button>
         </div>
-        {/* <input className="submit" type="submit" value="Continuar" /> */}
       </form>
     </div>
   );

@@ -18,6 +18,8 @@ export const getAnimalById = (name) => {
   });
 };
 
+
+
 const DetalleAnimales = ({setNavbar}) => {
   const [visibility, setVisibility] = useState(false);
 
@@ -31,6 +33,12 @@ const DetalleAnimales = ({setNavbar}) => {
 
   const [animal, setAnimal] = useState([]);
   let { id } = useParams("name");
+
+  const animalLocalStorage = (animal) => {
+
+    localStorage.setItem("animal", JSON.stringify(animal))
+  
+  } 
 
   useEffect(() => {
     if (id)
@@ -50,7 +58,7 @@ const DetalleAnimales = ({setNavbar}) => {
           <div className="sexonombreyciudad">
             <div className="sexoynombre">
               {animal.sexo === "macho" ? (
-                <img className="sexo" src="https://res.cloudinary.com/dhp2zuftj/image/upload/v1644509182/proyecto%20final/male_3x_kcyhge.png" alt="logo macho"/>) : (<img src="https://res.cloudinary.com/dhp2zuftj/image/upload/v1644509182/proyecto%20final/female_3x_x10zv1.png" alt="logo hembra"/>)}
+                <img className="sexo" src="https://res.cloudinary.com/dhp2zuftj/image/upload/v1644509182/proyecto%20final/male_3x_kcyhge.png" alt="logo macho"/>) : (<img className="sexo" src="https://res.cloudinary.com/dhp2zuftj/image/upload/v1644509182/proyecto%20final/female_3x_x10zv1.png" alt="logo hembra"/>)}
               <p className="nombreAnimal">{animal.nombre}</p>
             </div>
             <p className="localizacionAnimal">{animal.localizacion}</p>
@@ -97,7 +105,7 @@ const DetalleAnimales = ({setNavbar}) => {
           <button className="btn-pop1" onClick={popupCloseHandler}>Cancelar</button>
           </div>
           <div className="contain2">
-          <Link className="btn-pop" to="/formularioAdopcion">Continuar</Link>
+          <Link className="btn-pop" to="/formularioAdopcion" onClick={() => animalLocalStorage(animal)}>Continuar</Link>
           </div>
           </div>
           </div>
