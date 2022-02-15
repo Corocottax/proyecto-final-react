@@ -19,6 +19,7 @@ import { useState } from 'react';
 import NoticiasDetail from './pages/Home/NoticiasDetail/NoticiasDetail';
 import RequireAuth from './shared/RequireAuth/RequireAuth';
 import PreLoginBotones from './pages/PreLogin/PreLoginBotones/PreLoginBotones';
+import Favoritos from './pages/Perfil/Favoritos/Favoritos';
 
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
           <Route path="formularioAdopcion3" element={<RequireAuth><FormularioAdopcion3 setNavbar={setNavbar}/></RequireAuth>}/>
           <Route path="perfil" element={<RequireAuth><Perfil setNavbar={setNavbar}/></RequireAuth>}/>
           <Route path="estados" element={<RequireAuth><EstadoAdopcion setNavbar={setNavbar}/></RequireAuth>}/>
+          <Route path="favoritos" element={<RequireAuth><Favoritos setNavbar={setNavbar}/></RequireAuth>}/>
           <Route path="mapa" element={<RequireAuth><Mapas setNavbar={setNavbar}/></RequireAuth>}/>
           <Route path="opciones" element={<RequireAuth><Opciones setNavbar={setNavbar}/></RequireAuth>}/>
           <Route path="*" element={<PreLogin setNavbar={setNavbar}/>}/>

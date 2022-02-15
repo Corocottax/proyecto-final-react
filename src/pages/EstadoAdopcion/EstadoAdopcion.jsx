@@ -14,6 +14,7 @@ export const getUserById2 = async (id) => {
 }
 
 const EstadoAdopcion = ({setNavbar}) => {
+  setNavbar(false);
   const [visibility, setVisibility] = useState(false);
   
     const [user, setUser] = useState();

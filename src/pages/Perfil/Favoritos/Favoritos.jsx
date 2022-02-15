@@ -3,15 +3,17 @@ import { Fade } from 'react-awesome-reveal'
 import { Link } from 'react-router-dom'
 import Buscador from '../../../shared/Buscador/Buscador'
 import { API } from '../../../shared/Services/Api'
-import "./favorites.scss"
+import "./Favoritos.scss"
 
-export const getUserById2 = async (id) => {
+export const getUserById = async (id) => {
 
     return await API.get(`api/users/${id}`)
   
   }
   
   const Favoritos = ({setNavbar}) => {
+      
+    setNavbar(false);
     const [visibility, setVisibility] = useState(false);
     
       const [user, setUser] = useState();
@@ -22,7 +24,7 @@ export const getUserById2 = async (id) => {
         const id = userParsed._id;
   
         if (id)
-          getUserById2(id).then((data) => {
+          getUserById(id).then((data) => {
             setUser(data.data);
           });
       }, []);
@@ -47,7 +49,7 @@ export const getUserById2 = async (id) => {
             alt="filtrado"
           />
         </div>
-  
+        {user && <p>{user.favorites}</p>}
       {(user && user.favorites) && user.favorites.map((mascota, index) => (
         <Fade className="carta" key={index} delay={200} triggerOnce>
                   <div>

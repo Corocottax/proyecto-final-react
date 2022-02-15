@@ -1,6 +1,7 @@
 import { send } from "emailjs-com";
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import { API } from "../../../shared/Services/Api";
 import "./FormularioAdopcion3.scss"
 
@@ -17,6 +18,7 @@ const FormularioAdopcion3 = ({ setNavbar }) => {
   const animalParsed = JSON.parse(animal);
   const userParsed = JSON.parse(user);
   const [arrayMascotasOficial, setArrayMascotasOficial] = useState([]);
+  let navigate = useNavigate();
 
   useEffect(() => {
 
@@ -35,6 +37,8 @@ const FormularioAdopcion3 = ({ setNavbar }) => {
           return response.json();
         })
         .then((data) => console.log(data));
+
+        navigate("/estados")
 
     }
 
@@ -79,21 +83,18 @@ const FormularioAdopcion3 = ({ setNavbar }) => {
 
       getUserById(userParsed._id).then((usuario) => { 
       
-        console.log(usuario.data);
         usuario.data.mascotas.map((mascota) => {
 
           console.log(mascota);
           return arrayMascotas.push(mascota)
 
         })
-        console.log(animalParsed._id);
         arrayMascotas.push(animalParsed._id)
         setArrayMascotasOficial(arrayMascotas)
-        console.log(arrayMascotas);
 
       })
 
-    };
+  };
 
     const { register, handleSubmit } = useForm();
     setNavbar(true);

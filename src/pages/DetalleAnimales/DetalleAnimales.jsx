@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import CustomPopup from "../../shared/PopUp/PopUp";
 import DetailAdoption from "./Components/DetailAdoption";
 import DetailData from "./Components/DetailData";
@@ -29,7 +29,7 @@ const DetalleAnimales = ({setNavbar}) => {
   const [visibility, setVisibility] = useState(false);
 
   setNavbar(false);
-
+  let navigate = useNavigate();
 
   const popupCloseHandler = () => {
     setVisibility();
@@ -51,13 +51,12 @@ const DetalleAnimales = ({setNavbar}) => {
 
   const agregarFavorito = () => {
 
-    
     const animalParsed = animal;
     const arrayMascotas = [];
 
     getUserById(userParsed._id).then((usuario) => { 
       
-      usuario.data.favoritos.map((mascota) => {
+      usuario.data.favorites.map((mascota) => {
     
         return arrayMascotas.push(mascota)
     
@@ -67,16 +66,13 @@ const DetalleAnimales = ({setNavbar}) => {
     
     })
 
+    agregarFavoritoAUsuario();
+
   }
 
-  useEffect(() => {
-    if (id)
-      getAnimalById(id).then((data) => {
-        setAnimal(data);
-      });
-  }, []);
+  const agregarFavoritoAUsuario = () => {
 
-  useEffect(() => {
+    console.log("he entrado");
 
     if (arrayMascotasOficial.length > 0) {
 
@@ -86,7 +82,7 @@ const DetalleAnimales = ({setNavbar}) => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          favoritos: arrayMascotasOficial,
+          favorites: arrayMascotasOficial,
         }),
         }).then((response) => {
           console.log(response.status);
@@ -94,9 +90,18 @@ const DetalleAnimales = ({setNavbar}) => {
         })
         .then((data) => console.log(data));
 
+        navigate("/favoritos");
+
     }
 
-  }, [arrayMascotasOficial]) 
+  }
+
+  useEffect(() => {
+    if (id)
+      getAnimalById(id).then((data) => {
+        setAnimal(data);
+      });
+  }, []);
 
   return (
     <div className="detail">
@@ -115,7 +120,7 @@ const DetalleAnimales = ({setNavbar}) => {
             <p className="localizacionAnimal">{animal.localizacion}</p>
           </div>
           <div className="compartir">
-            <img onClick={agregarFavorito()} className="img-compartir-corazon" src="https://res.cloudinary.com/dhp2zuftj/image/upload/v1644509359/proyecto%20final/favoritos_3x_cfuezi.png" alt="logo corazon"/>
+            <img onClick={agregarFavorito} className="img-compartir-corazon" src="https://res.cloudinary.com/dhp2zuftj/image/upload/v1644509359/proyecto%20final/favoritos_3x_cfuezi.png" alt="logo corazon"/>
             <img className="img-compartir-compartir" src="https://res.cloudinary.com/dhp2zuftj/image/upload/v1644507412/proyecto%20final/compartir_3x_ue2hxv.png" alt="logo compartir"/>
           </div>
         </div>

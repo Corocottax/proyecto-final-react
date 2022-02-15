@@ -29,7 +29,7 @@ const Perfil = ({setNavbar}) => {
             </div>
             <img className="flechita-tarjetita" src="https://res.cloudinary.com/dhp2zuftj/image/upload/v1644481551/proyecto%20final/arrow_3x_pnjvjg.png" alt="flechita" />
           </div>
-        <Link  className="info" to="/estados">
+        <Link  className="info" to="/favoritos">
           <div className="float">
             <img className="imagen-tarjetita" src="https://res.cloudinary.com/dhp2zuftj/image/upload/v1644481703/proyecto%20final/favoritosCopy_3x_h6guea.png" alt="imagen perfil" />
             <h3 className="titulo-tarjetita">Favoritos</h3>
