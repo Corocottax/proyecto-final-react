@@ -1,8 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from "react";
-import PopupFiltroDeEstado from '../PopupFiltroDeEstado/PopupFiltroDeEstado';
 import "./EstadoAdopcion.scss"
-import { generatePath, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Buscador from '../../shared/Buscador/Buscador.jsx'
 import { API } from '../../shared/Services/Api';
 import { Fade } from 'react-awesome-reveal';

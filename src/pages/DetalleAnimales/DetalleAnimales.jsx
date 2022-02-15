@@ -5,6 +5,7 @@ import DetailAdoption from "./Components/DetailAdoption";
 import DetailData from "./Components/DetailData";
 import DetailHealth from "./Components/DetailHealth";
 import "./DetalleAnimales.scss";
+import { API } from "../../shared/Services/Api";
 
 export const getAnimalById = (name) => {
   return fetch(
@@ -18,7 +19,11 @@ export const getAnimalById = (name) => {
   });
 };
 
+export const getUserById = async (id) => {
 
+  return await API.get(`api/users/${id}`)
+
+}
 
 const DetalleAnimales = ({setNavbar}) => {
   const [visibility, setVisibility] = useState(false);
@@ -40,12 +45,58 @@ const DetalleAnimales = ({setNavbar}) => {
   
   } 
 
+  const [arrayMascotasOficial, setArrayMascotasOficial] = useState([]);
+  const user = localStorage.getItem("user");
+  const userParsed = JSON.parse(user);
+
+  const agregarFavorito = () => {
+
+    
+    const animalParsed = animal;
+    const arrayMascotas = [];
+
+    getUserById(userParsed._id).then((usuario) => { 
+      
+      usuario.data.favoritos.map((mascota) => {
+    
+        return arrayMascotas.push(mascota)
+    
+      })
+      arrayMascotas.push(animalParsed._id)
+      setArrayMascotasOficial(arrayMascotas)
+    
+    })
+
+  }
+
   useEffect(() => {
     if (id)
       getAnimalById(id).then((data) => {
         setAnimal(data);
       });
   }, []);
+
+  useEffect(() => {
+
+    if (arrayMascotasOficial.length > 0) {
+
+      fetch(`https://proyecto-final-api-mocha.vercel.app/api/users/${userParsed._id}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          favoritos: arrayMascotasOficial,
+        }),
+        }).then((response) => {
+          console.log(response.status);
+          return response.json();
+        })
+        .then((data) => console.log(data));
+
+    }
+
+  }, [arrayMascotasOficial]) 
 
   return (
     <div className="detail">
@@ -64,7 +115,7 @@ const DetalleAnimales = ({setNavbar}) => {
             <p className="localizacionAnimal">{animal.localizacion}</p>
           </div>
           <div className="compartir">
-            <img className="img-compartir-corazon" src="https://res.cloudinary.com/dhp2zuftj/image/upload/v1644509359/proyecto%20final/favoritos_3x_cfuezi.png" alt="logo corazon"/>
+            <img onClick={agregarFavorito()} className="img-compartir-corazon" src="https://res.cloudinary.com/dhp2zuftj/image/upload/v1644509359/proyecto%20final/favoritos_3x_cfuezi.png" alt="logo corazon"/>
             <img className="img-compartir-compartir" src="https://res.cloudinary.com/dhp2zuftj/image/upload/v1644507412/proyecto%20final/compartir_3x_ue2hxv.png" alt="logo compartir"/>
           </div>
         </div>
