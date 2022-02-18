@@ -29,7 +29,6 @@ const DetalleAnimales = ({setNavbar}) => {
   const [visibility, setVisibility] = useState(false);
 
   setNavbar(false);
-  let navigate = useNavigate();
 
   const popupCloseHandler = () => {
     setVisibility();
@@ -49,13 +48,14 @@ const DetalleAnimales = ({setNavbar}) => {
   const user = localStorage.getItem("user");
   const userParsed = JSON.parse(user);
 
-  const agregarFavorito = () => {
+  const agregarFavoritoAUsuario = () => {
 
     const animalParsed = animal;
     const arrayMascotas = [];
 
     getUserById(userParsed._id).then((usuario) => { 
       
+      console.log(usuario.data);
       usuario.data.favorites.map((mascota) => {
     
         return arrayMascotas.push(mascota)
@@ -65,14 +65,6 @@ const DetalleAnimales = ({setNavbar}) => {
       setArrayMascotasOficial(arrayMascotas)
     
     })
-
-    agregarFavoritoAUsuario();
-
-  }
-
-  const agregarFavoritoAUsuario = () => {
-
-    console.log("he entrado");
 
     if (arrayMascotasOficial.length > 0) {
 
@@ -89,8 +81,6 @@ const DetalleAnimales = ({setNavbar}) => {
           return response.json();
         })
         .then((data) => console.log(data));
-
-        navigate("/favoritos");
 
     }
 
@@ -120,7 +110,7 @@ const DetalleAnimales = ({setNavbar}) => {
             <p className="localizacionAnimal">{animal.localizacion}</p>
           </div>
           <div className="compartir">
-            <img onClick={agregarFavorito} className="img-compartir-corazon" src="https://res.cloudinary.com/dhp2zuftj/image/upload/v1644509359/proyecto%20final/favoritos_3x_cfuezi.png" alt="logo corazon"/>
+            <img onClick={agregarFavoritoAUsuario} className="img-compartir-corazon" src="https://res.cloudinary.com/dhp2zuftj/image/upload/v1644509359/proyecto%20final/favoritos_3x_cfuezi.png" alt="logo corazon"/>
             <img className="img-compartir-compartir" src="https://res.cloudinary.com/dhp2zuftj/image/upload/v1644507412/proyecto%20final/compartir_3x_ue2hxv.png" alt="logo compartir"/>
           </div>
         </div>

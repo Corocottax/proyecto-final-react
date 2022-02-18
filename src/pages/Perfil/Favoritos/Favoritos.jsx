@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Fade } from 'react-awesome-reveal'
-import { Link } from 'react-router-dom'
+import { generatePath, Link } from 'react-router-dom'
 import Buscador from '../../../shared/Buscador/Buscador'
 import { API } from '../../../shared/Services/Api'
 import "./Favoritos.scss"
@@ -49,22 +49,25 @@ export const getUserById = async (id) => {
             alt="filtrado"
           />
         </div>
-        {user && <p>{user.favorites}</p>}
-      {(user && user.favorites) && user.favorites.map((mascota, index) => (
+        <div className='album' >
+      {(user && user.mascotas) && user.mascotas.map((mascota, index) => (
         <Fade className="carta" key={index} delay={200} triggerOnce>
-                  <div>
-                    <img
-                      className="imagen-carta2"
-                      src={mascota.foto}
-                      alt={mascota.nombre}
-                    />
-                    <div className="carta-detail">
-                      <h2 className="nombre-carta">{mascota.nombre}</h2>
-                      <p className="localidad-carta">{mascota.localizacion}</p>
-                    </div>
+        {/* <Link className="Link" to={generatePath("/adopciones/:id", { id: mascota._id })}> */}
+                <div key={index}>
+                  <img
+                    className="imagen-carta"
+                    src={mascota.foto}
+                    alt={mascota.nombre}
+                  />
+                  <div className="carta-detail">
+                    <h2 className="nombre-carta">{mascota.nombre}</h2>
+                    <p className="localidad-carta">{mascota.localizacion}</p>
                   </div>
+                </div>
+                
                 </Fade>
         ))}
+        </div>
     </div>)
   }
 

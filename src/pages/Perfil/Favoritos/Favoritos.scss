@@ -1,6 +1,211 @@
-.imagen-carta2 {
-
-    margin-top: 100px;
-    width: 200px;
-
-}
+.filtro-boton {
+    width: 50px;
+  }
+  
+  .header {
+    width: 100vw;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .imgHeader {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .imgfiltros {
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
+  }
+  
+  .album {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 90px;
+    overflow-y: scroll;
+    max-height: 100vh;
+  
+    .carta {
+      margin: 10px 0px;
+      background-color: #ccdde0;
+      border-radius: 5px;
+      width: 90%;
+      display: flex;
+      flex-direction: column;
+      padding: 2px;
+  
+      .carta-detail {
+        background-color: white;
+        border-radius: 0px 0px 5px 5px;
+        padding: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+  
+        .nombre-carta {
+          color: rgb(1 116 142);
+          text-transform: capitalize;
+        }
+  
+        .localidad-carta {
+          text-align: center;
+          color: black;
+        }
+      }
+  
+      .imagen-carta {
+        width: 100%;
+        border-radius: 5px 5px 0px 0px;
+      }
+    }
+  }
+  
+  .popup-filter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    z-index: 1;
+    background-color: white;
+    min-height: 100vh;
+    max-width: 100vw;
+    color: rgb(1, 116, 142);
+    padding-top: 20px;
+  
+    h2 {
+      font-size: medium;
+      font-weight: 500;
+    }
+  
+    .popup-filter--ciudad {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+  
+      h3 {
+        font-size: small;
+        font-weight: 400;
+        padding: 10px;
+      }
+  
+      select {
+        width: 300px;
+        padding: 10px;
+        border: none;
+        border-bottom: solid black 2px;
+      }
+    }
+  
+    .popup-filter--especie {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+  
+      h3 {
+        font-size: small;
+        font-weight: 400;
+        margin: 30px 30px 0px 8px;
+        padding: 10px;
+      }
+  
+      .popup-filter--especieButtons {
+        display: grid;
+        align-items: center;
+        grid-template-columns: repeat(4, 1fr);
+        .text{
+          text-align: center;
+          font-size: 10px;
+          margin-top: 10px;
+        }
+        button {
+          height: 80px;
+          width: 70px;
+          margin: 5px;
+          background-color: white;
+          color: rgb(1, 116, 142);
+          border: solid rgb(179, 179, 179) 1px;
+          border-radius: 10px;
+        }
+      }
+    }
+    .popup-filter--edad {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+  
+      h3 {
+        font-size: small;
+        font-weight: 400;
+        padding: 10px;
+      }
+  
+      select {
+        width: 300px;
+        padding: 10px;
+        border: none;
+        border-bottom: solid rgb(161, 161, 161) 2px;
+      }
+    }
+    .popup-filter--sexo {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+      min-width: 100vw;
+  
+      h3 {
+        font-size: small;
+        font-weight: 400;
+        padding: 10px;
+      }
+    }
+  
+    .popup-filter--sex {
+      display: flex;
+      min-width: 100vw;
+      justify-content: center;
+  
+      button {
+        height: 80px;
+        width: 70px;
+        margin: 5px;
+        background-color: white;
+        color: rgb(1, 116, 142);
+        border: solid rgb(179, 179, 179) 1px;
+        border-radius: 10px;
+      }
+    }
+  
+    .popup-filter--tamaño {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+      min-width: 100vw;
+      h3 {
+        font-size: small;
+        font-weight: 400;
+        padding: 10px;
+      }
+  
+      .popup-filter--sizes {
+        display: flex;
+        min-width: 100vw;
+        justify-content: center;
+  
+        button {
+          height: 80px;
+          width: 70px;
+          margin: 5px;
+          background-color: white;
+          color: rgb(1, 116, 142);
+          border: solid rgb(179, 179, 179) 1px;
+          border-radius: 10px;
+        }
+      }
+    }
+  }
+  

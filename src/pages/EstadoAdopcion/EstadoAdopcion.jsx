@@ -52,21 +52,23 @@ const EstadoAdopcion = ({setNavbar}) => {
         />
       </div>
 
-    {(user && user.mascotas) && user.mascotas.map((mascota, index) => (
-      <Fade className="carta" key={index} delay={200} triggerOnce>
-                <div>
-                  <img
-                    className="imagen-carta2"
-                    src={mascota.foto}
-                    alt={mascota.nombre}
-                  />
-                  <div className="carta-detail">
-                    <h2 className="nombre-carta">{mascota.nombre}</h2>
-                    <p className="localidad-carta">{mascota.localizacion}</p>
-                  </div>
-                </div>
-              </Fade>
-      ))}
+    <div className="album">
+      {(user && user.mascotas) && user.mascotas.map((mascota, index) => (
+          <Fade className="carta" key={index} delay={200} triggerOnce>
+            <div>
+              <img
+                className="imagen-carta"
+                src={mascota.foto}
+                alt={mascota.nombre}
+              />
+              <div className="carta-detail">
+                <h2 className="nombre-carta">{mascota.nombre}</h2>
+                <p className="localidad-carta">{mascota.localizacion}</p>
+              </div>
+            </div>
+          </Fade>
+        ))}
+    </div>
   </div>)
 }
 export default EstadoAdopcion;
