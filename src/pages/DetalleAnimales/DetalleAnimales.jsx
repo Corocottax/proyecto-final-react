@@ -9,7 +9,7 @@ import { API } from "../../shared/Services/Api";
 
 export const getAnimalById = (name) => {
   return fetch(
-    `https://proyecto-final-api-mocha.vercel.app/api/mascotas/${name}`
+    `https://proyecto-final-api.vercel.app/api/mascotas/${name}`
   ).then((res) => {
     if (res.ok) {
       return res.json();
@@ -68,7 +68,7 @@ const DetalleAnimales = ({setNavbar}) => {
 
     if (arrayMascotasOficial.length > 0) {
 
-      fetch(`https://proyecto-final-api-mocha.vercel.app/api/users/${userParsed._id}`, {
+      fetch(`https://proyecto-final-api.vercel.app/api/users/${userParsed._id}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',

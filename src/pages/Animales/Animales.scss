@@ -63,14 +63,15 @@
   }
 }
 
-.popup-filter {
+.popup-filter2 {
   display: flex;
   flex-direction: column;
   align-items: center;
   position: absolute;
   z-index: 1;
   background-color: white;
-  min-height: 100vh;
+  height: 81vh !important;
+  overflow-y: scroll !important;
   max-width: 100vw;
   color: rgb(1, 116, 142);
   padding-top: 20px;
@@ -207,4 +208,28 @@
       }
     }
   }
+}
+
+.detail-btn__seleccionado {
+
+  height: 80px;
+  width: 70px;
+  margin: 5px;
+  background-color: white !important;
+  color: rgb(1, 116, 142);
+  border: solid rgb(253, 127, 127) 3px !important;
+  border-radius: 10px;
+
+}
+
+.detail-btn__noSeleccionado {
+
+  height: 80px;
+  width: 70px;
+  margin: 5px;
+  background-color: white !important;
+  color: rgb(1, 116, 142);
+  border: solid rgb(179, 179, 179) 1px;
+  border-radius: 10px;
+
 }

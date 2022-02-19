@@ -13,7 +13,7 @@ import { generatePath, Link } from 'react-router-dom';
 
 const Home = ({setNavbar}) => {
 
-  const UrlNoticias = "https://proyecto-final-api-mocha.vercel.app/api/noticias";
+  const UrlNoticias = "https://proyecto-final-api.vercel.app/api/noticias";
   const [noticias, setNoticias] = useState([]);
   const arrayNoticias = [];
   setNavbar(true);

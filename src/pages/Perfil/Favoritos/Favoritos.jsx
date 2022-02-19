@@ -50,7 +50,7 @@ export const getUserById = async (id) => {
           />
         </div>
         <div className='album' >
-        {user && <p>{user.mascotas}</p>}
+        {user && <p>{user.favorites}</p>}
       {(user && user.favorites) && user.favorites.map((mascota, index) => (
         <Fade className="carta" key={index} delay={200} triggerOnce>
         {/* <Link className="Link" to={generatePath("/adopciones/:id", { id: mascota._id })}> */}

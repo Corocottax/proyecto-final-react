@@ -10,9 +10,13 @@ import { Fade } from "react-awesome-reveal";
 const Animales = ({ setNavbar }) => {
   // AXIOS
   const UrlAnimales =
-    "https://proyecto-final-api-mocha.vercel.app/api/mascotas";
+    "https://proyecto-final-api.vercel.app/api/mascotas";
 
   const [mascotas, setMascotas] = useState([]);
+  const [filtroEspecie, setFiltroEspecie] = useState([]);
+  const arrayFiltros = [];
+  const [showDetailPerro, setShowDetailPerro] = useState(false);
+  const [showDetailGato, setShowDetailGato] = useState(false);
   setNavbar(true);
 
   // ESTO ES PARA EL POPUP
@@ -21,13 +25,53 @@ const Animales = ({ setNavbar }) => {
     setVisibility(e);
   };
 
+  const filterEspecie = (value) => {
+
+    if (value === "perro") {
+
+      setShowDetailPerro(!showDetailPerro);
+      
+    } else if (value === "gato") {
+
+      setShowDetailGato(!showDetailGato);
+
+    } 
+    
+    arrayFiltros.push(value);
+    setFiltroEspecie(arrayFiltros);
+    const arrayFiltrados = []
+
+    axios(UrlAnimales).then((res) => {
+
+      const animales = res.data;
+
+      if (filtroEspecie === []) {
+        
+        setMascotas(res.data);
+
+      }
+
+      for (const animal of animales) {
+        
+        if (animal.especie.includes(filtroEspecie)) {
+        
+          arrayFiltrados.push(animal);
+  
+        }
+
+      }
+
+      setMascotas(arrayFiltrados);
+
+    });
+
+  }
+
   useEffect(() => {
     axios(UrlAnimales).then((res) => {
       setMascotas(res.data);
     });
   }, []);
-
-  console.log(mascotas);
 
   return (
     <div>
@@ -56,7 +100,7 @@ const Animales = ({ setNavbar }) => {
         onClose={popupCloseHandler}
         show={visibility}
       >
-        <div className="popup-filter">
+        <div className="popup-filter2">
           <h2>Filtros</h2>
 
           <div className="popup-filter--ciudad">
@@ -74,14 +118,14 @@ const Animales = ({ setNavbar }) => {
           <div className="popup-filter--especie">
             <h3>Especie</h3>
             <div className="popup-filter--especieButtons">
-              <button class="button">
+              <button class="button" className={showDetailPerro===true ? "detail-btn__seleccionado" : "detail-btn__noSeleccionado"} onClick={() => filterEspecie("perro")}>
                 <img
                   src="https://res.cloudinary.com/dbamkolrf/image/upload/v1644482297/iconos%20protectora/perrop_ewpdvd.png"
                   alt="logo perro"
                 />
                 <p className="text">Perro</p>
               </button>
-              <button class="button">
+              <button class="button" className={showDetailGato===true ? "detail-btn__seleccionado" : "detail-btn__noSeleccionado"} onClick={() => filterEspecie("gato")}>
                 <img
                   src="https://res.cloudinary.com/dbamkolrf/image/upload/v1644482297/iconos%20protectora/cat_cxspoi.png"
                   alt="logo Gato"
