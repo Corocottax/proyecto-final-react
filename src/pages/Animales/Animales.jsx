@@ -17,6 +17,7 @@ const Animales = ({ setNavbar }) => {
   const arrayFiltros = [];
   const [showDetailPerro, setShowDetailPerro] = useState(false);
   const [showDetailGato, setShowDetailGato] = useState(false);
+  const [showDetailConejo, setShowDetailConejo] = useState(false);
   setNavbar(true);
 
   // ESTO ES PARA EL POPUP
@@ -34,6 +35,10 @@ const Animales = ({ setNavbar }) => {
     } else if (value === "gato") {
 
       setShowDetailGato(!showDetailGato);
+
+    } else if (value === "conejo") {
+
+      setShowDetailConejo(!showDetailConejo);
 
     } 
     
@@ -132,7 +137,7 @@ const Animales = ({ setNavbar }) => {
                 />
                 <p className="text">Gato</p>
               </button>
-              <button class="button">
+              <button class="button" className={showDetailConejo===true ? "detail-btn__seleccionado" : "detail-btn__noSeleccionado"} onClick={() => filterEspecie("conejo")}>
                 <img
                   src="https://res.cloudinary.com/dbamkolrf/image/upload/v1644482299/iconos%20protectora/group12_e2ogox.png"
                   alt="logo Conejo"
