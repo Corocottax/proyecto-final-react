@@ -24,7 +24,7 @@ const FormularioAdopcion3 = ({ setNavbar }) => {
 
     if (arrayMascotasOficial.length > 0) {
 
-      fetch(`https://proyecto-final-api-mocha.vercel.app/api/users/${userParsed._id}`, {
+      fetch(`https://proyecto-final-api.vercel.app/api/users/${userParsed._id}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
