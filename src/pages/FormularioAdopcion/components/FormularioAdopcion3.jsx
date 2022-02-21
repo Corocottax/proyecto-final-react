@@ -1,6 +1,7 @@
 import { send } from "emailjs-com";
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { Form, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { API } from "../../../shared/Services/Api";
 import "./FormularioAdopcion3.scss"
@@ -11,8 +12,8 @@ export const getUserById = async (id) => {
 
 }
 
-const FormularioAdopcion3 = ({ setNavbar }) => {
-
+const FormularioAdopcion3 = ({ nextStep, handleFormData, prevStep, values }) => {
+  const [error, setError] = useState(false);
   const animal = localStorage.getItem("animal");
   const user = localStorage.getItem("user");
   const animalParsed = JSON.parse(animal);
@@ -64,8 +65,9 @@ const FormularioAdopcion3 = ({ setNavbar }) => {
     
   });
 
-  const onSubmit = (e) => {
+  const submitFormData = (e) => {
     e.preventDefault();
+    nextStep(values);
     send(
       "service_ei8jiek",
       "template_wzp8r4e",
@@ -97,7 +99,6 @@ const FormularioAdopcion3 = ({ setNavbar }) => {
   };
 
     const { register, handleSubmit } = useForm();
-    setNavbar(true);
 
     const handleChange = (e) => {
       setToSend({ ...toSend, [e.target.name]: e.target.value });
@@ -116,22 +117,22 @@ const FormularioAdopcion3 = ({ setNavbar }) => {
           </div>
         </div>
 
-        <form onSubmit={onSubmit}>
+        <Form onSubmit={submitFormData}>
           <div className="form3-subtitle">
             <h3>Familia y hogar</h3>
           </div>
 
           <div className="form3-input">
-            <label>¿Dónde vives?</label>
-            <input
-              name="tipoDeVivienda"
-              id="tipoDeVivienda"
-              type="text"
-              onChange={handleChange}
-              {...register("tipoDeVivienda", {
-                required: true,
-              })}
-            />
+          <Form.Label htmlFor="tipoDeVivienda">¿Dónde vives?</Form.Label>
+              <Form.Control
+                className="input"
+                style={{ border: error ? "2px solid red" : "" }}
+                type="text"
+                {...register("tipoDeVivienda", {
+                  required: true,
+                })}
+                onChange={handleFormData("tipoDeVivienda")}
+              />
           </div>
 
           <div className="form3-radio-list">
@@ -208,9 +209,10 @@ const FormularioAdopcion3 = ({ setNavbar }) => {
             </div>
           </div>
           </div>
-        
-          <input className="submit" type="submit" value="Continuar"/>
-        </form>
+          <Button variant="primary" type="submit" className="submit" value="Continuar">
+                Final
+          </Button>
+          </Form>
       </div>
     </div>
   );

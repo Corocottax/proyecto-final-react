@@ -46,11 +46,11 @@ const PreLogin = ({setNavbar}) => {
       onSlideChange={() => {/*...*/}}
       onReachEnd={() => {/*...*/}}
     >
-      <SwiperSlide><div><img src="/images/slider/imagen1.png" alt=""/><h4>Encuentra todo tipo de servicios que tienes cerca de ti</h4></div></SwiperSlide>
-      <SwiperSlide><div><img src="/images/slider/imagen2.png" alt=""/>
+      <SwiperSlide><div><img className='slide-img1' src="/images/slider/imagen1.png" alt=""/><h4>Encuentra todo tipo de servicios que tienes cerca de ti</h4></div></SwiperSlide>
+      <SwiperSlide><div><img className='slide-img2' src="/images/slider/imagen2.png" alt=""/>
       <h4>Adopta desde tu móvil</h4>
       <p>Puedes acceder al perfil de muchos animales que están en adopción y filtrarlos para encontrar el que mejor se adapte a ti</p></div></SwiperSlide>
-      <SwiperSlide><div><img src="/images/slider/imagen3.png" alt=""/> <h4>Si eres una asociación sube a tus peludos para darles más difusión</h4><button className='btn-next' onClick={popupCloseHandler}>Continuar</button></div></SwiperSlide>
+      <SwiperSlide><div><img className='slide-img3' src="/images/slider/imagen3.png" alt=""/> <h4>Si eres una asociación sube a tus peludos para darles más difusión</h4><button className='btn-next' onClick={popupCloseHandler}>Continuar</button></div></SwiperSlide>
       
     </Swiper>
     

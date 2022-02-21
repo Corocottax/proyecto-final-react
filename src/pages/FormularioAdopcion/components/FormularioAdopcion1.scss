@@ -1,7 +1,16 @@
-.adoption-form2-div {
+.adoption-form-div {
     display: flex;
     flex-direction: column;
     align-items: center;
+  
+   
+  
+    .form-title {
+      margin-top: 30px;
+      padding: 5px;
+      font-size: 0.5em;
+      
+    }
   
     .form-progressBar {
       margin: 20px;
@@ -11,66 +20,48 @@
         background-color: rgb(255, 216, 212);
         border-radius: 10px;
   
-        .progressBar2-filler {
+        .progressBar1-filler {
           height: 100%;
-          width: 66%;
+          width: 33%;
           background-color: rgb(250, 156, 147);
           border-radius: inherit;
         }
       }
     }
   
-    .form2-title {
-      margin-top: 30px;
-      padding: 5px;
-      font-size: 0.5em;
-    }
   
-    .form2-subtitle {
+    .form-subtitle {
       display: flex;
       margin: 10px;
       font-size: 1.1em;
       color: rgb(1, 116, 142);
-      font-weight: lighter;
-    }
-    .form2-radio {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: medium;
-    }
-  
-    .form2-inputs {
-      display: flex;
-      flex-direction: column;
-      input {
-        font-size: small;
-      }
-    }
-  
-    .form2-inputsGrandes {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      padding-top: 15px;
-      font-size: medium;
     }
   
     form {
       display: flex;
       flex-direction: column;
       width: 300px;
+  
       input {
         padding: 2px;
         margin: 10px;
         border: none;
         border-bottom: solid rgba(0, 0, 0, 0.2) 1px;
       }
-      .input {
-        padding: 2px;
-        margin: 10px;
-        border: none;
-        border-bottom: solid rgba(0, 0, 0, 0.2) 1px;
+    }
+  
+    .checkbox-div {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+  
+      margin: 10px;
+      .checkbox {
+        transform: scale(2);
+      }
+  
+      .checkbox-text {
+        font-size: 0.6em;
       }
     }
   
@@ -82,10 +73,9 @@
       border-radius: 5px;
     }
   }
-  .btns-contain{
-    display: flex;
+  
+  .div-siguiente {
+  
     margin-top: 20px;
-    align-items: center;
-    justify-content: space-between;
-    width: 75vw;
+  
   }
