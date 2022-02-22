@@ -6,6 +6,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import FormularioAdopcion1 from "./components/FormularioAdopcion1";
 import FormularioAdopcion2 from "./components/FormularioAdopcion2";
 import FormularioAdopcion3 from "./components/FormularioAdopcion3";
+import Final from "./components/Final";
 
 const FormularioAdopcion = ({ setNavbar }) => {
   const [step, setstep] = useState(1);
@@ -85,7 +86,7 @@ const FormularioAdopcion = ({ setNavbar }) => {
           </Container>
           </div>
         );
-    /*case 4:
+    case 4:
       return (
         <div className=".adoption-form-div">
               <Container>
@@ -96,7 +97,7 @@ const FormularioAdopcion = ({ setNavbar }) => {
             </Row>
           </Container>
         </div>
-      );*/
+      );
     default:
       return (
         <div className=".adoption-form-div">

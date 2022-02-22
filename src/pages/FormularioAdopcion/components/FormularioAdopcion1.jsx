@@ -14,7 +14,7 @@ const FormularioAdopcion1 = ({ nextStep, handleFormData, values  }) => {
   const [dni, setDni] = useState();
 
   const submitFormData = (e) => { 
-    nextStep(values);
+    nextStep();
 };
 
 
@@ -50,10 +50,10 @@ const FormularioAdopcion1 = ({ nextStep, handleFormData, values  }) => {
                 type="text"
                 placeholder="Email"
                 onChange={handleFormData("email")}
-                {...register("email", {
+                /*{...register("email", {
                   required: true,
                   pattern: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-                })}
+                })}*/
               />
         <Form.Label htmlFor="phone"></Form.Label>
         <Form.Control
@@ -63,9 +63,9 @@ const FormularioAdopcion1 = ({ nextStep, handleFormData, values  }) => {
                 type="phone"
                 placeholder="Phone"
                 onChange={handleFormData("phone")}
-                {...register("phone", {
+                /*{...register("phone", {
                   required: true,
-                })}
+                })}*/
               />
         <Form.Label htmlFor="dni"></Form.Label>
         <Form.Control
@@ -75,9 +75,9 @@ const FormularioAdopcion1 = ({ nextStep, handleFormData, values  }) => {
                 type="dni"
                 placeholder="DNI"
                 onChange={handleFormData("dni")}
-                {...register("dni", {
+                /*{...register("dni", {
                   required: true,
-                })}
+                })}*/
               />
 
         <div className="form-subtitle">
@@ -91,9 +91,9 @@ const FormularioAdopcion1 = ({ nextStep, handleFormData, values  }) => {
                 type="address"
                 placeholder="Calle, número, piso"
                 onChange={handleFormData("address")}
-                {...register("address", {
+                /*{...register("address", {
                   required: true,
-                })}
+                })}*/
               />
         <Form.Label htmlFor="postalCode"></Form.Label>
         <Form.Control
@@ -103,9 +103,9 @@ const FormularioAdopcion1 = ({ nextStep, handleFormData, values  }) => {
                 type="postalCode"
                 placeholder="Código postal"
                 onChange={handleFormData("postalCode")}
-                {...register("postalCode", {
+                /*{...register("postalCode", {
                   required: true,
-                })}
+                })}*/
               />
         <Form.Label htmlFor="city"></Form.Label>
         <Form.Control
@@ -115,9 +115,9 @@ const FormularioAdopcion1 = ({ nextStep, handleFormData, values  }) => {
                 type="city"
                 placeholder="Ciudad"
                 onChange={handleFormData("city")}
-                {...register("city", {
+                /*{...register("city", {
                   required: true,
-                })}
+                })}*/
               />
         <div className="checkbox-div">
           <input
