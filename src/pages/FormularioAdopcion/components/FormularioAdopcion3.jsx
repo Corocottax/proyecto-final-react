@@ -11,7 +11,7 @@ export const getUserById = async (id) => {
   return await API.get(`api/users/${id}`)
 
 }
-
+let arrayMascotas2 = [];
 const FormularioAdopcion3 = ({ nextStep, handleFormData, prevStep, values }) => {
   const [error, setError] = useState(false);
   const animal = localStorage.getItem("animal");
@@ -20,10 +20,10 @@ const FormularioAdopcion3 = ({ nextStep, handleFormData, prevStep, values }) => 
   const userParsed = JSON.parse(user);
   const [arrayMascotasOficial, setArrayMascotasOficial] = useState([]);
   let navigate = useNavigate();
-
+  
   useEffect(() => {
-
-    if (arrayMascotasOficial.length > 0) {
+    console.log("array mascotas 2", arrayMascotas2);
+    if (arrayMascotasOficial.length > 0 && arrayMascotas2.length > 0) {
 
       fetch(`https://proyecto-final-api.vercel.app/api/users/${userParsed._id}`, {
         method: 'PATCH',
@@ -32,6 +32,7 @@ const FormularioAdopcion3 = ({ nextStep, handleFormData, prevStep, values }) => 
         },
         body: JSON.stringify({
           mascotas: arrayMascotasOficial,
+          favorites: arrayMascotas2
         }),
         }).then((response) => {
           console.log(response.status);
@@ -79,7 +80,7 @@ const FormularioAdopcion3 = ({ nextStep, handleFormData, prevStep, values }) => 
     
   });
 
-  const submitFormData = (e) => {
+  const submitFormData = async (e) => {
     e.preventDefault();
     /*nextStep(values);*/
     send(
@@ -97,11 +98,13 @@ const FormularioAdopcion3 = ({ nextStep, handleFormData, prevStep, values }) => 
       setToSend({ ...toSend, [e.target.name]: values });
       
       const arrayMascotas = [];
-
-      getUserById(userParsed._id).then((usuario) => { 
       
-        usuario.data.mascotas.map((mascota) => {
 
+     await getUserById(userParsed._id).then((usuario) => { 
+      arrayMascotas2 = usuario.data.favorites
+      console.log("get",arrayMascotas2);
+        usuario.data.mascotas.map((mascota) => {
+          
           console.log(mascota);
           return arrayMascotas.push(mascota)
 

@@ -48,17 +48,21 @@ const DetalleAnimales = ({setNavbar}) => {
   const user = localStorage.getItem("user");
   const userParsed = JSON.parse(user);
 
-  const agregarFavoritoAUsuario = () => {
+  const agregarFavoritoAUsuario = async () => {
 
     const animalParsed = animal;
     const arrayMascotas = [];
+    let arrayMascotas2 = [];
 
-    getUserById(userParsed._id).then((usuario) => { 
+    await getUserById(userParsed._id).then((usuario) => { 
       
-      console.log(usuario.data);
+      console.log("data mascotas", usuario.data.mascotas);
+
+      arrayMascotas2 = usuario.data.mascotas
+      
       usuario.data.favorites.map((mascota) => {
-    
         return arrayMascotas.push(mascota)
+
     
       })
       arrayMascotas.push(animalParsed._id)
@@ -67,7 +71,7 @@ const DetalleAnimales = ({setNavbar}) => {
     })
 
     if (arrayMascotasOficial.length > 0) {
-
+        console.log("mascotas", arrayMascotas2);
       fetch(`https://proyecto-final-api.vercel.app/api/users/${userParsed._id}`, {
         method: 'PATCH',
         headers: {
@@ -75,6 +79,7 @@ const DetalleAnimales = ({setNavbar}) => {
         },
         body: JSON.stringify({
           favorites: arrayMascotasOficial,
+          mascotas: arrayMascotas2
         }),
         }).then((response) => {
           console.log(response.status);
