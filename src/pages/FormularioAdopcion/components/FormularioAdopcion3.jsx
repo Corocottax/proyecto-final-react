@@ -67,7 +67,7 @@ const FormularioAdopcion3 = ({ nextStep, handleFormData, prevStep, values }) => 
 
   const submitFormData = (e) => {
     e.preventDefault();
-    nextStep(values);
+    /*nextStep(values);*/
     send(
       "service_ei8jiek",
       "template_wzp8r4e",

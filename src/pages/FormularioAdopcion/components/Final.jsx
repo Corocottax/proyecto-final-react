@@ -1,5 +1,7 @@
 import React from "react";
 import { Card } from "react-bootstrap";
+import "./Final.scss";
+
 
 const Final = ({ values }) => {
 
@@ -57,6 +59,7 @@ const Final = ({ values }) => {
     <>
       <Card style={{ marginTop: 100, textAlign: "left" }}>
         <Card.Body>
+          <div className="container-info">
           <p>
             <strong>Nombre:</strong> { name }{" "}
           </p>
@@ -99,6 +102,7 @@ const Final = ({ values }) => {
           <p>
             <strong>Tipo de vivienda:</strong> { tipoDeVivienda }{" "}
           </p>
+          </div>
         </Card.Body>
       </Card>
     </>

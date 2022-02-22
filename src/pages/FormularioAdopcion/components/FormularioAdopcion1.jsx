@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./FormularioAdopcion1.scss";
 import { useForm } from "react-hook-form";
 import { Form, Button } from "react-bootstrap";
-
+import validator from "validator";
 
 
 const FormularioAdopcion1 = ({ nextStep, handleFormData, values  }) => {
@@ -14,9 +14,20 @@ const FormularioAdopcion1 = ({ nextStep, handleFormData, values  }) => {
   const [dni, setDni] = useState();
 
   const submitFormData = (e) => { 
-    nextStep();
-};
-
+    if (
+      validator.isEmpty(values.name) ||
+      validator.isEmpty(values.email) ||
+      validator.isEmpty(values.phone) ||
+      validator.isEmpty(values.dni) ||
+      validator.isEmpty(values.address) ||
+      validator.isEmpty(values.postalCode) ||
+      validator.isEmpty(values.city) 
+    ) {
+      setError(true);
+    } else {
+      nextStep();
+    }
+  };
 
   return (
     <div className="adoption-form-div">
@@ -42,6 +53,13 @@ const FormularioAdopcion1 = ({ nextStep, handleFormData, values  }) => {
                 placeholder="Nombre y apellidos"
                 onChange={handleFormData("name")}
               />
+                      {error ? (
+                  <Form.Text style={{ color: "red" }}>
+                    This is a required field
+                  </Form.Text>
+                ) : (
+                  ""
+                )}
         <Form.Label htmlFor="name"></Form.Label>
         <Form.Control
                 style={{ border: error ? "2px solid red" : "" }}
@@ -50,11 +68,19 @@ const FormularioAdopcion1 = ({ nextStep, handleFormData, values  }) => {
                 type="text"
                 placeholder="Email"
                 onChange={handleFormData("email")}
-                /*{...register("email", {
+                />
+                {error ? (
+                  <Form.Text style={{ color: "red" }}>
+                    This is a required field
+                  </Form.Text>
+                ) : (
+                  ""
+                )}
+                {/*{...register("email", {
                   required: true,
                   pattern: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-                })}*/
-              />
+                })}*/}
+          
         <Form.Label htmlFor="phone"></Form.Label>
         <Form.Control
                 style={{ border: error ? "2px solid red" : "" }}
@@ -67,6 +93,13 @@ const FormularioAdopcion1 = ({ nextStep, handleFormData, values  }) => {
                   required: true,
                 })}*/
               />
+                      {error ? (
+                  <Form.Text style={{ color: "red" }}>
+                    This is a required field
+                  </Form.Text>
+                ) : (
+                  ""
+                )}
         <Form.Label htmlFor="dni"></Form.Label>
         <Form.Control
                 style={{ border: error ? "2px solid red" : "" }}
@@ -79,6 +112,13 @@ const FormularioAdopcion1 = ({ nextStep, handleFormData, values  }) => {
                   required: true,
                 })}*/
               />
+                      {error ? (
+                  <Form.Text style={{ color: "red" }}>
+                    This is a required field
+                  </Form.Text>
+                ) : (
+                  ""
+                )}
 
         <div className="form-subtitle">
           <h3>Dirección</h3>
@@ -95,6 +135,13 @@ const FormularioAdopcion1 = ({ nextStep, handleFormData, values  }) => {
                   required: true,
                 })}*/
               />
+                      {error ? (
+                  <Form.Text style={{ color: "red" }}>
+                    This is a required field
+                  </Form.Text>
+                ) : (
+                  ""
+                )}
         <Form.Label htmlFor="postalCode"></Form.Label>
         <Form.Control
                 style={{ border: error ? "2px solid red" : "" }}
@@ -107,6 +154,13 @@ const FormularioAdopcion1 = ({ nextStep, handleFormData, values  }) => {
                   required: true,
                 })}*/
               />
+                      {error ? (
+                  <Form.Text style={{ color: "red" }}>
+                    This is a required field
+                  </Form.Text>
+                ) : (
+                  ""
+                )}
         <Form.Label htmlFor="city"></Form.Label>
         <Form.Control
                 style={{ border: error ? "2px solid red" : "" }}
@@ -119,13 +173,21 @@ const FormularioAdopcion1 = ({ nextStep, handleFormData, values  }) => {
                   required: true,
                 })}*/
               />
+                      {error ? (
+                  <Form.Text style={{ color: "red" }}>
+                    This is a required field
+                  </Form.Text>
+                ) : (
+                  ""
+                )}
         <div className="checkbox-div">
           <input
             className="checkbox"
             type="checkbox"
             id="cbox1"
             value="Terms_checkbox"
-          />
+            defaultValue={values.terms}
+          />   
           <p className="checkbox-text">
             Acepto los términos y condiciones de la adopción
           </p>
