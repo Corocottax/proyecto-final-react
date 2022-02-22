@@ -86,18 +86,6 @@ const FormularioAdopcion = ({ setNavbar }) => {
           </Container>
           </div>
         );
-    case 4:
-      return (
-        <div className=".adoption-form-div">
-              <Container>
-            <Row>
-              <Col>
-                <Final values={formData}  />
-              </Col>
-            </Row>
-          </Container>
-        </div>
-      );
     default:
       return (
         <div className=".adoption-form-div">

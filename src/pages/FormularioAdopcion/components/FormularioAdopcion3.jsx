@@ -44,23 +44,37 @@ const FormularioAdopcion3 = ({ nextStep, handleFormData, prevStep, values }) => 
     }
 
   }, [arrayMascotasOficial])
-
+  const { 
+    name, 
+    email, 
+    address, 
+    dni, 
+    postalCode, 
+    city, 
+    phone, 
+    otrasMascotas, 
+    otrasMascotasComportamiento,
+    porqueAdopta,
+    sabeNecesidades,
+    sabeGastos,
+    sabeAlimentacion,
+    tipoDeVivienda } = values;
   const [toSend, setToSend] = useState({
     
-    from_name: "",
-    from_email: "",
-    address: "",
-    dni: "",
-    postalCode: "",
-    city: "",
-    phone: "",
-    otrasMascotas: "",
-    otrasMascotasComportamiento: "",
-    porqueAdopta: "",
-    sabeNecesidades: "",
-    sabeGastos: "",
-    sabeAlimentacion: "",
-    tipoDeVivienda: "",
+    name: name,
+    email: email,
+    address: address,
+    dni: dni,
+    postalCode: postalCode,
+    city: city,
+    phone: phone,
+    otrasMascotas: otrasMascotas,
+    otrasMascotasComportamiento: otrasMascotasComportamiento,
+    porqueAdopta: porqueAdopta,
+    sabeNecesidades: sabeNecesidades,
+    sabeGastos: sabeGastos,
+    sabeAlimentacion: sabeAlimentacion,
+    tipoDeVivienda: tipoDeVivienda,
     reply_to: "",
     
   });
@@ -73,14 +87,15 @@ const FormularioAdopcion3 = ({ nextStep, handleFormData, prevStep, values }) => 
       "template_wzp8r4e",
       toSend,
       "user_Em80CyZWKh5zdpC0E5tMK"
-    )
+      )
       .then((response) => {
         console.log("SUCCESS!", response.status, response.text);
       })
       .catch((err) => {
         console.log("FAILED...", err);
       });
-
+      setToSend({ ...toSend, [e.target.name]: values });
+      
       const arrayMascotas = [];
 
       getUserById(userParsed._id).then((usuario) => { 
@@ -98,11 +113,7 @@ const FormularioAdopcion3 = ({ nextStep, handleFormData, prevStep, values }) => 
 
   };
 
-    const { register, handleSubmit } = useForm();
 
-    const handleChange = (e) => {
-      setToSend({ ...toSend, [e.target.name]: e.target.value });
-    };
 
   return (
     <div>
@@ -128,9 +139,9 @@ const FormularioAdopcion3 = ({ nextStep, handleFormData, prevStep, values }) => 
                 className="input"
                 style={{ border: error ? "2px solid red" : "" }}
                 type="text"
-                {...register("tipoDeVivienda", {
+                /*{...register("tipoDeVivienda", {
                   required: true,
-                })}
+                })}*/
                 onChange={handleFormData("tipoDeVivienda")}
               />
           </div>
