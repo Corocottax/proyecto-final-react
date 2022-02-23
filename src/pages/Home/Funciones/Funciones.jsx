@@ -1,4 +1,4 @@
-const url = "https://proyecto-final-api-mocha.vercel.app/api/noticias/"
+const url = "https://proyecto-final-api.vercel.app/api/noticias/"
 
 export const getNoticiaById = async (id) => {
 
