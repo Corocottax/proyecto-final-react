@@ -79,7 +79,7 @@ const FormularioAdopcion2 = ({ nextStep, handleFormData, prevStep, values}) => {
                 style={{ border: error ? "2px solid red" : "" }}
                 type="text"
                 placeholder=""
-                {...register("otrasMascotasComportamiento", {
+                {...register("porqueAdopta", {
                   required: true,
                 })}
                 onChange={handleFormData("porqueAdopta")}
