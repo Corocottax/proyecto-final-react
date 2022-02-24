@@ -7,10 +7,10 @@ import { keyframes } from "@emotion/react"
 
 const fadeOut = keyframes`
   from {
-    opacity: 1;
+    opacity: 0;
   }
   to {
-    opacity: 0;
+    opacity: 1;
   }`;
 
 const Splash = () => {
