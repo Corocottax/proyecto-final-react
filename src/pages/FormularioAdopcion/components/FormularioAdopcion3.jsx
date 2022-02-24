@@ -4,15 +4,18 @@ import { useForm } from "react-hook-form";
 import { Form, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { API } from "../../../shared/Services/Api";
-import "./FormularioAdopcion3.scss"
+import "./FormularioAdopcion3.scss";
 
 export const getUserById = async (id) => {
-
-  return await API.get(`api/users/${id}`)
-
-}
+  return await API.get(`api/users/${id}`);
+};
 let arrayMascotas2 = [];
-const FormularioAdopcion3 = ({ nextStep, handleFormData, prevStep, values }) => {
+const FormularioAdopcion3 = ({
+  nextStep,
+  handleFormData,
+  prevStep,
+  values,
+}) => {
   const [error, setError] = useState(false);
   const animal = localStorage.getItem("animal");
   const user = localStorage.getItem("user");
@@ -20,48 +23,49 @@ const FormularioAdopcion3 = ({ nextStep, handleFormData, prevStep, values }) => 
   const userParsed = JSON.parse(user);
   const [arrayMascotasOficial, setArrayMascotasOficial] = useState([]);
   let navigate = useNavigate();
-  
+
   useEffect(() => {
     console.log("array mascotas 2", arrayMascotas2);
     if (arrayMascotasOficial.length > 0 && arrayMascotas2.length > 0) {
-
-      fetch(`https://proyecto-final-api.vercel.app/api/users/${userParsed._id}`, {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          mascotas: arrayMascotasOficial,
-          favorites: arrayMascotas2
-        }),
-        }).then((response) => {
+      fetch(
+        `https://proyecto-final-api.vercel.app/api/users/${userParsed._id}`,
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            mascotas: arrayMascotasOficial,
+            favorites: arrayMascotas2,
+          }),
+        }
+      )
+        .then((response) => {
           console.log(response.status);
           return response.json();
         })
         .then((data) => console.log(data));
 
-        navigate("/estados")
-
+      navigate("/estados");
     }
-
-  }, [arrayMascotasOficial])
-  const { 
-    name, 
-    email, 
-    address, 
-    dni, 
-    postalCode, 
-    city, 
-    phone, 
-    otrasMascotas, 
+  }, [arrayMascotasOficial]);
+  const {
+    name,
+    email,
+    address,
+    dni,
+    postalCode,
+    city,
+    phone,
+    otrasMascotas,
     otrasMascotasComportamiento,
     porqueAdopta,
     sabeNecesidades,
     sabeGastos,
     sabeAlimentacion,
-    tipoDeVivienda } = values;
+    tipoDeVivienda,
+  } = values;
   const [toSend, setToSend] = useState({
-    
     name: name,
     email: email,
     address: address,
@@ -77,7 +81,6 @@ const FormularioAdopcion3 = ({ nextStep, handleFormData, prevStep, values }) => 
     sabeAlimentacion: sabeAlimentacion,
     tipoDeVivienda: tipoDeVivienda,
     reply_to: "",
-    
   });
 
   const submitFormData = async (e) => {
@@ -88,35 +91,28 @@ const FormularioAdopcion3 = ({ nextStep, handleFormData, prevStep, values }) => 
       "template_wzp8r4e",
       toSend,
       "user_Em80CyZWKh5zdpC0E5tMK"
-      )
+    )
       .then((response) => {
         console.log("SUCCESS!", response.status, response.text);
       })
       .catch((err) => {
         console.log("FAILED...", err);
       });
-      setToSend({ ...toSend, [e.target.name]: values });
-      
-      const arrayMascotas = [];
-      
+    setToSend({ ...toSend, [e.target.name]: values });
 
-     await getUserById(userParsed._id).then((usuario) => { 
-      arrayMascotas2 = usuario.data.favorites
-      console.log("get",arrayMascotas2);
-        usuario.data.mascotas.map((mascota) => {
-          
-          console.log(mascota);
-          return arrayMascotas.push(mascota)
+    const arrayMascotas = [];
 
-        })
-        arrayMascotas.push(animalParsed._id)
-        setArrayMascotasOficial(arrayMascotas)
-
-      })
-
+    await getUserById(userParsed._id).then((usuario) => {
+      arrayMascotas2 = usuario.data.favorites;
+      console.log("get", arrayMascotas2);
+      usuario.data.mascotas.map((mascota) => {
+        console.log(mascota);
+        return arrayMascotas.push(mascota);
+      });
+      arrayMascotas.push(animalParsed._id);
+      setArrayMascotasOficial(arrayMascotas);
+    });
   };
-
-
 
   return (
     <div>
@@ -131,102 +127,119 @@ const FormularioAdopcion3 = ({ nextStep, handleFormData, prevStep, values }) => 
           </div>
         </div>
 
-        <Form onSubmit={submitFormData}>
+        <Form onSubmit={submitFormData} className="prueba">
           <div className="form3-subtitle">
             <h3>Familia y hogar</h3>
           </div>
 
           <div className="form3-input">
-          <Form.Label htmlFor="tipoDeVivienda">¿Dónde vives?</Form.Label>
-              <Form.Control
-                className="input"
-                style={{ border: error ? "2px solid red" : "" }}
-                type="text"
-                /*{...register("tipoDeVivienda", {
+            <Form.Label htmlFor="tipoDeVivienda">¿Dónde vives?</Form.Label>
+            <Form.Control
+              className="input"
+              style={{ border: error ? "2px solid red" : "" }}
+              type="text"
+              /*{...register("tipoDeVivienda", {
                   required: true,
                 })}*/
-                onChange={handleFormData("tipoDeVivienda")}
-              />
+              onChange={handleFormData("tipoDeVivienda")}
+            />
           </div>
 
           <div className="form3-radio-list">
+            <div className="form3-radio-unit">
+              <div className="radio-text">
+                <p>¿Vives de alquiler?</p>
+              </div>
+              <div className="radio">
+                <input type="radio" value="Si" />
+                Si
+                <input type="radio" value="No" />
+                No
+              </div>
+            </div>
 
-          <div className="form3-radio-unit">
+            <div className="form3-radio-unit">
+              <div className="radio-text">
+                <p>¿Tu casero permite animales?</p>
+              </div>
 
-            <div><p>¿Vives de alquiler?</p></div>
-            
-            <div className="radio">
-              <input type="radio" value="Si" />
-              Si
-              <input type="radio" value="No" />
-              No
+              <div className="radio">
+                <input type="radio" value="Si" />
+                Si
+                <input type="radio" value="No" />
+                No
+              </div>
+            </div>
+
+            <div className="form3-radio-unit">
+              <div className="radio-text">
+                <p>¿Crees que podrías mudarte pronto?</p>
+              </div>
+              <div className="radio">
+                <input type="radio" value="Si" />
+                Si
+                <input type="radio" value="No" />
+                No
+              </div>
+            </div>
+
+            <div className="form3-radio-unit">
+            <div className="radio-text">
+                <p>¿Tiene jardín?</p>
+              </div>
+              <div className="radio">
+                <input type="radio" value="Si" />
+                Si
+                <input type="radio" value="No" />
+                No
+              </div>
+            </div>
+
+            <div className="form3-radio-unit">
+            <div className="radio-text">
+                <p>¿Vives con otras personas?</p>
+              </div>
+              <div className="radio">
+                <input type="radio" value="Si" />
+                Si
+                <input type="radio" value="No" />
+                No
+              </div>
+            </div>
+
+            <div className="form3-radio-unit">
+            <div className="radio-text">
+                <p>¿Estás todos de acuerdo con la adopción?</p>
+              </div>
+              <div className="radio">
+                <input type="radio" value="Si" />
+                Si
+                <input type="radio" value="No" />
+                No
+              </div>
+            </div>
+
+            <div className="form3-radio-unit">
+            <div className="radio-text">
+                <p>¿Estás de acuerdo con que visitemos tu casa?</p>
+              </div>
+              <div className="radio">
+                <input type="radio" value="Si" />
+                Si
+                <input type="radio" value="No" />
+                No
+              </div>
             </div>
           </div>
-
-          <div className="form3-radio-unit">
-            <p>¿Tu casero permite animales?</p>
-            <div className="radio">
-              <input type="radio" value="Si"/>
-              Si
-              <input type="radio" value="No" />
-              No
-            </div>
-          </div>
-
-          <div className="form3-radio-unit">
-            <p>¿Crees que podrías mudarte pronto?</p>
-            <div className="radio">
-              <input type="radio" value="Si" />
-              Si
-              <input type="radio" value="No" />
-              No
-            </div>
-          </div>
-
-          <div className="form3-radio-unit">
-            <p>¿Tiene jardín?</p>
-            <div className="radio">
-              <input type="radio" value="Si" />
-              Si
-              <input type="radio" value="No" />
-              No
-            </div>
-          </div>
-
-          <div className="form3-radio-unit">
-            <p>¿Vives con otras personas?</p>
-            <div className="radio">
-              <input type="radio" value="Si" />
-              Si
-              <input type="radio" value="No" />
-              No
-            </div>
-          </div>
-
-          <div className="form3-radio-unit">
-            <p>¿Están todos de acuerdo con la adopción?</p>
-            <div className="radio">
-              <input type="radio" value="Si" />
-              Si
-              <input type="radio" value="No" />
-              No
-            </div>
-          </div>
-
-          <div className="form3-radio-unit">
-            <p>¿Estás de acuerdo con que visitemos tu casa?</p>
-            <div className="radio">
-              <input type="radio" value="Si" />
-              Si
-              <input type="radio" value="No" />
-              No
-            </div>
-          </div>
-          </div>
-          <Button variant="primary" type="submit" className="submit" value="Continuar">
-                Final
+          <Button
+            variant="primary"
+            type="submit"
+            className="submit"
+            value="Continuar"
+          >
+            Final
           </Button>
-          </Form>
+        </Form>
       </div>
     </div>
   );
