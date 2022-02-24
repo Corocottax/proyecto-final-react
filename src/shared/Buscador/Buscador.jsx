@@ -1,8 +1,12 @@
 import React from "react";
 import './Buscador.scss';
 
+
+
+
 const Buscador = ({texto, setTexto}) => {
-;
+
+
 
   const handleInputChange = ({target}) => {
     setTexto(target.value);
@@ -10,7 +14,7 @@ const Buscador = ({texto, setTexto}) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     
-    console.log(texto);
+    console.log("buscador", texto);
   }
   return (
     <section className="buscador">
