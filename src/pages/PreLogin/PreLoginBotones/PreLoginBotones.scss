@@ -39,3 +39,20 @@
   }
   }
   }
+  @media (min-width: 1024px) {
+    .container-prelogin{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 0!important;
+      max-height: 90vh;
+      width: 100vw;
+      text-align: center;
+      img{
+        object-fit: contain;
+        width: 100vw;
+        height: 100vh;
+      }
+  }
+}
