@@ -89,3 +89,22 @@
     justify-content: space-between;
     width: 75vw;
   }
+@media (min-width: 1024px) and (max-width: 1250px){
+  .btns-contain{
+    display: flex;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 30vw;
+    height: 60vh;
+  }
+}
+@media (min-width: 1250px){
+  .btns-contain{
+    display: flex;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 20vw;
+  }
+}
